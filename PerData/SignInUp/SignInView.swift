@@ -158,8 +158,7 @@ struct SignInView: View {
                     }
                 }, label: {
                     Text("Sign Up")
-                        .font(.system(.body, design: .rounded))
-                        .foregroundColor(.gray)
+                        .foregroundColor(.primary)
                         .bold()
                         .padding()
                         .frame(minWidth: 300, maxWidth: 300)
@@ -168,17 +167,20 @@ struct SignInView: View {
                 })
                 
                 HStack (alignment: .center, spacing: 60) {
-                    Text("Create a new account?")
-                        .foregroundColor(.purple)
                     Button(action: {
                         runSignUpView.toggle()
                     },
                     label: {
                         HStack {
-                            Text("New user")
+                            Text("Create a new account?")
                                 .foregroundColor(.secondary)
+                                .bold()
+                                .padding()
+                                .frame(minWidth: 300, maxWidth: 300)
+                                .background(LinearGradient(gradient: Gradient(colors: [Color(red: 251/255, green: 128/255, blue: 128/255), Color(red: 253/255, green: 193/255, blue: 104/255)]), startPoint: .leading, endPoint: .trailing))
+                                .cornerRadius(10)
+                                .opacity(0.50)
                         }
-                        .foregroundColor(.blue)
                     })
                 }
                 .padding(.top, 30)
