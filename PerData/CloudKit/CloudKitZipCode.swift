@@ -35,7 +35,7 @@ struct CloudKitZipCode {
         zipCodeRecord["municipalityName"] = zipCode.municipalityName as CKRecordValue
         zipCodeRecord["category"] = zipCode.category as CKRecordValue
         do {
-            try await database.save(zipCodeRecord)
+            _ = try await database.save(zipCodeRecord)
         } catch {
             throw error
         }

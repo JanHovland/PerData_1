@@ -23,7 +23,7 @@ struct CloudKitCabin {
         cabinRecord["fromDate"] = cabin.fromDate
         cabinRecord["toDate"] = cabin.toDate
         do {
-            try await database.save(cabinRecord)
+            _ = try await database.save(cabinRecord)
         } catch {
             throw error
         }

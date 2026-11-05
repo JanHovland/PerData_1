@@ -60,7 +60,7 @@ struct CloudKitPerson {
         }
         
         do {
-            try await database.save(personRecord)
+            _ = try await database.save(personRecord)
         } catch {
             throw error
         }
