@@ -361,9 +361,9 @@
 		DBE25B50270C556200AE255B = {
 			isa = PBXGroup;
 			children = (
+				DBE25B6B270C55C500AE255B /* Frameworks */,
 				DBE25B5B270C556200AE255B /* PerData */,
 				DBE25B5A270C556200AE255B /* Products */,
-				DBE25B6B270C55C500AE255B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};

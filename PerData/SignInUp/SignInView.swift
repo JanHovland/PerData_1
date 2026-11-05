@@ -194,16 +194,12 @@ struct SignInView: View {
             }
         }
         
-        .onAppear {
-            usleep(2000000) /// 2.0 S
-        }
-        
         .task {
             startInternetTracking()
             ///
             /// Må legge inn en forsinkelse fordi
             /// usleep() takes millionths of a second
-            usleep(1000000) /// 1.0 S
+            usleep(500000) /// 0.50 S
             if UIDevice.current.localizedModel == "iPhone" {
                 device = "iPhone"
             } else if UIDevice.current.localizedModel == "iPad" {
