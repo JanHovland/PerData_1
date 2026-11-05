@@ -7,7 +7,7 @@
 
 import Foundation
 
-func ParseCSV (contentsOfURL: URL,
+func parseCSV (contentsOfURL: URL,
                delimiter: String) -> [(ZipCode)]? {
     
     /// Finne det rette formatet på Postnummerregister-ansi.txt filen:

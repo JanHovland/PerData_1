@@ -346,7 +346,7 @@ struct PerDataIndexed: View {
                            personBirthdayView()
                        })
                        .sheet(isPresented: $menuCabin, content: {
-                           cabinOverView()
+                           CabinOverView()
                        })
                        .sheet(isPresented: $menuUpdatePersonsFromJsonBackupFileView, content: {
                            updatePersonsFromJsonBackupFileView()
