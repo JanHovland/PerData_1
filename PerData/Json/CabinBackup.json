@@ -1,20 +1,56 @@
 [
     {
-        "id": "2AB6BBA1-A121-47AA-B388-D2A72BA3D4CC",
+        "id": "D25B5134-3C23-4D3E-90C2-FC9AD035EF64",
         "cabinData" : {
-            "firstName" : "Amalie",
-            "lastName" : "Hovland Ree",
-            "fromDate" : 20211129,
-            "toDate" : 20211129
+            "firstName" : "Astrid",
+            "lastName" : "Hovland",
+            "fromDate" : 20241101,
+            "toDate" : 20241103
         }
     },
     {
-        "id": "65DF9B76-2825-4CE0-81D1-209D498C6B1C",
+        "id": "E6F2617D-61D0-4330-8A71-4008B126AC44",
         "cabinData" : {
-            "firstName" : "Jan",
+            "firstName" : "Astrid",
             "lastName" : "Hovland",
-            "fromDate" : 20211202,
-            "toDate" : 20211229
+            "fromDate" : 20231117,
+            "toDate" : 20231119
+        }
+    },
+    {
+        "id": "3EB0BF96-D10C-4B42-B2F9-05F5C50C9690",
+        "cabinData" : {
+            "firstName" : "Astrid",
+            "lastName" : "Hovland",
+            "fromDate" : 20220711,
+            "toDate" : 20220721
+        }
+    },
+    {
+        "id": "3A3385EC-F3A7-4CDD-B39C-FA7B0E5DAD93",
+        "cabinData" : {
+            "firstName" : "Astrid",
+            "lastName" : "Hovland",
+            "fromDate" : 20220520,
+            "toDate" : 20220522
+        }
+    },
+    {
+        "id": "C2B6B048-3879-4108-AF00-564001EA1AE6",
+        "cabinData" : {
+            "firstName" : "Jørn",
+            "lastName" : "Hovland",
+            "fromDate" : 20220227,
+            "toDate" : 20220227
+        }
+    },
+    {
+        "id": "6CF25504-DE36-46CA-9766-7B8F0532EC10",
+        "cabinData" : {
+            "firstName" : "Kirsten",
+            "lastName" : "Hovland Kråkenes",
+            "fromDate" : 20220801,
+            "toDate" : 20220805
         }
     }
 ]
