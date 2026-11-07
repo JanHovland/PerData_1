@@ -15,7 +15,7 @@ import CloudKit
 
 struct CloudKitUserRecord {
     
-    var database = CKContainer(identifier: Config.containerIdentifier).publicCloudDatabase
+    var database = CKContainer(identifier: Config.containerIdentifier).privateCloudDatabase
     
     struct RecordType {
         static let UserRecord = "UserRecord"

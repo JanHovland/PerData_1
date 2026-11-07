@@ -10,7 +10,7 @@ import SwiftUI
 
 struct CloudKitCabin {
     
-    var database = CKContainer(identifier: Config.containerIdentifier).publicCloudDatabase
+    var database = CKContainer(identifier: Config.containerIdentifier).privateCloudDatabase
     
     struct RecordType {
         static let Cabin = "Cabin"

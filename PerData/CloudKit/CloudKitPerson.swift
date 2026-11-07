@@ -21,7 +21,7 @@ import SwiftUI
 
 struct CloudKitPerson {
     
-    var database = CKContainer(identifier: Config.containerIdentifier).publicCloudDatabase
+    var database = CKContainer(identifier: Config.containerIdentifier).privateCloudDatabase
     
     struct RecordType {
         static let Person = "Person"
