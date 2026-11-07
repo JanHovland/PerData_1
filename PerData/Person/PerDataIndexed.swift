@@ -270,6 +270,21 @@ struct PerDataIndexed: View {
                             
                             Menu {
                                 Button {
+                                    menuUpdatePersonsFromJsonBackupFileView.toggle()
+                                } label: {
+                                    Label("From Json", systemImage: "square.and.pencil")
+                                }
+                                Button {
+                                    menuBackupPersonsToJsonBackupFileView.toggle()
+                                } label: {
+                                    Label("To Json", systemImage: "square.and.pencil")
+                                }
+                            } label: {
+                                Label("Person", systemImage: "questionmark.app")
+                            }
+                            
+                            Menu {
+                                Button {
                                     menuUpdateCabinsFromBackupFileView.toggle()
                                 } label: {
                                     Label("From Json", systemImage: "square.and.pencil")
@@ -294,7 +309,7 @@ struct PerDataIndexed: View {
                             }
                             
                         } label: {
-                            Label("Updatering", systemImage: "questionmark.app")
+                            Label("Store/Restore", systemImage: "questionmark.app")
                         }
                     } label: {
                         Image(systemName: "line.3.horizontal")
@@ -356,7 +371,6 @@ struct PerDataIndexed: View {
         //
         // Dobbel kolonne for iPad
         // .navigationViewStyle(DoubleColumnNavigationViewStyle())
-        //
         .searchable(text: $searchText, placement: .navigationBarDrawer, prompt: "Search firstName")
         .onChange(of: searchText.capitalized) { searchText, _ in
             predicate = searchText.isEmpty ? NSPredicate(value: true) : NSPredicate(format: "firstName BEGINSWITH %@", searchText)

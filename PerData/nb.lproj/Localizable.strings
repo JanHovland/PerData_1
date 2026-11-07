@@ -436,3 +436,6 @@
 /* No comment provided by engineer. */
 "No" = "Nei";
 
+/* No comment provided by engineer. */
+"Store/Restore" = "Lagre/Hente JSON";
+
