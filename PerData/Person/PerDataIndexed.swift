@@ -358,7 +358,7 @@ struct PerDataIndexed: View {
         // Dobbel kolonne for iPad
         // .navigationViewStyle(DoubleColumnNavigationViewStyle())
         .searchable(text: $searchText, placement: .navigationBarDrawer, prompt: "Search firstName")
-        .onChange(of: searchText.capitalized) { searchText, _ in
+        .onChange(of: searchText.capitalized) { _, searchText in
             predicate = searchText.isEmpty ? NSPredicate(value: true) : NSPredicate(format: "firstName BEGINSWITH %@", searchText)
             Task {
                 indicatorShowing = true
@@ -409,3 +409,4 @@ struct PerDataIndexed: View {
         return true // hasConnectionPath
     }
 }
+

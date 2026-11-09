@@ -24,7 +24,6 @@ struct PersonUpdateView: View {
     @State private var isAlertActive = false
     @State private var image = UIImage()
     @State private var modifyImage = false
-    @State private var showSheetFindZipCode = false
     @State private var showImage = false
     @State private var recordID: CKRecord.ID?
     struct Dead: Hashable, Identifiable {
@@ -121,23 +120,6 @@ struct PersonUpdateView: View {
                         .keyboardType(.numberPad)
                     TextField("City", text: $person.city)
                         .autocapitalization(.allCharacters)
-                    VStack {
-                        Button {
-                            showSheetFindZipCode.toggle()
-                        } label: {
-                            Image(systemName: "magnifyingglass")
-                                .resizable()
-                                .frame(width: 20, height: 20, alignment: .center)
-                                .foregroundColor(.blue)
-                                .font(.title)
-                        }
-                        .sheet(isPresented: $showSheetFindZipCode, content: {
-                            FindZipCode(city: $person.city,
-                                        cityNumber: $person.cityNumber,
-                                        municipalityNumber: $person.municipalityNumber,
-                                        municipality: $person.municipality)
-                        })
-                    }
                 }
                 HStack (alignment: .center, spacing: 0) {
                     TextField("Municipality number", text: $person.municipalityNumber)

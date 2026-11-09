@@ -26,7 +26,6 @@ struct PersonNewView: View {
     @State private var saveImage: Bool = false
     
     @State private var showImage = false
-    @State private var showZipCode = false
     @State private var modifyImage = false
 
     var genders = [String(localized: "Man"),
@@ -91,7 +90,6 @@ struct PersonNewView: View {
                         VStack {
                             Button {
                                 saveImage.toggle()
-                                showZipCode = true
                             } label: {
                                 Image(systemName: "magnifyingglass")
                                     .resizable()
@@ -99,12 +97,6 @@ struct PersonNewView: View {
                                     .foregroundColor(.blue)
                                     .font(.title)
                             }
-                            .sheet(isPresented: $showZipCode, content: {
-                                 FindZipCode(city: $person.city,
-                                                cityNumber: $person.cityNumber,
-                                                municipalityNumber: $person.municipalityNumber,
-                                                municipality: $person.municipality)
-                            })
                         }
                     }
                     HStack (alignment: .center, spacing: 10) {

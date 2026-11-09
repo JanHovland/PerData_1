@@ -161,9 +161,6 @@
 "From Json" = "Fra Json";
 
 /* No comment provided by engineer. */
-"Have uncommented the neccessary function: updateZipCodesFromCSV().\nPress the toggle button for updating..." = "Har kommentert bort den nødvendige funksjonen: updateZipCodesFromCSV().\nSett på bryteren for å kunne starte oppdatering av ZipCode tabellen.";
-
-/* No comment provided by engineer. */
 "If the person exists, the person will be modified and the original image kept. Please note that if the Person table is empty, the Json backup does not have image information!\nYou can call the update several times." = "Hvis personen eksisterer, vil personen bli endret og originalbildet beholdes. Vær oppmerksom på at hvis Person-tabellen er tom, har ikke Json-sikkerhetskopien bildeinformasjon!\nDu kan kjøre oppdatering flere ganger.\n";
 
 /* No comment provided by engineer. */
@@ -236,9 +233,6 @@
 "Number of userRecords saved/modified from the Json backup file: %lld" = "Antall brukere lagret / oppdatert fra Json backup: %lld";
 
 /* No comment provided by engineer. */
-"Number of ZipCode saved: %lld" = "Antall postnummer lagret: %lld";
-
-/* No comment provided by engineer. */
 "OK" = "OK";
 
 /* No comment provided by engineer. */
@@ -263,9 +257,6 @@
 "Phonenumber" = "Telefonnummer";
 
 /* No comment provided by engineer. */
-"Press the toggle button for updating..." = "Sett på bryteren for å kunne starte oppdatering av ZipCode tabellen.";
-
-/* No comment provided by engineer. */
 "Refresh" = "Frisk opp";
 
 /* No comment provided by engineer. */
@@ -279,9 +270,6 @@
 
 /* No comment provided by engineer. */
 "Select\nimage" = "Velg\nbilde";
-
-/* No comment provided by engineer. */
-"Select ZipCode" = "Velg postnummer";
 
 /* No comment provided by engineer. */
 "Show mail view" = "Vis e-Post oversikt";
@@ -344,12 +332,6 @@
 "The userRecord table in CloudKit is still empty.\nTry again in a litte while." = "Bruker tabellen i CloudKit er stadig tom.\nPrøv igjen om en liten stund.";
 
 /* No comment provided by engineer. */
-"The zipCode is deleted in CloudKit" = "Postnummeret er slettet i CloudKit.";
-
-/* No comment provided by engineer. */
-"The zipCode is saved in CloudKit" = "Postnummeret er lagret i CloudKit.";
-
-/* No comment provided by engineer. */
 "This person exists in CloudKit " = "Personen finnes allerede i CloudKit.";
 
 /* No comment provided by engineer. */
@@ -389,9 +371,6 @@
 "Update Persons from a Json" = "Oppdater personer fra Json backup";
 
 /* No comment provided by engineer. */
-"Update ZipCode" = "Oppdater postnummer";
-
-/* No comment provided by engineer. */
 "User backup til Json fil" = "Bruker backup til Json fil";
 
 /* No comment provided by engineer. */
@@ -417,12 +396,6 @@
 
 /* No comment provided by engineer. */
 "You can call the update several times." = "Du kan kjøre oppdatering flere ganger.";
-
-/* No comment provided by engineer. */
-"You can only Update ZipCode when toggle is on." = "Du kan kun oppdatere postnummerne dersom bryteren er på.";
-
-/* No comment provided by engineer. */
-"ZipCode" = "Postnummer";
 
 /* No comment provided by engineer. */
 "Gender" = "Kjønn";

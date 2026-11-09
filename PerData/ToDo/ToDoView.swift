@@ -30,7 +30,7 @@ struct toDoView: View {
       5. 🟢 Byttet over til Public Database fordi det er problemer med Private.
             Sendt epost til Apple Support.
       6. 🟢 Postnummer virker ikke i PersonalView (Utsettes: må skrives om for iOS 15).
-      7. 🟢 Aktivere en bryter for å kunne oppdatere ZipCode tabellen:
+      7. 🟢 Activity Indicator:
             . 🟢 Activity Indicator.
       8. 🟢 Oppdatere Person tabellen fra Json:
             . 🟢 Selve oppdateringen fra Json backup filen.
@@ -73,7 +73,6 @@ struct toDoView: View {
             . Dersom en velger nytt bilde, er alt OK.
      24. 🟢 Endre tilsvarende getAllPersons()
             . 🟢 getAllCabins()
-            . 🟢 getAllZipCodes
      25. 🟢 Kun store bokstaver i feltet "By" PersonUpdateView()
             . 🔴 Løsningen virker ikke å iMac. (Slik PerData prosjektet er satt opp nå,
                  er det enten iPhone eller iPad og ikke sammen med macOS).
@@ -118,9 +117,15 @@ struct toDoView: View {
                       . 🟢 Bildet må også slettes
      35. 🟢 Oversikt fødselsdager.
      36. 🟢 Rettet feil med søking på personer og brukere.
-     37. 🔴 Se om sending av e-post kan gjøres på SwiftUI vis. (Ikke mer fokus på dette!)
-     38. 🔴 Ser ut som oppdatering av Person lager et duplikat
-     39. 🔴 .
+     37. 🟢 Ser ut som oppdatering av Person lager et duplikat
+     39. 🔴 Fødselsdager:
+            🔴 .Feil med sortering(Albert først)
+     40. 🔴 Må legge inn det nye post- og kommenr: 
+            🔴 
+     41. 🔴 .
+            🔴 .
+     42. 🔴 .
+            🔴 .
 
     """
     
