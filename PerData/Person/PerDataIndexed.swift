@@ -101,7 +101,6 @@ struct PerDataIndexed: View {
     // Menyen
     //
     
-    @State private var menuZipCodeUpdate = false
     @State private var menuToDo = false
     @State private var menuBirthDay = false
     @State private var menuCabin = false
@@ -298,16 +297,6 @@ struct PerDataIndexed: View {
                                 Label("Cabin reservation", systemImage: "questionmark.app")
                             }
                             
-//                            Menu {
-//                                Button {
-//                                    menuZipCodeUpdate.toggle()
-//                                } label: {
-//                                    Label("From Ascii", systemImage: "square.and.pencil")
-//                                }
-//                            } label: {
-//                                Label("ZipCode", systemImage: "questionmark.app")
-//                            }
-                            
                         } label: {
                             Label("Store/Restore", systemImage: "questionmark.app")
                         }
@@ -316,9 +305,6 @@ struct PerDataIndexed: View {
                             .foregroundColor(.accentColor)
                             .font(Font.body.weight(.regular))
                     }
-                    .sheet(isPresented: $menuZipCodeUpdate, content: {
-                        zipCodeUpdate()
-                    })
                     .sheet(isPresented: $menuToDo, content: {
                         toDoView()
                     })

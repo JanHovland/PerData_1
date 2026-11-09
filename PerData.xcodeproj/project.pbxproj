@@ -57,7 +57,6 @@
 		DBA02DC3272C66200090D36C /* CloudZipCodeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA02DC2272C66200090D36C /* CloudZipCodeHelper.swift */; };
 		DBA02DC7272E8FDA0090D36C /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA02DC6272E8FDA0090D36C /* ImagePicker.swift */; };
 		DBA02DC9272FD1DF0090D36C /* InputGender.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA02DC8272FD1DF0090D36C /* InputGender.swift */; };
-		DBA02DCF273122D30090D36C /* ZipCodeUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA02DCE273122D30090D36C /* ZipCodeUpdate.swift */; };
 		DBA02DD22731AA120090D36C /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA02DD12731AA120090D36C /* ViewModifiers.swift */; };
 		DBB366AD274E6C39001CB47A /* BackupPersonsToJsonBackupFileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB366AC274E6C39001CB47A /* BackupPersonsToJsonBackupFileView.swift */; };
 		DBB366AF274E6CB3001CB47A /* BackupPersonsToJsonBackupFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB366AE274E6CB3001CB47A /* BackupPersonsToJsonBackupFile.swift */; };
@@ -135,7 +134,6 @@
 		DBA02DC2272C66200090D36C /* CloudZipCodeHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudZipCodeHelper.swift; sourceTree = "<group>"; };
 		DBA02DC6272E8FDA0090D36C /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		DBA02DC8272FD1DF0090D36C /* InputGender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputGender.swift; sourceTree = "<group>"; };
-		DBA02DCE273122D30090D36C /* ZipCodeUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZipCodeUpdate.swift; sourceTree = "<group>"; };
 		DBA02DD12731AA120090D36C /* ViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifiers.swift; sourceTree = "<group>"; };
 		DBB366AC274E6C39001CB47A /* BackupPersonsToJsonBackupFileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupPersonsToJsonBackupFileView.swift; sourceTree = "<group>"; };
 		DBB366AE274E6CB3001CB47A /* BackupPersonsToJsonBackupFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupPersonsToJsonBackupFile.swift; sourceTree = "<group>"; };
@@ -343,14 +341,6 @@
 			path = "Cloud Helper";
 			sourceTree = "<group>";
 		};
-		DBA02DCD273122930090D36C /* MenuTools */ = {
-			isa = PBXGroup;
-			children = (
-				DBA02DCE273122D30090D36C /* ZipCodeUpdate.swift */,
-			);
-			path = MenuTools;
-			sourceTree = "<group>";
-		};
 		DBA02DD02731A9EF0090D36C /* ViewModifiers */ = {
 			isa = PBXGroup;
 			children = (
@@ -393,7 +383,6 @@
 				DBB872DD2716C70F00A3516B /* Launch Screen.storyboard */,
 				DB01A83E2726C3D1007721E1 /* Localizable.strings */,
 				DB81CA712742746600E69D57 /* Mail */,
-				DBA02DCD273122930090D36C /* MenuTools */,
 				DB8476DF270F672D007D3E18 /* Model */,
 				DBE25B6A270C55B500AE255B /* PerData.entitlements */,
 				DB55163B2727E82600153A9A /* Person */,
@@ -554,7 +543,6 @@
 				DB81CA702742742900E69D57 /* PersonSendEmailView.swift in Sources */,
 				DB4FD4DB27328EC80080E084 /* ParseCSV.swift in Sources */,
 				DB64C0312755324F004709C4 /* UserRecordOverViewIndexed.swift in Sources */,
-				DBA02DCF273122D30090D36C /* ZipCodeUpdate.swift in Sources */,
 				DBE25B5D270C556200AE255B /* PerDataApp.swift in Sources */,
 				DBB4B38527141B9D00618F17 /* CloudPersonHelper.swift in Sources */,
 				DB81CA7A274275F100E69D57 /* Cabin.swift in Sources */,
