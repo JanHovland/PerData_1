@@ -228,31 +228,31 @@ struct PerDataIndexed: View {
                             Label("New person", systemImage: "square.and.pencil")
                         }
                         
+                        Button {
+                            menuUserRecordView.toggle()
+                        } label: {
+                            Label("UserRecords", systemImage: "square.and.pencil")
+                        }
+                        
+                        Button {
+                            menuBirthDay.toggle()
+                        } label: {
+                            Label("Birthdays", systemImage: "gift")
+                        }
+                        
+                        Button {
+                            menuCabin.toggle()
+                        } label: {
+                            Label("Cabin reservation", systemImage: "house")
+                        }
+                        
+                        Button {
+                            menuToDo.toggle()
+                        } label: {
+                            Label("ToDo", systemImage: "list.dash.header.rectangle")
+                        }
+                        
                         Menu {
-                            Button {
-                                menuUserRecordView.toggle()
-                            } label: {
-                                Label("UserRecords", systemImage: "square.and.pencil")
-                            }
-                            
-                            Button {
-                                menuBirthDay.toggle()
-                            } label: {
-                                Label("Birthdays", systemImage: "gift")
-                            }
-                            
-                            Button {
-                                menuCabin.toggle()
-                            } label: {
-                                Label("Cabin reservation", systemImage: "house")
-                            }
-                            
-                            Button {
-                                menuToDo.toggle()
-                            } label: {
-                                Label("ToDo", systemImage: "list.dash.header.rectangle")
-                            }
-                            
                             Menu {
                                 Button {
                                     menuUpdateUserRecordsFromJsonBackupFileView.toggle()
@@ -298,15 +298,15 @@ struct PerDataIndexed: View {
                                 Label("Cabin reservation", systemImage: "questionmark.app")
                             }
                             
-                            Menu {
-                                Button {
-                                    menuZipCodeUpdate.toggle()
-                                } label: {
-                                    Label("From Ascii", systemImage: "square.and.pencil")
-                                }
-                            } label: {
-                                Label("ZipCode", systemImage: "questionmark.app")
-                            }
+//                            Menu {
+//                                Button {
+//                                    menuZipCodeUpdate.toggle()
+//                                } label: {
+//                                    Label("From Ascii", systemImage: "square.and.pencil")
+//                                }
+//                            } label: {
+//                                Label("ZipCode", systemImage: "questionmark.app")
+//                            }
                             
                         } label: {
                             Label("Store/Restore", systemImage: "questionmark.app")
