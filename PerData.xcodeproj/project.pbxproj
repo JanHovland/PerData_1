@@ -165,6 +165,7 @@
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		DBD23E552CC39D7A0042CB18 /* Script */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Script; sourceTree = "<group>"; };
+		DBD4AA9030A1D255007C8F88 /* Schema */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Schema; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -361,6 +362,7 @@
 		DBE25B50270C556200AE255B = {
 			isa = PBXGroup;
 			children = (
+				DBD4AA9030A1D255007C8F88 /* Schema */,
 				DBE25B6B270C55C500AE255B /* Frameworks */,
 				DBE25B5B270C556200AE255B /* PerData */,
 				DBE25B5A270C556200AE255B /* Products */,
