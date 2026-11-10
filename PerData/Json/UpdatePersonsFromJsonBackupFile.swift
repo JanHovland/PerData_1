@@ -71,17 +71,8 @@ func updatePersonsFromJsonBackupFile() async -> LocalizedStringKey {
             message = value.0
             return message
         } else {
-            if value.1 == true { // Personen finnes fra før
-                /// Finn recordID for personen som finnes fra før
-                var valueID: (LocalizedStringKey, CKRecord.ID?)
-                await valueID = personRecordID(person)
-                if valueID.0 != "" {
-                    message = value.0
-                    return message
-                } else {
-                    person.recordID = valueID.1
-                    await message = modify(person, modifyImage)
-                }
+            if value.1 == true { 
+                await message = modify(person, modifyImage)
             } else { // Personen finnes ikke
                 await message = save(person)
             }

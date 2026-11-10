@@ -5,20 +5,20 @@
 //  Created by Jan Hovland on 27/10/2021.
 //
 
-import SwiftUI
 import CloudKit
+import SwiftUI
 
-///
-/// https://developer.apple.com/videos/play/wwdc2021/10023/
-/// This one is about focus
-///
-/// https://www.hackingwithswift.com/articles/216/complete-guide-to-navigationview-in-swiftui
-///
+//
+// https://developer.apple.com/videos/play/wwdc2021/10023/
+// This one is about focus
+//
+// https://www.hackingwithswift.com/articles/216/complete-guide-to-navigationview-in-swiftui
+//
 
 struct PersonNewView: View {
     @Environment(\.presentationMode) var presentationMode
     
-    @State         var person: Person
+    @State var person: Person
     @State private var message: LocalizedStringKey = ""
     @State private var title: LocalizedStringKey = ""
     @State private var isAlertActive = false
@@ -34,17 +34,15 @@ struct PersonNewView: View {
     var body: some View {
         NavigationView {
             VStack {
-                
-                ///
-                /// VStack kan kun inneholde 10 elementer,
-                /// derfor må Group benyttes
+                //
+                // VStack kan kun inneholde 10 elementer,
+                // derfor må Group benyttes
                 
                 Group {
-                    HStack (alignment: .center) {
-                        
-                        ///
-                        /// ZStack legger bildene oppå hverandre
-                        ///
+                    HStack(alignment: .center) {
+                        //
+                        // ZStack legger bildene oppå hverandre
+                        //
                         
                         ZStack {
                             Image(systemName: "person.fill")
@@ -68,7 +66,6 @@ struct PersonNewView: View {
                         .sheet(isPresented: $showImage, content: {
                             ImagePicker(sourceType: .photoLibrary, selectedImage: $image, image: $person.image)
                         })
-
                     }
                     TextField("FirstName", text: $person.firstName)
                         .autocapitalization(.words)
@@ -82,7 +79,7 @@ struct PersonNewView: View {
                     TextField("Phonenumber", text: $person.phoneNumber)
                 }
                 Group {
-                    HStack (alignment: .center, spacing: 10) {
+                    HStack(alignment: .center, spacing: 10) {
                         TextField("Citynumber", text: $person.cityNumber)
                             .keyboardType(.numberPad)
                         TextField("City", text: $person.city)
@@ -99,7 +96,7 @@ struct PersonNewView: View {
                             }
                         }
                     }
-                    HStack (alignment: .center, spacing: 10) {
+                    HStack(alignment: .center, spacing: 10) {
                         TextField("Municipality number", text: $person.municipalityNumber)
                             .keyboardType(.numberPad)
                         TextField("Municipality", text: $person.municipality)
@@ -112,9 +109,10 @@ struct PersonNewView: View {
                         displayedComponents: [.date],
                         label: {
                             Text("Date of birth")
-                        })
-                        .padding(.leading, 10)
-                    /// Returning an integer 0 == "Man" 1 == "Women
+                        }
+                    )
+                    .padding(.leading, 10)
+                    // Returning an integer 0 == "Man" 1 == "Women
                     InputGender(heading: "Gender",
                                 genders: genders,
                                 value: $person.gender)
@@ -129,30 +127,46 @@ struct PersonNewView: View {
                     ControlGroup {
                         Button(action: {
                             if person.firstName.count > 0,
-                               person.lastName.count > 0 {
+                               person.lastName.count > 0
+                            {
+                                //
+                                // Sjekk om posten finnes i CloudKit.
+                                // Save hvis den ikke finnes
+                                //
                                 
-                                ///
-                                /// Sjekk om posten finnes i CloudKit og save eller modify
-                                ///
+                                // predicate
                                 
-                                Task.init {
-                                    await FindPersonRecordIdSave(person: person)
-                               }
+                                
+                                if person.recordID != nil {
+                                    title = "Person exists"
+                                    message = "Person already exists"
+                                    isAlertActive.toggle()
+                                } else {
+                                    message = "A new Person"
+                                    title = "New person"
+                                    isAlertActive.toggle()
+                                    
+                                    Task {
+                                        await _ = save(person)
+                                    }
+                                    
+                                }
                             } else {
                                 title = "Missing values."
                                 message = "First- and LastName must both have values."
                                 isAlertActive.toggle()
                             }
                             
+                            
+                            
                         }, label: {
                             Text("Save")
                         })
-                        
-                            .alert(title, isPresented: $isAlertActive) {
-                                Button("OK", action: {})
-                            } message: {
-                                Text(message)
-                            }
+                        .alert(title, isPresented: $isAlertActive) {
+                            Button("OK", action: {})
+                        } message: {
+                            Text(message)
+                        }
                     }
                     .controlGroupStyle(.navigation)
                 }
@@ -170,29 +184,5 @@ struct PersonNewView: View {
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }
-    
-    @MainActor
-    func FindPersonRecordIdSave(person: Person) async {
-        var value: (LocalizedStringKey, CKRecord.ID?)
-        await value = personRecordID(person)
-        if value.0 != "" {
-            ///
-            ///Feilmelding
-            ///
-            message = value.0
-            title = "Error message from the Server"
-            isAlertActive.toggle()
-        } else {
-            if value.1 == nil {
-                await message = save(person)
-                title = "Save"
-                isAlertActive.toggle()
-            } else {
-                message = "This person exists in CloudKit "
-                title = "Modify"
-                isAlertActive.toggle()
-            }
-        }
-    }
-
 }
+

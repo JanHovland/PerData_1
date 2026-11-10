@@ -44,7 +44,6 @@
 		DB8476DD270EE534007D3E18 /* CloudKitPerson.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8476DC270EE534007D3E18 /* CloudKitPerson.swift */; };
 		DB8476E1270F6742007D3E18 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8476E0270F6742007D3E18 /* Person.swift */; };
 		DB90614C273A826300BF9779 /* CloudKitErrorString.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB90614B273A826300BF9779 /* CloudKitErrorString.swift */; };
-		DB970A48273DF670008F6828 /* cloudkit-development.ckdb in Resources */ = {isa = PBXBuildFile; fileRef = DB970A47273DF670008F6828 /* cloudkit-development.ckdb */; };
 		DB975F202753E0C000A6BC4B /* BackupCabinsToJsonBackupFileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB975F1F2753E0C000A6BC4B /* BackupCabinsToJsonBackupFileView.swift */; };
 		DB975F222753E0F700A6BC4B /* BackupCabinsToJsonBackupFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB975F212753E0F700A6BC4B /* BackupCabinsToJsonBackupFile.swift */; };
 		DB9B09B127428AA000160195 /* CabinOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9B09B027428AA000160195 /* CabinOverView.swift */; };
@@ -115,7 +114,6 @@
 		DB8476DC270EE534007D3E18 /* CloudKitPerson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitPerson.swift; sourceTree = "<group>"; };
 		DB8476E0270F6742007D3E18 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		DB90614B273A826300BF9779 /* CloudKitErrorString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitErrorString.swift; sourceTree = "<group>"; };
-		DB970A47273DF670008F6828 /* cloudkit-development.ckdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "cloudkit-development.ckdb"; sourceTree = "<group>"; };
 		DB975F1F2753E0C000A6BC4B /* BackupCabinsToJsonBackupFileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupCabinsToJsonBackupFileView.swift; sourceTree = "<group>"; };
 		DB975F212753E0F700A6BC4B /* BackupCabinsToJsonBackupFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupCabinsToJsonBackupFile.swift; sourceTree = "<group>"; };
 		DB9B09B027428AA000160195 /* CabinOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CabinOverView.swift; sourceTree = "<group>"; };
@@ -316,7 +314,6 @@
 			isa = PBXGroup;
 			children = (
 				DB9B09B22742F6B500160195 /* CloudCabinHelper.swift */,
-				DB970A47273DF670008F6828 /* cloudkit-development.ckdb */,
 				DBB4B38427141B9D00618F17 /* CloudPersonHelper.swift */,
 				DBDF4D672743D0480019D879 /* CloudUserHelper.swift */,
 			);
@@ -334,10 +331,10 @@
 		DBE25B50270C556200AE255B = {
 			isa = PBXGroup;
 			children = (
-				DBD4AA9030A1D255007C8F88 /* Schema */,
 				DBE25B6B270C55C500AE255B /* Frameworks */,
 				DBE25B5B270C556200AE255B /* PerData */,
 				DBE25B5A270C556200AE255B /* Products */,
+				DBD4AA9030A1D255007C8F88 /* Schema */,
 			);
 			sourceTree = "<group>";
 		};
@@ -461,7 +458,6 @@
 				DBCE88942754C2FB006E6E35 /* CabinBackup.json in Resources */,
 				DB01A8402726C3D1007721E1 /* Localizable.strings in Resources */,
 				DBB872DE2716C70F00A3516B /* Launch Screen.storyboard in Resources */,
-				DB970A48273DF670008F6828 /* cloudkit-development.ckdb in Resources */,
 				DB4FD4D727328BFA0080E084 /* Postnummerregister-ansi.txt in Resources */,
 				DB01A83D2726C3D1007721E1 /* InfoPlist.strings in Resources */,
 				DBCE88962754CE79006E6E35 /* UserRecordBackup.json in Resources */,

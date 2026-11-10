@@ -67,16 +67,11 @@ struct CloudKitPerson {
     }
     
     func existPerson(_ person: Person) async throws -> Bool {
-        let predicate = NSPredicate(format: "recordID = %@",  person.recordID ?? "")
-        let query = CKQuery(recordType: RecordType.Person, predicate: predicate)
-        do {
-            let result = try await database.records(matching: query)
-            for _ in result.0 {
-                return true
-            }
-        } catch {
-            throw error
+        
+        if person.recordID != nil {
+            return true
         }
+        
         return false
     }
     
@@ -242,21 +237,6 @@ struct CloudKitPerson {
         }
     }
     
-    func getPersonRecordID(_ person: Person) async throws -> CKRecord.ID? {
-        let predicate = NSPredicate(format: "recordID = %@",  person.recordID ?? "")
-        let query = CKQuery(recordType: RecordType.Person, predicate: predicate)
-        do {
-            let result = try await database.records(matching: query)
-            for res in result.matchResults {
-                let id = res.0.recordName
-                return CKRecord.ID(recordName: id)
-            }
-        } catch {
-            throw error
-        }
-        return nil
-    }
-
     func deleteAllPersons(_ recID: CKRecord.ID) async throws {
         let predicate = NSPredicate(value: true)
         let query = CKQuery(recordType: RecordType.Person, predicate: predicate)

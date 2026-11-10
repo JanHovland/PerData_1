@@ -158,10 +158,12 @@ struct PersonUpdateView: View {
                         
                         Button (action: {
                             Task.init {
-                                ///
-                                ///Finn RecordID og save eller modify
-                                ///
-                                await FindRecordIdSaveOrModify(person: person)
+                                let recordID = person.recordID
+                                if recordID != nil {
+                                    await message = modify(person, modifyImage)
+                                    title = "Modify"
+                                    isAlertActive.toggle()
+                                }
                             }
                         }, label: {
                             Text("Modify")
@@ -169,10 +171,7 @@ struct PersonUpdateView: View {
                         
                         Button (action: {
                             Task.init {
-                                ///
-                                ///Må finne recordID på nytt
-                                ///
-                                recordID = await FindRecordIdDelete(person: person)
+                                let recordID = person.recordID
                                 if recordID != nil  {
                                     await message = deletePerson(recordID!)
                                     person = Person()
@@ -199,47 +198,7 @@ struct PersonUpdateView: View {
             Text(message)
         }
     }
-    @MainActor
-    func FindRecordIdSaveOrModify(person: Person) async {
-        var value: (LocalizedStringKey, CKRecord.ID?   )
-        await value = personRecordID(person)
-        if value.0 != "" {
-            ///
-            ///Feilmelding
-            ///
-            message = value.0
-            title = "Error message from the Server"
-            isAlertActive.toggle()
-        } else {
-            if value.1 == nil {
-                await message = save(person)
-                title = "Save"
-                isAlertActive.toggle()
-            } else {
-                await message = modify(person, modifyImage)
-                title = "Modify"
-                isAlertActive.toggle()
-            }
-        }
-    }
-    
-    func FindRecordIdDelete(person: Person) async -> CKRecord.ID? {
-        var value: (LocalizedStringKey, CKRecord.ID?   )
-        await value = personRecordID(person)
-        if value.0 != "" {
-            ///
-            ///Feilmelding
-            ///
-            message = value.0
-            title = "Error message from the Server"
-            isAlertActive.toggle()
-        } else {
-            if value.1 == nil {
-                message = "Can not find person ID"
-                title = "Person ID"
-                isAlertActive.toggle()
-            }
-        }
-        return value.1
-    }
 }
+
+
+

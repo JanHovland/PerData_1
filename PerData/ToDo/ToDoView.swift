@@ -118,13 +118,26 @@ struct toDoView: View {
      35. 🟢 Oversikt fødselsdager.
      36. 🟢 Rettet feil med søking på personer og brukere.
      37. 🟢 Ser ut som oppdatering av Person lager et duplikat
-     39. 🔴 Fødselsdager:
-            🔴 .Feil med sortering(Albert først)
-     40. 🔴 Må legge inn det nye post- og kommenr: 
-            🔴 
-     41. 🔴 .
+     39. 🟢 Fødselsdager:
+            🟢 Rettet feil i CloudKit data
+     40. 🔴 Må sjekke NSPredicate(format:
+            🟢 CabinReservationView()
+            🔴 CloudUserHelper()
+            🔴 CloudKitPerson()
+            🔴 CloudKitUserRecord()
+            🔴 updateCabinsFromJsonBackupFile()
+            🔴 PerDataIndexed()
+            🔴 personBirthdayView()
+            🔴 userRecordOverViewIndexed() 
+     41. 🔴 Må legge inn det nye post- og kommenr: 
             🔴 .
-     42. 🔴 .
+     42. 🔴 Legge inn bilde for alle personene
+            🔴 .
+     43. 🔴 Legge inn personer som manhgler
+            🔴 .
+     44. 🔴 .
+            🔴 .
+     45. 🔴 .
             🔴 .
 
     """

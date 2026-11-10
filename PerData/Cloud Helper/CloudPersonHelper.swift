@@ -82,19 +82,3 @@ func deletePerson(_ recID: CKRecord.ID) async -> LocalizedStringKey {
         return message
     }
 }
-
-@MainActor
-func personRecordID(_ person: Person) async -> (err: LocalizedStringKey, id: CKRecord.ID?) {
-    var err : LocalizedStringKey = ""
-    var id: CKRecord.ID?
-    do {
-        id = try await CloudKitPerson().getPersonRecordID(person)
-        err = ""
-    } catch {
-        print(error.localizedDescription)
-        err = LocalizedStringKey(error.localizedDescription)
-        id = nil
-    }
-    return (err, id)
-}
-    
