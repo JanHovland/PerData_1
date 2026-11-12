@@ -72,7 +72,8 @@ struct backupPersonsToJsonBackupFileView: View {
         }
         .task {
             var value: (LocalizedStringKey, [Person], [String])
-            await value = findPersons()
+            let predicate = NSPredicate(value: true)
+            await value = findPersons(predicate: predicate)
             if value.0 != "" {
                 message = value.0
                 title = "Error message from the Server"

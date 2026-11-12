@@ -367,8 +367,10 @@ struct PerDataIndexed: View {
             }
         }
         .refreshable {
-            await refreshPersonsIndexed(predicate: predicate)
-        }
+            Task {
+                await refreshPersonsIndexed(predicate: predicate)
+            }
+         }
     }
     
     func refreshPersonsIndexed(predicate: NSPredicate) async {
@@ -377,7 +379,7 @@ struct PerDataIndexed: View {
         sectionHeader.removeAll()
         // Fetch all userRecords from CloudKit
         var value: (LocalizedStringKey, [Person], [String])
-        await value = findPersons()
+        await value = findPersons(predicate: predicate)
         if value.0 != "" {
             message = value.0
             title = "Error message from the Server"

@@ -412,3 +412,6 @@
 /* No comment provided by engineer. */
 "Store/Restore" = "Lagre/Hente JSON";
 
+/* No comment provided by engineer. */
+"A new Person" = "Ny person er lagret";
+

@@ -26,6 +26,9 @@ struct PersonUpdateView: View {
     @State private var modifyImage = false
     @State private var showImage = false
     @State private var recordID: CKRecord.ID?
+    
+    @Environment(\.presentationMode) var presentationMode
+    
     struct Dead: Hashable, Identifiable {
         var id = UUID()
         var isDead = false
@@ -55,7 +58,7 @@ struct PersonUpdateView: View {
                             .overlay(Circle().stroke(Color.gray, lineWidth: 1))
                             .onTapGesture {
                                 showImage.toggle()
-                                modifyImage = true
+                                modifyImage = false
                             }
                     } else {
                         ZStack {
@@ -164,7 +167,12 @@ struct PersonUpdateView: View {
                             Task.init {
                                 let recordID = person.recordID
                                 if recordID != nil {
+                                    
+                                    let i = person.image
+                                    let m = modifyImage
+                                    
                                     await message = modify(person, modifyImage)
+                                    modifyImage = false
                                     title = "Modify"
                                     isAlertActive.toggle()
                                 }
@@ -197,7 +205,7 @@ struct PersonUpdateView: View {
             }
         })
         .alert(title, isPresented: $isAlertActive) {
-            Button("OK", action: {})
+            Button("OK", action: {presentationMode.wrappedValue.dismiss()})
         } message: {
             Text(message)
         }

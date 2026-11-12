@@ -86,7 +86,8 @@ struct personBirthdayView: View {
         /// Fetch all userRecords  from CloudKit
         var value: (LocalizedStringKey, [Person], [String])
         indicatorShowing = true
-        await value = findPersons()
+        let predicate = NSPredicate(value: true)
+        await value = findPersons(predicate: predicate)
         if value.0 != "" {
             message = value.0
             title = "Error message from the Server"

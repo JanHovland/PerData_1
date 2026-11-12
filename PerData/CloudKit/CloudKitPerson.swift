@@ -207,11 +207,9 @@ struct CloudKitPerson {
                     personRecord["image"] = CKAsset(fileURL: url!)
                 }
             } else {
-                
                 ///
-                /// Finn det gamle person sitt Image
+                /// Finn  personens  Image
                 ///
-               
                 let per = try await database.record(for: recID)
                 if let image = per.value(forKey: "image"), let imageAsset = image as? CKAsset {
                     if let imageData = try? Data.init(contentsOf: imageAsset.fileURL!) {
