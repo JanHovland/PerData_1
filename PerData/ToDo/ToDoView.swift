@@ -118,9 +118,16 @@ struct toDoView: View {
      35. 🟢 Oversikt fødselsdager.
      36. 🟢 Rettet feil med søking på personer og brukere.
      37. 🟢 Ser ut som oppdatering av Person lager et duplikat
-     39. 🟢 Fødselsdager:
+     38. 🟢 Fødselsdager:
             🟢 Rettet feil i CloudKit data
-     40. 🔴 Må sjekke NSPredicate(format:
+     39. 🟢 PersonUpdateView():
+            🟢 Rettet feil i modify, returnerer nå til forrige skjermbilde
+     40. 🟢 PerDataIndexed():
+            🟢 Rettet feil med .refreshable
+     41. 🔴 ImagePicker:
+            🔴 Endre til et nytt bilde virker ikke
+            🔴 Legge inn et nytt bilde virker ikke
+     42. 🔴 Må sjekke NSPredicate(format:
             🟢 CabinReservationView()
             🔴 CloudUserHelper()
             🔴 CloudKitPerson()
@@ -129,15 +136,15 @@ struct toDoView: View {
             🔴 PerDataIndexed()
             🔴 personBirthdayView()
             🔴 userRecordOverViewIndexed() 
-     41. 🔴 Må legge inn det nye post- og kommenr: 
+     43. 🔴 Må legge inn det nye post- og kommenr: 
             🔴 .
-     42. 🔴 Legge inn bilde for alle personene
+     44. 🔴 Legge inn bilde for alle personene
             🔴 .
-     43. 🔴 Legge inn personer som manhgler
+     45. 🔴 Legge inn personer som mangler
             🔴 .
-     44. 🔴 .
+     46. 🔴 .
             🔴 .
-     45. 🔴 .
+     47. 🔴 .
             🔴 .
 
     """
