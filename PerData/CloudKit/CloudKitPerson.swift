@@ -11,25 +11,24 @@ import SwiftUI
 //  Block comment : Cmd + ´ (foran backspace tasten)
 //  Re-Indent     : Shift + Ctrl + Cmd + 8 (on number pad)
 
-///
-/// Ved å endre func savePerson(person: Person)  til:
-///     func savePerson(_ person: Person)  kan den kalles slik:
-///     savePerson(person) i stedet for save(person: person)
-///
+//
+// Ved å endre func savePerson(person: Person)  til:
+//     func savePerson(_ person: Person)  kan den kalles slik:
+//     savePerson(person) i stedet for save(person: person)
+//
 
-/// https://danielbernal.co/stretched-launch-screen-images-in-swiftui-the-fix/
+// https://danielbernal.co/stretched-launch-screen-images-in-swiftui-the-fix/
 
 struct CloudKitPerson {
-    
     var database = CKContainer(identifier: Config.containerIdentifier).privateCloudDatabase
     
-    struct RecordType {
+    enum RecordType {
         static let Person = "Person"
     }
     
-    ///
-    /// MARK: - saving to CloudKit
-    ///
+    //
+    // MARK: - saving to CloudKit
+    //
     
     func savePerson(_ person: Person) async throws {
         let personRecord = CKRecord(recordType: RecordType.Person)
@@ -67,7 +66,6 @@ struct CloudKitPerson {
     }
     
     func existPerson(_ person: Person) async throws -> Bool {
-        
         if person.recordID != nil {
             return true
         }
@@ -81,17 +79,17 @@ struct CloudKitPerson {
         var sectionHeader = [String]()
         let query = CKQuery(recordType: RecordType.Person, predicate: predicate)
         do {
-            ///
-            /// Slik finnes alle postene
-            ///
-            let result  = try await database.records(matching: query)
+            //
+            // Slik finnes alle postene
+            //
+            let result = try await database.records(matching: query)
             
             for record in result.matchResults {
                 var person = Person()
-                ///
-                /// Slik hentes de enkelte feltene ut:
-                ///
-                let per  = try record.1.get()
+                //
+                // Slik hentes de enkelte feltene ut:
+                //
+                let per = try record.1.get()
                 
                 let id = record.0.recordName
                 let recID = CKRecord.ID(recordName: id)
@@ -110,7 +108,7 @@ struct CloudKitPerson {
                 let gender = per.value(forKey: "gender") ?? 0
                 let dead = per.value(forKey: "dead") ?? 0
                 if let image = per.value(forKey: "image"), let imageAsset = image as? CKAsset {
-                    if let imageData = try? Data.init(contentsOf: imageAsset.fileURL!) {
+                    if let imageData = try? Data(contentsOf: imageAsset.fileURL!) {
                         let image = UIImage(data: imageData)
                         person.recordID = recID
                         person.firstName = firstName as! String
@@ -118,7 +116,7 @@ struct CloudKitPerson {
                         person.personEmail = email as! String
                         person.address = address as! String
                         person.phoneNumber = phoneNumber as! String
-                        person.cityNumber =  cityNumber as! String
+                        person.cityNumber = cityNumber as! String
                         person.city = city as! String
                         person.municipalityNumber = municipalityNumber as! String
                         person.municipality = municipality as! String
@@ -135,7 +133,7 @@ struct CloudKitPerson {
                     person.personEmail = email as! String
                     person.address = address as! String
                     person.phoneNumber = phoneNumber as! String
-                    person.cityNumber =  cityNumber as! String
+                    person.cityNumber = cityNumber as! String
                     person.city = city as! String
                     person.municipalityNumber = municipalityNumber as! String
                     person.municipality = municipality as! String
@@ -147,11 +145,11 @@ struct CloudKitPerson {
                 }
                 
                 char = String(person.firstName.prefix(1))
-                /// Oppdatere sectionHeader[]
+                // Oppdatere sectionHeader[]
                 if sectionHeader.contains(char) == false {
                     sectionHeader.append(char)
-                    /// Dette må gjøre for å få sectionHeader riktig sortert
-                    /// Standard sortering gir ikke norsk sortering
+                    // Dette må gjøre for å få sectionHeader riktig sortert
+                    // Standard sortering gir ikke norsk sortering
                     let region = NSLocale.current.region?.identifier.lowercased() // Returns the local region
                     let language = Locale(identifier: region!)
                     let sectionHeader1 = sectionHeader.sorted {
@@ -161,7 +159,7 @@ struct CloudKitPerson {
                 }
  
                 persons.append(person)
-                persons.sort(by: {$0.firstName < $1.firstName})
+                persons.sort(by: { $0.firstName < $1.firstName })
             }
             return (persons, sectionHeader)
         } catch {
@@ -178,7 +176,6 @@ struct CloudKitPerson {
     }
         
     func modifyPerson(_ person: Person, _ newImage: Bool) async throws {
-        
         guard let recID = person.recordID else { return }
         
         do {
@@ -196,37 +193,33 @@ struct CloudKitPerson {
             personRecord["dateMonthDay"] = person.dateMonthDay
             personRecord["gender"] = person.gender
             personRecord["dead"] = person.dead
-
-            if newImage {
-                if person.image != nil {
-                    let fileManager = FileManager.default
-                    let documentsPath = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first
-                    let url = documentsPath?.appendingPathComponent("image.png")
-                    let imageData = person.image?.jpegData(compressionQuality: 0.01)
-                    try! imageData?.write(to: url!)
-                    personRecord["image"] = CKAsset(fileURL: url!)
-                }
-            } else {
-                ///
-                /// Finn  personens  Image
-                ///
-                let per = try await database.record(for: recID)
-                if let image = per.value(forKey: "image"), let imageAsset = image as? CKAsset {
-                    if let imageData = try? Data.init(contentsOf: imageAsset.fileURL!) {
-                        let image = UIImage(data: imageData)
-                        let fileManager = FileManager.default
-                        let documentsPath = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first
-                        let url = documentsPath?.appendingPathComponent("image.png")
-                        let imageData = image?.jpegData(compressionQuality: 0.01)
-                        try! imageData?.write(to: url!)
-                        personRecord["image"] = CKAsset(fileURL: url!)
-
+            //
+            // Kan ikke bruke person.image direkte
+            //
+            if person.image != nil {
+                let image: UIImage = person.image ?? UIImage()
+                let fileManager = FileManager.default
+                if let documentsPath = fileManager.urls(
+                    for: .documentDirectory,
+                    in: .userDomainMask
+                ).first {
+                    //
+                    // Gir person.image et "filnavn"
+                    //
+                    let url = documentsPath.appendingPathComponent("person.jpg")
+                    if let imageData = image.jpegData(compressionQuality: 0.7) {
+                        do {
+                            try imageData.write(to: url, options: .atomic)
+                            let newAsset = CKAsset(fileURL: url)
+                            personRecord["image"] = newAsset
+                        } catch {
+                            print("Error saving person.jpg")
+                        }
                     }
                 }
-               
             }
             do {
-                let _ = try await database.modifyRecords(saving: [personRecord], deleting: [recID])
+                _ = try await database.modifyRecords(saving: [personRecord], deleting: [recID])
             } catch {
                 throw error
             }
@@ -249,5 +242,4 @@ struct CloudKitPerson {
             throw error
         }
     }
-
 }

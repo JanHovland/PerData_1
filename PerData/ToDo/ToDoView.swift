@@ -124,9 +124,9 @@ struct toDoView: View {
             🟢 Rettet feil i modify, returnerer nå til forrige skjermbilde
      40. 🟢 PerDataIndexed():
             🟢 Rettet feil med .refreshable
-     41. 🔴 ImagePicker:
-            🔴 Endre til et nytt bilde virker ikke
-            🔴 Legge inn et nytt bilde virker ikke
+     41. 🟢 ImagePicker:
+            🟢 Endre til et nytt bilde virker ikke
+            🟢 Legge inn et nytt bilde virker ikke
      42. 🔴 Må sjekke NSPredicate(format:
             🟢 CabinReservationView()
             🔴 CloudUserHelper()
