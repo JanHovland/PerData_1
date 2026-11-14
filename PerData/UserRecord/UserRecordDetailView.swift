@@ -121,6 +121,7 @@ struct UserRecordDetailView: View {
                                 indicatorShowing = true
 
                                 let value = await userRecordRecordID(userRecord)
+                                
 
                                 if value.0 != "" {
                                     message = value.0

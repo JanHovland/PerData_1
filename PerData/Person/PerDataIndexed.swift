@@ -73,10 +73,6 @@ import SwiftUI
 @MainActor
 
 struct PerDataIndexed: View {
-    /// Skjuler scroll indicators.
-    init() {
-        UITableView.appearance().showsVerticalScrollIndicator = false
-    }
     
     @Environment(\.presentationMode) var presentationMode
     
@@ -121,54 +117,53 @@ struct PerDataIndexed: View {
     @State private var predicate = NSPredicate(value: true)
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
                 ActivityIndicator(isAnimating: $indicatorShowing, style: .medium, color: .gray)
-                ScrollViewReader { _ in
-                    ScrollView {
-                        VStack(alignment: .leading) {
-                            ForEach(sectionHeader, id: \.self) { letter in
-                                ForEach(persons.filter {
-                                    person -> Bool in
-                                    person.firstName.prefix(1) == letter
-                                }) {
-                                    person in
-                                    if searchText == "" || person.firstName.uppercased().contains(searchText.uppercased()) {
-                                        NavigationLink(destination: PersonUpdateView(person: person)) {
-                                            VStack(alignment: .leading) {
-                                                PersonDetailView(person: person)
-                                                HStack(spacing: UIDevice.isIpad ? 60 : 30) {
-                                                    PersonDetailMapView(person: person)
-                                                    PersonDetailPhoneView(person: person)
-                                                    PersonDetailMessageView(person: person)
-                                                    PersonDetailMailView(person: person)
-                                                    PersonDetailCabinView(person: person)
-                                                }
+                ScrollView(showsIndicators: false) {
+                    VStack(alignment: .leading) {
+                        ForEach(sectionHeader, id: \.self) { letter in
+                            ForEach(persons.filter {
+                                person -> Bool in
+                                person.firstName.prefix(1) == letter
+                            }) {
+                                person in
+                                if searchText == "" || person.firstName.uppercased().contains(searchText.uppercased()) {
+                                    NavigationLink(destination: PersonUpdateView(person: person)) {
+                                        VStack(alignment: .leading) {
+                                            PersonDetailView(person: person)
+                                            HStack(spacing: UIDevice.isIpad ? 60 : 30) {
+                                                PersonDetailMapView(person: person)
+                                                PersonDetailPhoneView(person: person)
+                                                PersonDetailMessageView(person: person)
+                                                PersonDetailMailView(person: person)
+                                                PersonDetailCabinView(person: person)
                                             }
-                                            .padding(.leading, 10)
-                                            .padding(.bottom, 20)
                                         }
+                                        .padding(.horizontal, 10)
                                     }
                                 }
-                                .onDelete { indexSet in
-                                    indexSetDelete = indexSet
-                                    recordID = persons[indexSet.first!].recordID
-                                    persons.removeAll()
-                                    Task {
-                                        await message = deletePerson(recordID!)
-                                        title = "Delete a person"
-                                        isAlertActive.toggle()
-                                        //
-                                        // Viser resten av personene
-                                        //
-                                        await refreshPersonsIndexed(predicate: predicate)
-                                    }
+                            }
+                            .onDelete { indexSet in
+                                indexSetDelete = indexSet
+                                recordID = persons[indexSet.first!].recordID
+                                persons.removeAll()
+                                Task {
+                                    await message = deletePerson(recordID!)
+                                    title = "Delete a person"
+                                    isAlertActive.toggle()
+                                    //
+                                    // Viser resten av personene
+                                    //
+                                    await refreshPersonsIndexed(predicate: predicate)
                                 }
-                            } // ForEach(sectionHeader
-                        } // VStack
-                        .padding(.leading, UIDevice.isIpad ? 60 : 30)
-                    } // ScrollView
-                } // ScrollViewReader
+                            }
+                        } // ForEach(sectionHeader
+                        .padding(.bottom, 10)
+                        .gradientGlass()
+                    } // VStack
+                    .padding(.horizontal, UIDevice.isIpad ? 20 : 20)
+                } // ScrollView
             }
             .alert(title, isPresented: $isAlertActive) {
                 Button("OK", action: {})
@@ -345,18 +340,8 @@ struct PerDataIndexed: View {
                 }
                  
             })
-
             .listStyle(.insetGrouped)
         }
-        
-        //
-        // Enkel kolonne for iPad
-        //
-        
-        .navigationViewStyle(StackNavigationViewStyle())
-        //
-        // Dobbel kolonne for iPad
-        // .navigationViewStyle(DoubleColumnNavigationViewStyle())
         .searchable(text: $searchText, placement: .navigationBarDrawer, prompt: "Search firstName")
         .onChange(of: searchText.capitalized) { _, searchText in
             predicate = searchText.isEmpty ? NSPredicate(value: true) : NSPredicate(format: "firstName BEGINSWITH %@", searchText)
@@ -370,7 +355,7 @@ struct PerDataIndexed: View {
             Task {
                 await refreshPersonsIndexed(predicate: predicate)
             }
-         }
+        }
     }
     
     func refreshPersonsIndexed(predicate: NSPredicate) async {
@@ -411,4 +396,3 @@ struct PerDataIndexed: View {
         return true // hasConnectionPath
     }
 }
-
