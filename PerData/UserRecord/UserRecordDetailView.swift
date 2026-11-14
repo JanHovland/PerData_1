@@ -108,68 +108,87 @@ struct UserRecordDetailView: View {
             Spacer()
         }
         .navigationBarTitle("User Details", displayMode: .inline)
-        .toolbar(content: {
+        .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
-                Image(systemName: "ellipsis.circle" ) // Text("_Cho<#T##String#>ose_")
-                    .foregroundColor(.accentColor)
-                    .font(Font.body.weight(.regular))
-                    .contextMenu {
-                        Button {
-                            Task.init {
-                                if userRecord.firstName.count > 0,
-                                   userRecord.lastName.count > 0,
-                                   userRecord.email.count > 0,
-                                   userRecord.passWord.count > 0 {
-                                    indicatorShowing = true
-                                    var value: (LocalizedStringKey, CKRecord.ID?)
-                                    await value = userRecordRecordID(userRecord)
-                                    if value.0 != "" {
-                                        message = value.0
-                                        title = "Error message from the Server"
-                                        isAlertActive.toggle()
-                                    } else {
-                                        if value.1 == nil {
-                                            await message = saveUserRecord(userRecord)
-                                            title = "Save"
-                                            isAlertActive.toggle()
-                                        } else {
-                                            userRecord.recordID = value.1
-                                            await message = modifyUserRecord(userRecord, modifyImage)
-                                            title = "Modify"
-                                            isAlertActive.toggle()
-                                        }
-                                    }
-                                } else {
-                                    title = "Missing value(s)"
-                                    message = "All the fields must have a value"
+                Menu {
+                    Button {
+                        Task {
+                            if userRecord.firstName.count > 0,
+                               userRecord.lastName.count > 0,
+                               userRecord.email.count > 0,
+                               userRecord.passWord.count > 0 {
+
+                                indicatorShowing = true
+
+                                let value = await userRecordRecordID(userRecord)
+
+                                if value.0 != "" {
+                                    message = value.0
+                                    title = "Error message from the Server"
                                     isAlertActive.toggle()
+
+                                } else {
+                                    if value.1 == nil {
+                                        message = await saveUserRecord(userRecord)
+                                        title = "Save"
+                                        isAlertActive.toggle()
+
+                                    } else {
+                                        userRecord.recordID = value.1
+                                        message = await modifyUserRecord(
+                                            userRecord,
+                                            modifyImage
+                                        )
+                                        title = "Modify"
+                                        isAlertActive.toggle()
+                                    }
                                 }
-                            }
-                        } label: {
-                            Label("Update", systemImage: "square.and.pencil")
-                            
-                        }
-                        
-                        Button {
-                            print("Delete userRecord")
-                            Task.init {
-                                recordID = userRecord.recordID
-                                await message = deleteUserRecord(recordID!)
-                                userRecord = UserRecord(firstName: "",
-                                                        lastName: "",
-                                                        email: "",
-                                                        passWord: "",
-                                                        image: nil)
-                                title = "Delete an UserRecord"
+
+                            } else {
+                                title = "Missing value(s)"
+                                message = "All the fields must have a value"
                                 isAlertActive.toggle()
                             }
-                        } label: {
-                            Label("Delete", systemImage: "square.and.pencil")
                         }
-                        
+                    } label: {
+                        Label("Update", systemImage: "square.and.pencil")
                     }
+
+                    Button(role: .destructive) {
+                        Task {
+                            print("Delete userRecord")
+
+                            if let recordID = userRecord.recordID {
+                                message = await deleteUserRecord(recordID)
+
+                                userRecord = UserRecord(
+                                    firstName: "",
+                                    lastName: "",
+                                    email: "",
+                                    passWord: "",
+                                    image: nil
+                                )
+
+                                title = "Delete an UserRecord"
+                                isAlertActive.toggle()
+
+                            } else {
+                                title = "Delete an UserRecord"
+                                message = "Cannot delete without a record ID."
+                                isAlertActive.toggle()
+                            }
+                        }
+                    } label: {
+                        Label("Delete", systemImage: "trash")
+                    }
+
+                } label: {
+                    Image(systemName: "ellipsis.circle")
+                        .foregroundColor(.accentColor)
+                        .font(.body.weight(.regular))
+                }
             }
-        })       
+        }
         .alert(title, isPresented: $isAlertActive) {
             Button("OK", action: {})
         } message: {

@@ -156,54 +156,49 @@ struct PersonUpdateView: View {
         .textFieldStyle(.roundedBorder)
         .padding()
         .navigationBarTitle("Modify person", displayMode: .inline)
-        .toolbar(content: {
+        .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
-                Image(systemName: "ellipsis.circle")
-                    .foregroundColor(.accentColor)
-                    .font(Font.body.weight(.regular))
-                    .contextMenu {
-                        
-                        Button (action: {
-                            Task.init {
-                                let recordID = person.recordID
-                                if recordID != nil {
-                                    
-                                    let i = person.image
-                                    let m = modifyImage
-                                    
-                                    await message = modify(person, modifyImage)
-                                    modifyImage = false
-                                    title = "Modify"
-                                    isAlertActive.toggle()
-                                }
+                Menu {
+                    Button {
+                        Task {
+                            let recordID = person.recordID
+
+                            if recordID != nil {
+                                message = await modify(person, modifyImage)
+                                modifyImage = false
+                                title = "Modify"
+                                isAlertActive.toggle()
                             }
-                        }, label: {
-                            Text("Modify")
-                        })
-                        
-                        Button (action: {
-                            Task.init {
-                                let recordID = person.recordID
-                                if recordID != nil  {
-                                    await message = deletePerson(recordID!)
-                                    person = Person()
-                                    person.image = nil
-                                    title = "Delete a person"
-                                    isAlertActive.toggle()
-                                } else {
-                                    title = "Delete a person"
-                                    message = "Can not delete a person without a record ID. "
-                                    isAlertActive.toggle()
-                                    
-                                }
-                            }
-                        }, label: {
-                            Text("Delete")
-                        })
-                        
+                        }
+                    } label: {
+                        Label("Modify", systemImage: "pencil")
                     }
+
+                    Button(role: .destructive) {
+                        Task {
+                            if let recordID = person.recordID {
+                                message = await deletePerson(recordID)
+                                person = Person()
+                                person.image = nil
+                                title = "Delete a person"
+                                isAlertActive.toggle()
+                            } else {
+                                title = "Delete a person"
+                                message = "Can not delete a person without a record ID."
+                                isAlertActive.toggle()
+                            }
+                        }
+                    } label: {
+                        Label("Delete a person", systemImage: "trash")
+                    }
+
+                } label: {
+                    Image(systemName: "ellipsis.circle")
+                        .foregroundColor(.accentColor)
+                        .font(.body.weight(.regular))
+                }
             }
-        })
+        }
         .alert(title, isPresented: $isAlertActive) {
             Button("OK", action: {presentationMode.wrappedValue.dismiss()})
         } message: {
