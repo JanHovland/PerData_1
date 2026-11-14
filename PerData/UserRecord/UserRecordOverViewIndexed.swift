@@ -51,6 +51,7 @@ struct userRecordOverViewIndexed: View {
                                         NavigationLink(destination: UserRecordDetailView(userRecord: userRecord)) {
                                             showUsers(userRecord: userRecord)
                                         }
+                                        .gradientGlass()
                                     } else {
                                         EmptyView()
                                     }
