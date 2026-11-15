@@ -27,7 +27,7 @@ struct personBirthdayView: View {
     let barTitle: LocalizedStringKey = "Birthday"
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
                 List {
                     ForEach(persons) {
@@ -41,7 +41,6 @@ struct personBirthdayView: View {
                     .padding(.bottom, 5)
                 }
             } // VStack
-            .padding(.top, 20)
             .refreshable {
                 await refreshBirthDays()
             }
