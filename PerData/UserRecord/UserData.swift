@@ -5,11 +5,10 @@
 //  Created by Jan Hovland on 29/11/2021.
 //
 
-import SwiftUI
 import CloudKit
+import SwiftUI
 
 struct UserData: View {
-    
     /// Skjuler scroll indicators.
     init() {
         UITableView.appearance().showsVerticalScrollIndicator = false
@@ -33,44 +32,34 @@ struct UserData: View {
     @State private var predicate = NSPredicate(value: true)
     
     var body: some View {
-        NavigationView {
-            ScrollViewReader { proxy in
-                ActivityIndicator(isAnimating: $indicatorShowing, style: .medium, color: .gray)
-                ScrollView {
-                    VStack (alignment: .leading) {
-                        ForEach(sectionHeader, id: \.self) { letter in
-                            
-                            Section(header: SectionHeader(letter: letter)) {
-                                ForEach(userRecords.filter( {
-                                    (userRecord) -> Bool in
-                                    userRecord.firstName.prefix(1) == letter
-                                })) {
-                                    userRecord in
-                                    
-                                    if searchText == "" || userRecord.firstName.uppercased().contains(searchText.uppercased()) {
-                                        NavigationLink(destination: UserRecordDetailView(userRecord: userRecord)) {
-                                            showUsers(userRecord: userRecord)
-                                        }
-                                        .gradientGlass()
-                                    } else {
-                                        EmptyView()
-                                    }
-                                }
-                                .onDelete { (indexSet) in
-                                    indexSetDelete = indexSet
-                                    recordID = userRecords[indexSet.first!].recordID
-                                    userRecords.removeAll()
-                                    Task.init {
-                                        await message = deleteUserRecord(recordID!)
-                                        title = "Delete UserRecord"
-                                        isAlertActive.toggle()
-                                    }
+        NavigationStack {
+            VStack {
+                if indicatorShowing {
+                    ActivityIndicator(isAnimating: $indicatorShowing, style: .medium, color: .gray)
+                }
+                ScrollView(showsIndicators: false) {
+                    VStack(alignment: .leading) {
+                        ForEach(userRecords) { userRecord in
+                            if searchText == "" || userRecord.firstName.uppercased().contains(searchText.uppercased()) {
+                                NavigationLink(destination: UserRecordDetailView(userRecord: userRecord)) {
+                                    showUsers(userRecord: userRecord)
                                 }
                             }
-                            .listRowSeparator(.hidden)
                         }
+                        .onDelete { indexSet in
+                            indexSetDelete = indexSet
+                            recordID = userRecords[indexSet.first!].recordID
+                            userRecords.removeAll()
+                            Task {
+                                await message = deleteUserRecord(recordID!)
+                                title = "Delete UserRecord"
+                                isAlertActive.toggle()
+                            }
+                        }
+                        .padding(.bottom, 10)
+                        .gradientGlass()
                     }
-                    /// Fjerner ekstra tomt felt med tilhørede linje
+                    // Fjerner ekstra tomt felt med tilhørede linje
                     .listStyle(InsetListStyle())
                     .listRowSeparator(.hidden)
                     .alert(title, isPresented: $isAlertActive) {
@@ -104,7 +93,7 @@ struct UserData: View {
                         ToolbarItem(placement: .navigationBarTrailing) {
                             ControlGroup {
                                 Button {
-                                    Task.init {
+                                    Task {
                                         indicatorShowing = true
                                         await refreshUsersIndexed()
                                         indicatorShowing = false
@@ -113,18 +102,16 @@ struct UserData: View {
                                     Text("Refresh")
                                 }
                             }
-                            .controlGroupStyle(.navigation)
                         }
                     })
                 } // ScrollViewReader
-//                .overlay(sectionIndexTitles(proxy: proxy,
-//                                            titles: sectionHeader))
+                .padding(.horizontal, UIDevice.isIpad ? 20 : 20)
             }
         } // NavigationView
         .searchable(text: $searchText, placement: .navigationBarDrawer, prompt: "Search firstName")
         .onChange(of: searchText.capitalized) { _, searchText in
             predicate = searchText.isEmpty ? NSPredicate(value: true) : NSPredicate(format: "firstName BEGINSWITH %@", searchText)
-            Task.init {
+            Task {
                 indicatorShowing = true
                 await refreshUsersIndexed()
                 indicatorShowing = false
@@ -133,10 +120,10 @@ struct UserData: View {
     }
     
     func refreshUsersIndexed() async {
-        /// Sletter alt tidligere innhold i userRecord
+        // Sletter alt tidligere innhold i userRecord
         userRecords.removeAll()
         sectionHeader.removeAll()
-        /// Fetch all userRecords  from CloudKit
+        // Fetch all userRecords  from CloudKit
         var value: (LocalizedStringKey, [UserRecord], [String])
         await value = findUserRecords()
         if value.0 != "" {
@@ -178,6 +165,4 @@ struct UserData: View {
 
         }
     }
-    
 }
-

@@ -73,7 +73,6 @@ import SwiftUI
 @MainActor
 
 struct PersonData: View {
-    
     @Environment(\.presentationMode) var presentationMode
     
     @State private var message: LocalizedStringKey = ""
@@ -119,46 +118,42 @@ struct PersonData: View {
     var body: some View {
         NavigationStack {
             VStack {
-                ActivityIndicator(isAnimating: $indicatorShowing, style: .medium, color: .gray)
+                if indicatorShowing {
+                    ActivityIndicator(isAnimating: $indicatorShowing, style: .medium, color: .gray)
+                }
                 ScrollView(showsIndicators: false) {
                     VStack(alignment: .leading) {
-                        ForEach(sectionHeader, id: \.self) { letter in
-                            ForEach(persons.filter {
-                                person -> Bool in
-                                person.firstName.prefix(1) == letter
-                            }) {
-                                person in
-                                if searchText == "" || person.firstName.uppercased().contains(searchText.uppercased()) {
-                                    NavigationLink(destination: PersonUpdateView(person: person)) {
-                                        VStack(alignment: .leading) {
-                                            PersonDetailView(person: person)
-                                            HStack(spacing: UIDevice.isIpad ? 60 : 30) {
-                                                PersonDetailMapView(person: person)
-                                                PersonDetailPhoneView(person: person)
-                                                PersonDetailMessageView(person: person)
-                                                PersonDetailMailView(person: person)
-                                                PersonDetailCabinView(person: person)
-                                            }
+                        ForEach(persons) { person in
+                            if searchText == "" || person.firstName.uppercased().contains(searchText.uppercased()) {
+                                NavigationLink(destination: PersonUpdateView(person: person)) {
+                                    VStack(alignment: .leading) {
+                                        PersonDetailView(person: person)
+                                        HStack(spacing: UIDevice.isIpad ? 60 : 30) {
+                                            PersonDetailMapView(person: person)
+                                            PersonDetailPhoneView(person: person)
+                                            PersonDetailMessageView(person: person)
+                                            PersonDetailMailView(person: person)
+                                            PersonDetailCabinView(person: person)
                                         }
-                                        .padding(.horizontal, 10)
                                     }
+                                    .padding(.horizontal, 10)
                                 }
                             }
-                            .onDelete { indexSet in
-                                indexSetDelete = indexSet
-                                recordID = persons[indexSet.first!].recordID
-                                persons.removeAll()
-                                Task {
-                                    await message = deletePerson(recordID!)
-                                    title = "Delete a person"
-                                    isAlertActive.toggle()
-                                    //
-                                    // Viser resten av personene
-                                    //
-                                    await refreshPersonsIndexed(predicate: predicate)
-                                }
+                        }
+                        .onDelete { indexSet in
+                            indexSetDelete = indexSet
+                            recordID = persons[indexSet.first!].recordID
+                            persons.removeAll()
+                            Task {
+                                await message = deletePerson(recordID!)
+                                title = "Delete a person"
+                                isAlertActive.toggle()
+                                //
+                                // Viser resten av personene
+                                //
+                                await refreshPersonsIndexed(predicate: predicate)
                             }
-                        } // ForEach(sectionHeader
+                        }
                         .padding(.bottom, 10)
                         .gradientGlass()
                     } // VStack
@@ -215,7 +210,7 @@ struct PersonData: View {
                         } label: {
                             Label("Refresh", systemImage: "square.and.pencil")
                         }
- 
+                        
                         Button {
                             menuShowNewPersonSheet.toggle()
                         } label: {
@@ -324,20 +319,20 @@ struct PersonData: View {
                     .sheet(isPresented: $menuUpdateUserRecordsFromJsonBackupFileView, content: {
                         updateUserRecordsFromJsonBackupFileView()
                     })
-                   
+                    
                     .sheet(isPresented: $menuBackupCabinsToJsonBackupFileView, content: {
                         backupCabinsToJsonBackupFileView()
                     })
-                   
+                    
                     .sheet(isPresented: $menuUpdateCabinsFromBackupFileView, content: {
                         updateCabinsFromJsonBackupFileView()
                     })
-
+                    
                     .sheet(isPresented: $menuShowNewPersonSheet, content: {
                         PersonNewView(person: person)
                     })
                 }
-                 
+                
             })
             .listStyle(.insetGrouped)
         }
@@ -376,17 +371,17 @@ struct PersonData: View {
     
     func startInternetTracking() {
         // Only fires once
-//        guard internetMonitor.pathUpdateHandler == nil else {
-//            return
-//        }
-//        internetMonitor.pathUpdateHandler = { update in
-//            if update.status == .satisfied {
-//                self.hasConnectionPath = true
-//            } else {
-//                self.hasConnectionPath = false
-//            }
-//        }
-//        internetMonitor.start(queue: internetQueue)
+        //        guard internetMonitor.pathUpdateHandler == nil else {
+        //            return
+        //        }
+        //        internetMonitor.pathUpdateHandler = { update in
+        //            if update.status == .satisfied {
+        //                self.hasConnectionPath = true
+        //            } else {
+        //                self.hasConnectionPath = false
+        //            }
+        //        }
+        //        internetMonitor.start(queue: internetQueue)
     }
     
     /// Will tell you if the device has an Internet connection

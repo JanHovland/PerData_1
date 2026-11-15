@@ -54,9 +54,9 @@ struct UserRecordDetailView: View {
             }
             .padding(.top, 70)
             .padding(.bottom, 40)
-            .sheet(isPresented: $showImage, content: {
-                ImagePicker(sourceType: .photoLibrary, selectedImage: $image, image: $userRecord.image)
-            })
+//            .sheet(isPresented: $showImage, content: {
+//                ImagePicker(sourceType: .photoLibrary, selectedImage: $image, image: $userRecord.image)
+//            })
             VStack {
                 HStack {
                     Text("FirstName")
