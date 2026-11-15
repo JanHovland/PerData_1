@@ -74,6 +74,7 @@
 		DBE25B6D270C55C500AE255B /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBE25B6C270C55C500AE255B /* CloudKit.framework */; };
 		DBE25B6F270C566000AE255B /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE25B6E270C566000AE255B /* Config.swift */; };
 		DBECA57230AA126E00CEC799 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBECA57130AA126E00CEC799 /* UserData.swift */; };
+		DBECA57430AA1BC000CEC799 /* PersonOverviewIndexed.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBECA57330AA1BC000CEC799 /* PersonOverviewIndexed.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -147,6 +148,7 @@
 		DBE25B6C270C55C500AE255B /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		DBE25B6E270C566000AE255B /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		DBECA57130AA126E00CEC799 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		DBECA57330AA1BC000CEC799 /* PersonOverviewIndexed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonOverviewIndexed.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -400,6 +402,7 @@
 			isa = PBXGroup;
 			children = (
 				DB64C0302755324F004709C4 /* UserRecordOverViewIndexed.swift */,
+				DBECA57330AA1BC000CEC799 /* PersonOverviewIndexed.swift */,
 			);
 			path = Indexed;
 			sourceTree = "<group>";
@@ -516,6 +519,7 @@
 				DB4BBA2C274BB4A200771D7A /* UserRecordDetailView.swift in Sources */,
 				DBC9041F273FFF740043DAC3 /* MakeAttributedString.swift in Sources */,
 				DB81CA66274263F700E69D57 /* PersonDetailMapView.swift in Sources */,
+				DBECA57430AA1BC000CEC799 /* PersonOverviewIndexed.swift in Sources */,
 				DB81CA682742665700E69D57 /* PersonDetailPhoneView.swift in Sources */,
 				DB64C03727569172004709C4 /* PersonData.swift in Sources */,
 				DB81CA7D2742765A00E69D57 /* Hud.swift in Sources */,
