@@ -1,5 +1,5 @@
 //
-//  PerDataIndexed.swift
+//  PersonData.swift
 //  PerData
 //
 //  Created by Jan Hovland on 30/11/2021.
@@ -72,7 +72,7 @@ import SwiftUI
 
 @MainActor
 
-struct PerDataIndexed: View {
+struct PersonData: View {
     
     @Environment(\.presentationMode) var presentationMode
     
@@ -316,8 +316,7 @@ struct PerDataIndexed: View {
                         backupPersonsToJsonBackupFileView()
                     })
                     .sheet(isPresented: $menuUserRecordView, content: {
-                        //                        userRecordOverView()
-                        userRecordOverViewIndexed()
+                        UserData()
                     })
                     .sheet(isPresented: $menuBackupUserRecordsToJsonBackupFileView, content: {
                         backupUserRecordsToJsonBackupFileView()

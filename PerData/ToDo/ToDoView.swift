@@ -143,14 +143,9 @@ struct toDoView: View {
      45. 🔴 Legge inn personer som mangler
             🔴 .
      46. 🔴 Rette opp i !indexed.
-            🔴 .sheet(isPresented: $menuUserRecordView, content: {
-                            //                        userRecordOverView()
-                            userRecordOverViewIndexed()
-                        })
-    
-            🔴  .fullScreenCover(isPresented: $runPerDataIndexed, content: {
-                        PerDataIndexed()
-                    })
+            🔴 userRecordOverViewIndexed() -> mappe Indexed
+               🔴 Kopier userRecordOverViewIndexed() -> UserData() 
+            🔴 PerDataIndexed() -> PersonData
      47. 🔴 .
             🔴 .
      48 🔴 .

@@ -25,7 +25,7 @@
 		DB587898275E3634004C4F65 /* PersonBirthdayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB587897275E3634004C4F65 /* PersonBirthdayView.swift */; };
 		DB64C0312755324F004709C4 /* UserRecordOverViewIndexed.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB64C0302755324F004709C4 /* UserRecordOverViewIndexed.swift */; };
 		DB64C033275536A2004709C4 /* IndexedTableViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB64C032275536A2004709C4 /* IndexedTableViewHelper.swift */; };
-		DB64C03727569172004709C4 /* PerDataIndexed.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB64C03627569172004709C4 /* PerDataIndexed.swift */; };
+		DB64C03727569172004709C4 /* PersonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB64C03627569172004709C4 /* PersonData.swift */; };
 		DB759E162CBD6A9D00DB67E8 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB759E152CBD6A8E00DB67E8 /* Extension.swift */; };
 		DB7758062CC23C20007BE940 /* inputDeath.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7758052CC23C20007BE940 /* inputDeath.swift */; };
 		DB81CA66274263F700E69D57 /* PersonDetailMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB81CA65274263F700E69D57 /* PersonDetailMapView.swift */; };
@@ -73,6 +73,7 @@
 		DBE25B64270C556400AE255B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBE25B63270C556400AE255B /* Preview Assets.xcassets */; };
 		DBE25B6D270C55C500AE255B /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBE25B6C270C55C500AE255B /* CloudKit.framework */; };
 		DBE25B6F270C566000AE255B /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE25B6E270C566000AE255B /* Config.swift */; };
+		DBECA57230AA126E00CEC799 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBECA57130AA126E00CEC799 /* UserData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -95,7 +96,7 @@
 		DB587897275E3634004C4F65 /* PersonBirthdayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonBirthdayView.swift; sourceTree = "<group>"; };
 		DB64C0302755324F004709C4 /* UserRecordOverViewIndexed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRecordOverViewIndexed.swift; sourceTree = "<group>"; };
 		DB64C032275536A2004709C4 /* IndexedTableViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexedTableViewHelper.swift; sourceTree = "<group>"; };
-		DB64C03627569172004709C4 /* PerDataIndexed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerDataIndexed.swift; sourceTree = "<group>"; };
+		DB64C03627569172004709C4 /* PersonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonData.swift; sourceTree = "<group>"; };
 		DB759E152CBD6A8E00DB67E8 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		DB7758052CC23C20007BE940 /* inputDeath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inputDeath.swift; sourceTree = "<group>"; };
 		DB81CA65274263F700E69D57 /* PersonDetailMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailMapView.swift; sourceTree = "<group>"; };
@@ -145,6 +146,7 @@
 		DBE25B6A270C55B500AE255B /* PerData.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PerData.entitlements; sourceTree = "<group>"; };
 		DBE25B6C270C55C500AE255B /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		DBE25B6E270C566000AE255B /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		DBECA57130AA126E00CEC799 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -189,9 +191,9 @@
 		DB4BBA2227457D6D00771D7A /* UserRecord */ = {
 			isa = PBXGroup;
 			children = (
+				DBECA57130AA126E00CEC799 /* UserData.swift */,
 				DB4BBA2B274BB4A200771D7A /* UserRecordDetailView.swift */,
 				DB4BBA2327457D8E00771D7A /* UserRecordOverView.swift */,
-				DB64C0302755324F004709C4 /* UserRecordOverViewIndexed.swift */,
 			);
 			path = UserRecord;
 			sourceTree = "<group>";
@@ -208,7 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				DBE25B5C270C556200AE255B /* PerDataApp.swift */,
-				DB64C03627569172004709C4 /* PerDataIndexed.swift */,
+				DB64C03627569172004709C4 /* PersonData.swift */,
 				DB587897275E3634004C4F65 /* PersonBirthdayView.swift */,
 				DB81CA742742751900E69D57 /* PersonDetailCabinView.swift */,
 				DB81CA6D274273D300E69D57 /* PersonDetailMailView.swift */,
@@ -349,6 +351,7 @@
 		DBE25B5B270C556200AE255B /* PerData */ = {
 			isa = PBXGroup;
 			children = (
+				DBECA57030AA0FD900CEC799 /* Indexed */,
 				DBE25B60270C556400AE255B /* Assets.xcassets */,
 				DB81CA762742755D00E69D57 /* Cabin */,
 				DBA02DCC273070A00090D36C /* Cloud Helper */,
@@ -391,6 +394,14 @@
 				DBE25B6C270C55C500AE255B /* CloudKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DBECA57030AA0FD900CEC799 /* Indexed */ = {
+			isa = PBXGroup;
+			children = (
+				DB64C0302755324F004709C4 /* UserRecordOverViewIndexed.swift */,
+			);
+			path = Indexed;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -477,6 +488,7 @@
 				DBB952AF275221AD009A0181 /* UpdateUserRecordsFromJsonBackupFile.swift in Sources */,
 				DB3AA39D27392D65008B2FDF /* UpdatePersonsFromJsonBackupFileView.swift in Sources */,
 				DB81CA6E274273D300E69D57 /* PersonDetailMailView.swift in Sources */,
+				DBECA57230AA126E00CEC799 /* UserData.swift in Sources */,
 				DB8476E1270F6742007D3E18 /* Person.swift in Sources */,
 				DBB366AD274E6C39001CB47A /* BackupPersonsToJsonBackupFileView.swift in Sources */,
 				DB0AD89F275185D600A3F8C3 /* BackupUserRecordsToJsonBackupFileView.swift in Sources */,
@@ -505,7 +517,7 @@
 				DBC9041F273FFF740043DAC3 /* MakeAttributedString.swift in Sources */,
 				DB81CA66274263F700E69D57 /* PersonDetailMapView.swift in Sources */,
 				DB81CA682742665700E69D57 /* PersonDetailPhoneView.swift in Sources */,
-				DB64C03727569172004709C4 /* PerDataIndexed.swift in Sources */,
+				DB64C03727569172004709C4 /* PersonData.swift in Sources */,
 				DB81CA7D2742765A00E69D57 /* Hud.swift in Sources */,
 				DB8476DD270EE534007D3E18 /* CloudKitPerson.swift in Sources */,
 				DBDEACAE273663B7003CA322 /* SwiftActivityIndicator.swift in Sources */,

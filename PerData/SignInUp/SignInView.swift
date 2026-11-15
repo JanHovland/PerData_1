@@ -186,7 +186,7 @@ struct SignInView: View {
                 .padding(.top, 30)
                 .padding(.bottom, 50)
                 .fullScreenCover(isPresented: $runPerDataIndexed, content: {
-                    PerDataIndexed()
+                    PersonData()
                 })
                 .fullScreenCover(isPresented: $runSignUpView, content: {
                     SignUpView()
