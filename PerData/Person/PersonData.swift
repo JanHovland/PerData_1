@@ -166,27 +166,9 @@ struct PersonData: View {
                 Text(message)
             }
             .task {
-                startInternetTracking()
-                //
-                // Må legge inn en forsinkelse fordi
-                // usleep() takes millionths of a second
-                usleep(500000) // 0.5 S
-                if hasInternet() == false {
-                    if UIDevice.current.localizedModel == "iPhone" {
-                        device = "iPhone"
-                    } else if UIDevice.current.localizedModel == "iPad" {
-                        device = "iPad"
-                    }
-                    title = device
-                    message = "No Internet connection for this device."
-                    isAlertActive.toggle()
-                } else {
-                    if persons.count == 0 {
-                        indicatorShowing = true
-                        await refreshPersonsIndexed(predicate: predicate)
-                        indicatorShowing = false
-                    }
-                }
+                indicatorShowing = true
+                await refreshPersonsIndexed(predicate: predicate)
+                indicatorShowing = false
             }
             .navigationBarTitle("PersonOverView", displayMode: .inline)
             .toolbar(content: {
@@ -369,24 +351,4 @@ struct PersonData: View {
         }
     }
     
-    func startInternetTracking() {
-        // Only fires once
-        //        guard internetMonitor.pathUpdateHandler == nil else {
-        //            return
-        //        }
-        //        internetMonitor.pathUpdateHandler = { update in
-        //            if update.status == .satisfied {
-        //                self.hasConnectionPath = true
-        //            } else {
-        //                self.hasConnectionPath = false
-        //            }
-        //        }
-        //        internetMonitor.start(queue: internetQueue)
-    }
-    
-    /// Will tell you if the device has an Internet connection
-    /// - Returns: true if there is some kind of connection
-    func hasInternet() -> Bool {
-        return true // hasConnectionPath
-    }
 }

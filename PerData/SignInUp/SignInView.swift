@@ -40,10 +40,12 @@ struct SignInView: View {
     @State private var indicatorShowing = false
     @State private var image = UIImage()
     
+    @State private var hasInternet: Bool = false
+    
     var body: some View {
         
         VStack (alignment: .center) {
-            if hasInternet() == true {
+            if hasInternet {
                 HeadingView(heading: "Sign in CloudKit")
                 HStack {
                     if userRecord.image != nil {
@@ -185,30 +187,31 @@ struct SignInView: View {
                 }
                 .padding(.top, 30)
                 .padding(.bottom, 50)
-                .fullScreenCover(isPresented: $runPerDataIndexed, content: {
+                .sheet(isPresented: $runPerDataIndexed, content: {
                     PersonData()
                 })
-                .fullScreenCover(isPresented: $runSignUpView, content: {
+                .sheet(isPresented: $runSignUpView, content: {
                     SignUpView()
                 })
             }
         }
         
+        .sheet(isPresented: $runSignUpView, content: {
+            SignUpView()
+        })
+        
         .task {
-            startInternetTracking()
             ///
-            /// Må legge inn en forsinkelse fordi
-            /// usleep() takes millionths of a second
-            usleep(500000) /// 0.50 S
-            if UIDevice.current.localizedModel == "iPhone" {
-                device = "iPhone"
-            } else if UIDevice.current.localizedModel == "iPad" {
-                device = "iPad"
-            }
-            if hasInternet() == false {
-                title = device
-                message = "No Internet connection for this device."
+            /// Sjekker om internet er tilkoplet:
+            ///
+            var value: (Bool, LocalizedStringKey)
+            value = ConnectToInternet()
+            if value.0 == false {
+                title = value.1
+                message = LocalizedStringKey("\(String(localized: "No Internet connection for this device."))\(String(localized: "SignInView closes."))")
                 isAlertActive.toggle()
+            } else {
+                hasInternet = true
             }
         }
         .alert(title, isPresented: $isAlertActive) {
@@ -216,27 +219,6 @@ struct SignInView: View {
         } message: {
             Text(message)
         }
-    }
-    
-    func startInternetTracking() {
-        // Only fires once
-        guard internetMonitor.pathUpdateHandler == nil else {
-            return
-        }
-        internetMonitor.pathUpdateHandler = { update in
-            if update.status == .satisfied {
-                self.hasConnectionPath = true
-            } else {
-                self.hasConnectionPath = false
-            }
-        }
-        internetMonitor.start(queue: internetQueue)
-    }
-    
-    /// Will tell you if the device has an Internet connection
-    /// - Returns: true if there is some kind of connection
-    func hasInternet() -> Bool {
-        return hasConnectionPath
     }
 }
 
@@ -253,4 +235,43 @@ struct HeadingView: View {
     }
 }
 
+func ConnectToInternet() -> (Bool, LocalizedStringKey) {
+    var hasConnectionPath = false
 
+    let internetMonitor = NWPathMonitor()
+    let internetQueue = DispatchQueue(label: "InternetMonitor")
+
+    var device: LocalizedStringKey = ""
+    ///
+    /// Only fires once:
+    ///
+    guard internetMonitor.pathUpdateHandler == nil else {
+        return (hasConnectionPath, device)
+    }
+    internetMonitor.pathUpdateHandler = { update in
+        if update.status == .satisfied {
+            hasConnectionPath = true
+        } else {
+            hasConnectionPath = false
+        }
+    }
+    internetMonitor.start(queue: internetQueue)
+    ///
+    /// Legger inn en forsinkelse på 0.25 sekund
+    /// Uten denne, kan det komme melding selv om Internett er tilhjengelig
+    usleep(25000) /// 0.25
+    #if os(iOS)
+        if hasConnectionPath == false {
+            if UIDevice.current.localizedModel == "iPhone" {
+                device = "iPhone"
+            } else if UIDevice.current.localizedModel == "iPad" {
+                device = "iPad"
+            }
+        }
+    #elseif os(macOS)
+        if hasConnectionPath == false {
+            device = "iMac"
+        }
+    #endif
+    return (hasConnectionPath, device)
+}

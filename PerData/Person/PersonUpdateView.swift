@@ -81,46 +81,97 @@ struct PersonUpdateView: View {
                     ImagePicker(sourceType: .photoLibrary, selectedImage: $image, image: $person.image)
                 })
                 
-                HStack (spacing: 30) {
-                    Text("FirstName")
-                    TextField("FirstName", text: $person.firstName)
-                    Spacer()
-                }
-                .padding(.leading, 10)
+                Grid {
+                    GridRow {
+                        Text("FirstName")
+                            .bold()
+                        TextField("FirstName", text: $person.firstName)
+                            .padding(.leading, 15)
+                    }
+                    .gridColumnAlignment(.leading)
+
+                    GridRow {
+                        Text("LastName")
+                            .bold()
+                        TextField("LastName", text: $person.lastName)
+                            .padding(.leading, 15)
+                    }
+                    .gridColumnAlignment(.leading)
                 
-                HStack (spacing: 30) {
-                    Text("LastName")
-                    TextField("LastName", text: $person.lastName)
-                    Spacer()
+                    GridRow {
+                        Text("Email")
+                            .bold()
+                        TextField("Email", text: $person.personEmail)
+                            .keyboardType(.emailAddress)
+                            .autocapitalization(.none)
+                            .padding(.leading, 15)
+                    }
+                    .gridColumnAlignment(.leading)
+
+                    GridRow {
+                        Text("Address")
+                            .bold()
+                        TextField("Address", text: $person.address)
+                            .autocapitalization(.words)
+                            .padding(.leading, 15)
+                    }
+                    .gridColumnAlignment(.leading)
+
+                    GridRow {
+                        Text("Phonenumber")
+                            .bold()
+                        TextField("Phonenumber", text: $person.phoneNumber)
+                            .padding(.leading, 15)
+                    }
+                    .gridColumnAlignment(.leading)
+                    
                 }
-                .padding(.leading, 10)
                 
-                /// Returning an integer 0 == "Man" 1 == "Women
                 InputGender(heading: String(localized: "Gender"),
-                            genders: genders,
-                            value: $person.gender)
+                                    genders: genders,
+                                    value: $person.gender)
+                                
+//                HStack (spacing: 30) {
+//                    Text("FirstName")
+//                    TextField("FirstName", text: $person.firstName)
+//                        .frame(maxWidth: .infinity)
+//                    Spacer()
+//                }
+//                .padding(.leading, 10)
+//                
+//                HStack (spacing: 30) {
+//                    Text("LastName")
+//                    TextField("LastName", text: $person.lastName)
+//                    Spacer()
+//                }
+//                .padding(.leading, 10)
                 
-                HStack (spacing: 30) {
-                    Text("Email")
-                    TextField("Email", text: $person.personEmail)
-                        .keyboardType(.emailAddress)
-                        .autocapitalization(.none)
-                }
-                .padding(.leading, 10)
+//                /// Returning an integer 0 == "Man" 1 == "Women
+//                InputGender(heading: String(localized: "Gender"),
+//                            genders: genders,
+//                            value: $person.gender)
                 
-                HStack (spacing: 30) {
-                    Text("Address")
-                    TextField("Address", text: $person.address)
-                        .autocapitalization(.words)
-                }
-                .padding(.leading, 10)
+//                HStack (spacing: 30) {
+//                    Text("Email")
+//                    TextField("Email", text: $person.personEmail)
+//                        .keyboardType(.emailAddress)
+//                        .autocapitalization(.none)
+//                }
+//                .padding(.leading, 10)
+                
+//                HStack (spacing: 30) {
+//                    Text("Address")
+//                    TextField("Address", text: $person.address)
+//                        .autocapitalization(.words)
+//                }
+//                .padding(.leading, 10)
             }
             Group {
-                HStack (spacing: 30) {
-                    Text("Phonenumber")
-                    TextField("Phonenumber", text: $person.phoneNumber)
-                }
-                .padding(.leading, 10)
+//                HStack (spacing: 30) {
+//                    Text("Phonenumber")
+//                    TextField("Phonenumber", text: $person.phoneNumber)
+//                }
+//                .padding(.leading, 10)
                 
                 HStack (alignment: .center, spacing: 10) {
                     TextField("Citynumber", text: $person.cityNumber)
