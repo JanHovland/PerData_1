@@ -42,7 +42,7 @@ struct PersonUpdateView: View {
                  String(localized: "Yes")]
     
     var body: some View {
-        VStack {
+        VStack (spacing: 10) {
             
             ///
             /// VStack kan kun inneholde 10 elementer,
@@ -89,7 +89,7 @@ struct PersonUpdateView: View {
                             .padding(.leading, 15)
                     }
                     .gridColumnAlignment(.leading)
-
+                    
                     GridRow {
                         Text("LastName")
                             .bold()
@@ -97,7 +97,7 @@ struct PersonUpdateView: View {
                             .padding(.leading, 15)
                     }
                     .gridColumnAlignment(.leading)
-                
+                    
                     GridRow {
                         Text("Email")
                             .bold()
@@ -107,7 +107,7 @@ struct PersonUpdateView: View {
                             .padding(.leading, 15)
                     }
                     .gridColumnAlignment(.leading)
-
+                    
                     GridRow {
                         Text("Address")
                             .bold()
@@ -116,7 +116,7 @@ struct PersonUpdateView: View {
                             .padding(.leading, 15)
                     }
                     .gridColumnAlignment(.leading)
-
+                    
                     GridRow {
                         Text("Phonenumber")
                             .bold()
@@ -125,12 +125,52 @@ struct PersonUpdateView: View {
                     }
                     .gridColumnAlignment(.leading)
                     
+                    GridRow {
+                        Text("Gender")
+                            .bold()
+                        GenderPicker(
+                            selection: Binding<Gender>(
+                                get: {
+                                    // Map stored Int to Gender enum (default to .male)
+                                    switch person.gender {
+                                    case 1: return .female
+                                    default: return .male
+                                    }
+                                },
+                                set: { newValue in
+                                    // Map Gender enum back to stored Int
+                                    switch newValue {
+                                    case .male: person.gender = 0
+                                    case .female: person.gender = 1
+                                    }
+                                }
+                            )
+                        )
+                        .padding(.leading, 15)
+                    }
+                    .gridColumnAlignment(.leading)
+                    .padding(.top, 2.5)
+                    
+                    GridRow {
+                        Text("Alive")
+                            .bold()
+                        DeceasedPicker(
+                            isDeceased: Binding<Bool>(
+                                get: {
+                                    return person.dead == 1
+                                },
+                                set: { newValue in
+                                    person.dead = newValue ? 1 : 0
+                                }
+                            )
+                        )
+                        .padding(.leading, 15)
+                    }
+                    .gridColumnAlignment(.leading)
+                    .padding(.top, 2.5)
+                    
                 }
-                
-                InputGender(heading: String(localized: "Gender"),
-                                    genders: genders,
-                                    value: $person.gender)
-                                
+                    
 //                HStack (spacing: 30) {
 //                    Text("FirstName")
 //                    TextField("FirstName", text: $person.firstName)
@@ -196,10 +236,10 @@ struct PersonUpdateView: View {
                     })
                 .padding(.leading, 10)
                 
-                InputDeath(heading: String(localized: "Dead"),
-                           death: death,
-                           value: $person.dead)
-                .padding(.leading, 10)
+//                InputDeath(heading: String(localized: "Dead"),
+//                           death: death,
+//                           value: $person.dead)
+//                .padding(.leading, 10)
                 
             }
             Spacer()
@@ -259,4 +299,67 @@ struct PersonUpdateView: View {
 }
 
 
+enum Gender: String, CaseIterable, Identifiable {
+    case male = "Mann"
+    case female = "Kvinne"
+
+    var id: Self { self }
+}
+
+struct GenderPicker: View {
+
+    @Binding var selection: Gender
+
+    var body: some View {
+        
+       
+        HStack(spacing: 12) {
+
+            ForEach(Gender.allCases) { item in
+
+                Button {
+                    selection = item
+                } label: {
+                    HStack(spacing: 10) {
+
+                        Image(systemName:
+                            selection == item
+                            ? "largecircle.fill.circle"
+                            : "circle"
+                        )
+                        .foregroundStyle(.blue)
+
+                        Text(item.rawValue)
+                            .foregroundStyle(.primary)
+                    }
+                }
+                .buttonStyle(.plain)
+            }
+            
+        }
+    }
+}
+
+struct DeceasedPicker: View {
+    
+    @Binding var isDeceased: Bool
+    
+    var body: some View {
+        Button {
+            isDeceased.toggle()
+        } label: {
+            Label {
+                Text("Død")
+            } icon: {
+                Image(systemName:
+                        isDeceased
+                      ? "checkmark.square.fill"
+                      : "square"
+                )
+                .foregroundStyle(.blue)
+            }
+        }
+        .buttonStyle(.plain)
+    }
+}
 

@@ -49,7 +49,6 @@
 		DB9B09B127428AA000160195 /* CabinOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9B09B027428AA000160195 /* CabinOverView.swift */; };
 		DB9B09B32742F6B500160195 /* CloudCabinHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9B09B22742F6B500160195 /* CloudCabinHelper.swift */; };
 		DBA02DC7272E8FDA0090D36C /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA02DC6272E8FDA0090D36C /* ImagePicker.swift */; };
-		DBA02DC9272FD1DF0090D36C /* InputGender.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA02DC8272FD1DF0090D36C /* InputGender.swift */; };
 		DBA02DD22731AA120090D36C /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA02DD12731AA120090D36C /* ViewModifiers.swift */; };
 		DBB366AD274E6C39001CB47A /* BackupPersonsToJsonBackupFileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB366AC274E6C39001CB47A /* BackupPersonsToJsonBackupFileView.swift */; };
 		DBB366AF274E6CB3001CB47A /* BackupPersonsToJsonBackupFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB366AE274E6CB3001CB47A /* BackupPersonsToJsonBackupFile.swift */; };
@@ -121,7 +120,6 @@
 		DB9B09B027428AA000160195 /* CabinOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CabinOverView.swift; sourceTree = "<group>"; };
 		DB9B09B22742F6B500160195 /* CloudCabinHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudCabinHelper.swift; sourceTree = "<group>"; };
 		DBA02DC6272E8FDA0090D36C /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
-		DBA02DC8272FD1DF0090D36C /* InputGender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputGender.swift; sourceTree = "<group>"; };
 		DBA02DD12731AA120090D36C /* ViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifiers.swift; sourceTree = "<group>"; };
 		DBB366AC274E6C39001CB47A /* BackupPersonsToJsonBackupFileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupPersonsToJsonBackupFileView.swift; sourceTree = "<group>"; };
 		DBB366AE274E6CB3001CB47A /* BackupPersonsToJsonBackupFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupPersonsToJsonBackupFile.swift; sourceTree = "<group>"; };
@@ -305,7 +303,6 @@
 			isa = PBXGroup;
 			children = (
 				DBA02DC6272E8FDA0090D36C /* ImagePicker.swift */,
-				DBA02DC8272FD1DF0090D36C /* InputGender.swift */,
 				DBC9041E273FFF740043DAC3 /* MakeAttributedString.swift */,
 				DBDEACAD273663B7003CA322 /* SwiftActivityIndicator.swift */,
 				DB64C032275536A2004709C4 /* IndexedTableViewHelper.swift */,
@@ -504,7 +501,6 @@
 				DB4BBA2427457D8E00771D7A /* UserRecordOverView.swift in Sources */,
 				DBCE88902754126C006E6E35 /* UpdateCabinsFromJsonBackupFileView.swift in Sources */,
 				DB90614C273A826300BF9779 /* CloudKitErrorString.swift in Sources */,
-				DBA02DC9272FD1DF0090D36C /* InputGender.swift in Sources */,
 				DB975F222753E0F700A6BC4B /* BackupCabinsToJsonBackupFile.swift in Sources */,
 				DB81CA732742748000E69D57 /* MailView.swift in Sources */,
 				DB0708EF27293D66001B3BBA /* PersonNewView.swift in Sources */,

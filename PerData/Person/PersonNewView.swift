@@ -113,9 +113,27 @@ struct PersonNewView: View {
                     )
                     .padding(.leading, 10)
                     // Returning an integer 0 == "Man" 1 == "Women
-                    InputGender(heading: "Gender",
-                                genders: genders,
-                                value: $person.gender)
+                    
+                    GenderPicker(
+                        selection: Binding<Gender>(
+                            get: {
+                                // Map stored Int to Gender enum (default to .male)
+                                switch person.gender {
+                                case 1: return .female
+                                default: return .male
+                                }
+                            },
+                            set: { newValue in
+                                // Map Gender enum back to stored Int
+                                switch newValue {
+                                case .male: person.gender = 0
+                                case .female: person.gender = 1
+                                }
+                            }
+                        )
+                    )
+                    
+                    
                 }
                 Spacer()
             }
