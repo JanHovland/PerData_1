@@ -5,18 +5,17 @@
 //  Created by Jan Hovland on 27/10/2021.
 //
 
-import SwiftUI
 import CloudKit
+import SwiftUI
 
-///
-/// https://www.simpleswiftguide.com/swiftui-textfield-complete-tutorial/
-/// https://www.hackingwithswift.com/articles/216/complete-guide-to-navigationview-in-swiftui
-///
+//
+// https://www.simpleswiftguide.com/swiftui-textfield-complete-tutorial/
+// https://www.hackingwithswift.com/articles/216/complete-guide-to-navigationview-in-swiftui
+//
 
 struct PersonUpdateView: View {
-    
-    /// Denne kalles via NavigationLink i PerData som innholder automatisk retur.
-    /// Derfor må det ikke legge inn NavigationView.
+    // Denne kalles via NavigationLink i PerData som innholder automatisk retur.
+    // Derfor må det ikke legge inn NavigationView.
     
     @State var person: Person
     @State private var message: LocalizedStringKey = ""
@@ -42,15 +41,14 @@ struct PersonUpdateView: View {
                  String(localized: "Yes")]
     
     var body: some View {
-        VStack (spacing: 10) {
-            
-            ///
-            /// VStack kan kun inneholde 10 elementer,
-            /// derfor må Group benyttes
-            
+        VStack(spacing: 10) {
+            //
+            // VStack kan kun inneholde 10 elementer,
+            // derfor må Group benyttes
+            //
             Group {
                 ZStack {
-                    if  person.image != nil {
+                    if person.image != nil {
                         Image(uiImage: person.image!)
                             .resizable()
                             .frame(width: 80, height: 80, alignment: .center)
@@ -82,6 +80,25 @@ struct PersonUpdateView: View {
                 })
                 
                 Grid {
+                    
+                    GridRow {
+                        Text("Alive")
+                            .bold()
+                        DeceasedPicker(
+                            isDeceased: Binding<Bool>(
+                                get: {
+                                    person.dead == 1
+                                },
+                                set: { newValue in
+                                    person.dead = newValue ? 1 : 0
+                                }
+                            )
+                        )
+                        .padding(.leading, 15)
+                    }
+                    .gridColumnAlignment(.leading)
+                    .padding(.top, 2.5)
+                    
                     GridRow {
                         Text("FirstName")
                             .bold()
@@ -150,69 +167,10 @@ struct PersonUpdateView: View {
                     }
                     .gridColumnAlignment(.leading)
                     .padding(.top, 2.5)
-                    
-                    GridRow {
-                        Text("Alive")
-                            .bold()
-                        DeceasedPicker(
-                            isDeceased: Binding<Bool>(
-                                get: {
-                                    return person.dead == 1
-                                },
-                                set: { newValue in
-                                    person.dead = newValue ? 1 : 0
-                                }
-                            )
-                        )
-                        .padding(.leading, 15)
-                    }
-                    .gridColumnAlignment(.leading)
-                    .padding(.top, 2.5)
-                    
                 }
-                    
-//                HStack (spacing: 30) {
-//                    Text("FirstName")
-//                    TextField("FirstName", text: $person.firstName)
-//                        .frame(maxWidth: .infinity)
-//                    Spacer()
-//                }
-//                .padding(.leading, 10)
-//                
-//                HStack (spacing: 30) {
-//                    Text("LastName")
-//                    TextField("LastName", text: $person.lastName)
-//                    Spacer()
-//                }
-//                .padding(.leading, 10)
-                
-//                /// Returning an integer 0 == "Man" 1 == "Women
-//                InputGender(heading: String(localized: "Gender"),
-//                            genders: genders,
-//                            value: $person.gender)
-                
-//                HStack (spacing: 30) {
-//                    Text("Email")
-//                    TextField("Email", text: $person.personEmail)
-//                        .keyboardType(.emailAddress)
-//                        .autocapitalization(.none)
-//                }
-//                .padding(.leading, 10)
-                
-//                HStack (spacing: 30) {
-//                    Text("Address")
-//                    TextField("Address", text: $person.address)
-//                        .autocapitalization(.words)
-//                }
-//                .padding(.leading, 10)
             }
+
             Group {
-//                HStack (spacing: 30) {
-//                    Text("Phonenumber")
-//                    TextField("Phonenumber", text: $person.phoneNumber)
-//                }
-//                .padding(.leading, 10)
-                
                 HStack (alignment: .center, spacing: 10) {
                     TextField("Citynumber", text: $person.cityNumber)
                         .keyboardType(.numberPad)
@@ -226,21 +184,23 @@ struct PersonUpdateView: View {
                         .autocapitalization(.none)
                         .autocapitalization(.words)
                 }
-                
-                DatePicker(
-                    selection: $person.dateOfBirth,
-                    // in: ...dato,                  /// Uten in: -> ingen begrensning på datoutvalg
-                    displayedComponents: [.date],
-                    label: {
-                        Text("Date of birth")
-                    })
-                .padding(.leading, 10)
-                
-//                InputDeath(heading: String(localized: "Dead"),
-//                           death: death,
-//                           value: $person.dead)
-//                .padding(.leading, 10)
-                
+                Grid {
+                    GridRow {
+                        HStack {
+                             DatePicker(
+                                selection: $person.dateOfBirth,
+                                in: ...Date(),
+                                displayedComponents: [.date],
+                                label: {
+                                    Text("Date of birth")
+                                }
+                            )
+                            Spacer()
+                        }
+                        .padding(.trailing, UIDevice.isIpad ? 275 : 100)
+                    }
+                    .gridColumnAlignment(.leading)
+                 }
             }
             Spacer()
         }
@@ -291,43 +251,37 @@ struct PersonUpdateView: View {
             }
         }
         .alert(title, isPresented: $isAlertActive) {
-            Button("OK", action: {presentationMode.wrappedValue.dismiss()})
+            Button("OK", action: { presentationMode.wrappedValue.dismiss() })
         } message: {
             Text(message)
         }
     }
 }
 
-
 enum Gender: String, CaseIterable, Identifiable {
     case male = "Mann"
     case female = "Kvinne"
 
-    var id: Self { self }
+    var id: Self {
+        self
+    }
 }
 
 struct GenderPicker: View {
-
     @Binding var selection: Gender
 
     var body: some View {
-        
-       
         HStack(spacing: 12) {
-
             ForEach(Gender.allCases) { item in
-
                 Button {
                     selection = item
                 } label: {
                     HStack(spacing: 10) {
-
                         Image(systemName:
                             selection == item
-                            ? "largecircle.fill.circle"
-                            : "circle"
-                        )
-                        .foregroundStyle(.blue)
+                                ? "largecircle.fill.circle"
+                                : "circle")
+                            .foregroundStyle(.blue)
 
                         Text(item.rawValue)
                             .foregroundStyle(.primary)
@@ -335,13 +289,11 @@ struct GenderPicker: View {
                 }
                 .buttonStyle(.plain)
             }
-            
         }
     }
 }
 
 struct DeceasedPicker: View {
-    
     @Binding var isDeceased: Bool
     
     var body: some View {
@@ -352,14 +304,12 @@ struct DeceasedPicker: View {
                 Text("Død")
             } icon: {
                 Image(systemName:
-                        isDeceased
-                      ? "checkmark.square.fill"
-                      : "square"
-                )
-                .foregroundStyle(.blue)
+                    isDeceased
+                        ? "checkmark.square.fill"
+                        : "square")
+                    .foregroundStyle(.blue)
             }
         }
         .buttonStyle(.plain)
     }
 }
-
