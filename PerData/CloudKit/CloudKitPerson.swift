@@ -42,7 +42,16 @@ struct CloudKitPerson {
         personRecord["municipalityNumber"] = person.municipalityNumber
         personRecord["municipality"] = person.municipality
         personRecord["dateOfBirth"] = person.dateOfBirth
-        personRecord["dateMonthDay"] = person.dateMonthDay
+        
+        ///
+        /// Må oppdatere person.dateMonthDay ut fra person.dateOfBirth
+        ///
+        
+        let dateMonthDay = FormatDateToString(date: person.dateOfBirth,
+                                              format: "MMdd",
+                                              timeZoneIdentifier: "Europe/Oslo")
+        
+        personRecord["dateMonthDay"] = dateMonthDay
         personRecord["gender"] = person.gender
         personRecord["dead"] = person.dead
 
@@ -190,7 +199,16 @@ struct CloudKitPerson {
             personRecord["municipalityNumber"] = person.municipalityNumber
             personRecord["municipality"] = person.municipality
             personRecord["dateOfBirth"] = person.dateOfBirth
-            personRecord["dateMonthDay"] = person.dateMonthDay
+            
+            ///
+            /// Må oppdatere person.dateMonthDay ut fra person.dateOfBirth
+            ///
+            
+            let dateMonthDay = FormatDateToString(date: person.dateOfBirth,
+                                                  format: "MMdd",
+                                                  timeZoneIdentifier: "Europe/Oslo")
+            
+            personRecord["dateMonthDay"] = dateMonthDay
             personRecord["gender"] = person.gender
             personRecord["dead"] = person.dead
             //

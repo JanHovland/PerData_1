@@ -127,7 +127,15 @@ struct toDoView: View {
      41. 🟢 ImagePicker:
             🟢 Endre til et nytt bilde virker ikke
             🟢 Legge inn et nytt bilde virker ikke
-     42. 🔴 Må sjekke NSPredicate(format:
+     42. 🟢 Feil med person.dateMonthDay
+            🟢 Rettet
+     43. 🟢 Rette opp i !indexed.
+            🟢 userRecordOverViewIndexed() -> mappe Indexed
+               🟢 Kopier userRecordOverViewIndexed() -> UserData() 
+               🟢 PerDataIndexed() -> PersonData
+     44. 🔴 Rette opp i deceived.
+               🔴 userRecordOverViewIndexed() -> mappe Indexed
+     45. 🔴 Må sjekke NSPredicate(format:
             🟢 CabinReservationView()
             🔴 CloudUserHelper()
             🔴 CloudKitPerson()
@@ -136,19 +144,16 @@ struct toDoView: View {
             🔴 PerDataIndexed()
             🔴 personBirthdayView()
             🔴 userRecordOverViewIndexed() 
-     43. 🔴 Må legge inn det nye post- og kommenr: 
-            🔴 .
-     44. 🔴 Legge inn bilde for alle personene
-            🔴 .
-     45. 🔴 Legge inn personer som mangler
-            🔴 .
-     46. 🔴 Rette opp i !indexed.
-            🔴 userRecordOverViewIndexed() -> mappe Indexed
-               🔴 Kopier userRecordOverViewIndexed() -> UserData() 
-            🔴 PerDataIndexed() -> PersonData
-     47. 🔴 .
-            🔴 .
-     48 🔴 .
+     46. 🔴 Må legge inn det nye post- og kommunenr: 
+            🔴 Basic zoom versjon.
+     47. 🔴 Legge inn bilde for alle personene
+            🔴 Utføre
+     48. 🔴 Legge inn personer som mangler
+            🔴 Utføre
+    
+     49. 🔴 Widget som viser alle fødselsdagene i inneværende måned:
+            🔴 Grunnversjon.
+     50 🔴 .
             🔴 .
     
     

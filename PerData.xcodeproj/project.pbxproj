@@ -41,6 +41,7 @@
 		DB81CA7D2742765A00E69D57 /* Hud.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB81CA7C2742765A00E69D57 /* Hud.swift */; };
 		DB81CA7F2742768900E69D57 /* HudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB81CA7E2742768900E69D57 /* HudView.swift */; };
 		DB81CA81274276FE00E69D57 /* CloudKitCabin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB81CA80274276FE00E69D57 /* CloudKitCabin.swift */; };
+		DB83A9A830AD958900E4FECB /* FormatDateToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB83A9A730AD958900E4FECB /* FormatDateToString.swift */; };
 		DB8476DD270EE534007D3E18 /* CloudKitPerson.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8476DC270EE534007D3E18 /* CloudKitPerson.swift */; };
 		DB8476E1270F6742007D3E18 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8476E0270F6742007D3E18 /* Person.swift */; };
 		DB90614C273A826300BF9779 /* CloudKitErrorString.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB90614B273A826300BF9779 /* CloudKitErrorString.swift */; };
@@ -59,9 +60,6 @@
 		DBC9041F273FFF740043DAC3 /* MakeAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC9041E273FFF740043DAC3 /* MakeAttributedString.swift */; };
 		DBCE88902754126C006E6E35 /* UpdateCabinsFromJsonBackupFileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE888F2754126C006E6E35 /* UpdateCabinsFromJsonBackupFileView.swift */; };
 		DBCE889227541290006E6E35 /* UpdateCabinsFromJsonBackupFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE889127541290006E6E35 /* UpdateCabinsFromJsonBackupFile.swift */; };
-		DBCE88942754C2FB006E6E35 /* CabinBackup.json in Resources */ = {isa = PBXBuildFile; fileRef = DBCE88932754C2FB006E6E35 /* CabinBackup.json */; };
-		DBCE88962754CE79006E6E35 /* UserRecordBackup.json in Resources */ = {isa = PBXBuildFile; fileRef = DBCE88952754CE79006E6E35 /* UserRecordBackup.json */; };
-		DBCE88982754CF37006E6E35 /* PersonBackup.json in Resources */ = {isa = PBXBuildFile; fileRef = DBCE88972754CF37006E6E35 /* PersonBackup.json */; };
 		DBDEACAE273663B7003CA322 /* SwiftActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDEACAD273663B7003CA322 /* SwiftActivityIndicator.swift */; };
 		DBDF4D662743D00B0019D879 /* CloudKitUserRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDF4D652743D00B0019D879 /* CloudKitUserRecord.swift */; };
 		DBDF4D682743D0480019D879 /* CloudUserHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDF4D672743D0480019D879 /* CloudUserHelper.swift */; };
@@ -112,6 +110,7 @@
 		DB81CA7C2742765A00E69D57 /* Hud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hud.swift; sourceTree = "<group>"; };
 		DB81CA7E2742768900E69D57 /* HudView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HudView.swift; sourceTree = "<group>"; };
 		DB81CA80274276FE00E69D57 /* CloudKitCabin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitCabin.swift; sourceTree = "<group>"; };
+		DB83A9A730AD958900E4FECB /* FormatDateToString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatDateToString.swift; sourceTree = "<group>"; };
 		DB8476DC270EE534007D3E18 /* CloudKitPerson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitPerson.swift; sourceTree = "<group>"; };
 		DB8476E0270F6742007D3E18 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		DB90614B273A826300BF9779 /* CloudKitErrorString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitErrorString.swift; sourceTree = "<group>"; };
@@ -130,9 +129,6 @@
 		DBC9041E273FFF740043DAC3 /* MakeAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeAttributedString.swift; sourceTree = "<group>"; };
 		DBCE888F2754126C006E6E35 /* UpdateCabinsFromJsonBackupFileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateCabinsFromJsonBackupFileView.swift; sourceTree = "<group>"; };
 		DBCE889127541290006E6E35 /* UpdateCabinsFromJsonBackupFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateCabinsFromJsonBackupFile.swift; sourceTree = "<group>"; };
-		DBCE88932754C2FB006E6E35 /* CabinBackup.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CabinBackup.json; sourceTree = "<group>"; };
-		DBCE88952754CE79006E6E35 /* UserRecordBackup.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = UserRecordBackup.json; sourceTree = "<group>"; };
-		DBCE88972754CF37006E6E35 /* PersonBackup.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PersonBackup.json; sourceTree = "<group>"; };
 		DBDEACAD273663B7003CA322 /* SwiftActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftActivityIndicator.swift; sourceTree = "<group>"; };
 		DBDF4D652743D00B0019D879 /* CloudKitUserRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitUserRecord.swift; sourceTree = "<group>"; };
 		DBDF4D672743D0480019D879 /* CloudUserHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudUserHelper.swift; sourceTree = "<group>"; };
@@ -150,6 +146,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		DB83A9A930AE117700E4FECB /* Backup */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Backup; sourceTree = "<group>"; };
 		DBD23E552CC39D7A0042CB18 /* Script */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Script; sourceTree = "<group>"; };
 		DBD4AA9030A1D255007C8F88 /* Schema */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Schema; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -169,21 +166,19 @@
 		DB3AA3992737E9B1008B2FDF /* Json */ = {
 			isa = PBXGroup;
 			children = (
+				DB83A9A930AE117700E4FECB /* Backup */,
 				DB975F212753E0F700A6BC4B /* BackupCabinsToJsonBackupFile.swift */,
 				DB975F1F2753E0C000A6BC4B /* BackupCabinsToJsonBackupFileView.swift */,
 				DBB366AE274E6CB3001CB47A /* BackupPersonsToJsonBackupFile.swift */,
 				DBB366AC274E6C39001CB47A /* BackupPersonsToJsonBackupFileView.swift */,
 				DB0AD8A02751870500A3F8C3 /* BackupUserRecordsToJsonBackupFile.swift */,
 				DB0AD89E275185D600A3F8C3 /* BackupUserRecordsToJsonBackupFileView.swift */,
-				DBCE88932754C2FB006E6E35 /* CabinBackup.json */,
-				DBCE88972754CF37006E6E35 /* PersonBackup.json */,
 				DBCE889127541290006E6E35 /* UpdateCabinsFromJsonBackupFile.swift */,
 				DBCE888F2754126C006E6E35 /* UpdateCabinsFromJsonBackupFileView.swift */,
 				DB3AA39E27392ED1008B2FDF /* UpdatePersonsFromJsonBackupFile.swift */,
 				DB3AA39C27392D65008B2FDF /* UpdatePersonsFromJsonBackupFileView.swift */,
 				DBB952AE275221AD009A0181 /* UpdateUserRecordsFromJsonBackupFile.swift */,
 				DBB952AC2752216C009A0181 /* UpdateUserRecordsFromJsonBackupFileView.swift */,
-				DBCE88952754CE79006E6E35 /* UserRecordBackup.json */,
 			);
 			path = Json;
 			sourceTree = "<group>";
@@ -307,6 +302,7 @@
 				DBDEACAD273663B7003CA322 /* SwiftActivityIndicator.swift */,
 				DB64C032275536A2004709C4 /* IndexedTableViewHelper.swift */,
 				DB7758052CC23C20007BE940 /* inputDeath.swift */,
+				DB83A9A730AD958900E4FECB /* FormatDateToString.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -420,6 +416,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				DB83A9A930AE117700E4FECB /* Backup */,
 				DBD23E552CC39D7A0042CB18 /* Script */,
 			);
 			name = PerData;
@@ -466,14 +463,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DBCE88942754C2FB006E6E35 /* CabinBackup.json in Resources */,
 				DB01A8402726C3D1007721E1 /* Localizable.strings in Resources */,
 				DBB872DE2716C70F00A3516B /* Launch Screen.storyboard in Resources */,
 				DB4FD4D727328BFA0080E084 /* Postnummerregister-ansi.txt in Resources */,
 				DB01A83D2726C3D1007721E1 /* InfoPlist.strings in Resources */,
-				DBCE88962754CE79006E6E35 /* UserRecordBackup.json in Resources */,
 				DBE25B64270C556400AE255B /* Preview Assets.xcassets in Resources */,
-				DBCE88982754CF37006E6E35 /* PersonBackup.json in Resources */,
 				DBE25B61270C556400AE255B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -539,6 +533,7 @@
 				DB4BBA2A274979AE00771D7A /* SignUpView.swift in Sources */,
 				DB55163D2727E84600153A9A /* PersonDetailView.swift in Sources */,
 				DB0708F127293F97001B3BBA /* PersonUpdateView.swift in Sources */,
+				DB83A9A830AD958900E4FECB /* FormatDateToString.swift in Sources */,
 				DB81CA7F2742768900E69D57 /* HudView.swift in Sources */,
 				DBE25B6F270C566000AE255B /* Config.swift in Sources */,
 				DBDF4D6A2743D2DA0019D879 /* User.swift in Sources */,

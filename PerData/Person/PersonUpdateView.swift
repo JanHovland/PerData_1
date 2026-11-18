@@ -25,6 +25,7 @@ struct PersonUpdateView: View {
     @State private var modifyImage = false
     @State private var showImage = false
     @State private var recordID: CKRecord.ID?
+    @State private var showDeseased = false
     
     @Environment(\.presentationMode) var presentationMode
     
@@ -82,19 +83,23 @@ struct PersonUpdateView: View {
                 Grid {
                     
                     GridRow {
-                        Text("Alive")
-                            .bold()
-                        DeceasedPicker(
-                            isDeceased: Binding<Bool>(
-                                get: {
-                                    person.dead == 1
-                                },
-                                set: { newValue in
-                                    person.dead = newValue ? 1 : 0
-                                }
+                        if showDeseased {
+                            Text("Alive")
+                                .bold()
+                            DeceasedPicker(
+                                isDeceased: Binding<Bool>(
+                                    get: {
+                                        person.dead == 1
+                                    },
+                                    set: { newValue in
+                                        person.dead = newValue ? 1 : 0
+                                    }
+                                )
                             )
-                        )
-                        .padding(.leading, 15)
+                            .padding(.leading, 15)
+                        } else {
+                            EmptyView()
+                        }
                     }
                     .gridColumnAlignment(.leading)
                     .padding(.top, 2.5)
@@ -212,9 +217,17 @@ struct PersonUpdateView: View {
                 Menu {
                     Button {
                         Task {
-                            let recordID = person.recordID
-
-                            if recordID != nil {
+                            if person.recordID != nil {
+                                showDeseased = true
+                            }
+                        }
+                    } label: {
+                        Label("Show deseased", systemImage: "rectangle.and.pencil.and.ellipsis")
+                    }
+                    
+                    Button {
+                        Task {
+                            if person.recordID != nil {
                                 message = await modify(person, modifyImage)
                                 modifyImage = false
                                 title = "Modify"
@@ -222,7 +235,7 @@ struct PersonUpdateView: View {
                             }
                         }
                     } label: {
-                        Label("Modify", systemImage: "pencil")
+                        Label("Modify", systemImage: "arrow.trianglehead.2.clockwise.rotate.90")
                     }
 
                     Button(role: .destructive) {
@@ -301,7 +314,7 @@ struct DeceasedPicker: View {
             isDeceased.toggle()
         } label: {
             Label {
-                Text("Død")
+                Text("Deseased")
             } icon: {
                 Image(systemName:
                     isDeceased
@@ -313,3 +326,4 @@ struct DeceasedPicker: View {
         .buttonStyle(.plain)
     }
 }
+

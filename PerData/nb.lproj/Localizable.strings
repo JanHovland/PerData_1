@@ -401,7 +401,7 @@
 "Gender" = "Kjønn";
 
 /* No comment provided by engineer. */
-"Dead" = "Død  ";
+"Dead" = "Avdød";
 
 /* No comment provided by engineer. */
 "Yes" = "Ja";
@@ -419,4 +419,12 @@
 "SignInView closes." = "SignInView lukker.";
 
 /* No comment provided by engineer. */
-"Alive" = "Lever";
+"Alive" = "Avdød";
+
+/* No comment provided by engineer. */
+"Show deseased" = "Vis feltet avdød";
+
+/* No comment provided by engineer. */
+"Deseased" = "Avdød";
+
+
