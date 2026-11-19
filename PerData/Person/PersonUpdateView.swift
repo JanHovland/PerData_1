@@ -86,8 +86,8 @@ struct PersonUpdateView: View {
                         if showDeseased {
                             Text("Alive")
                                 .bold()
-                            DeceasedPicker(
-                                isDeceased: Binding<Bool>(
+                            DeseasedPicker(
+                                isDeseased: Binding<Bool>(
                                     get: {
                                         person.dead == 1
                                     },
@@ -306,18 +306,18 @@ struct GenderPicker: View {
     }
 }
 
-struct DeceasedPicker: View {
-    @Binding var isDeceased: Bool
+struct DeseasedPicker: View {
+    @Binding var isDeseased: Bool
     
     var body: some View {
         Button {
-            isDeceased.toggle()
+            isDeseased.toggle()
         } label: {
             Label {
                 Text("Deseased")
             } icon: {
                 Image(systemName:
-                    isDeceased
+                        isDeseased
                         ? "checkmark.square.fill"
                         : "square")
                     .foregroundStyle(.blue)
