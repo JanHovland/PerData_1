@@ -81,7 +81,6 @@ struct PersonUpdateView: View {
                 })
                 
                 Grid {
-                    
                     GridRow {
                         if showDeseased {
                             Text("Alive")
@@ -97,8 +96,6 @@ struct PersonUpdateView: View {
                                 )
                             )
                             .padding(.leading, 15)
-                        } else {
-                            EmptyView()
                         }
                     }
                     .gridColumnAlignment(.leading)
@@ -176,13 +173,13 @@ struct PersonUpdateView: View {
             }
 
             Group {
-                HStack (alignment: .center, spacing: 10) {
+                HStack(alignment: .center, spacing: 10) {
                     TextField("Citynumber", text: $person.cityNumber)
                         .keyboardType(.numberPad)
                     TextField("City", text: $person.city)
                         .autocapitalization(.allCharacters)
                 }
-                HStack (alignment: .center, spacing: 0) {
+                HStack(alignment: .center, spacing: 0) {
                     TextField("Municipality number", text: $person.municipalityNumber)
                         .keyboardType(.numberPad)
                     TextField("Municipality", text: $person.municipality)
@@ -192,7 +189,7 @@ struct PersonUpdateView: View {
                 Grid {
                     GridRow {
                         HStack {
-                             DatePicker(
+                            DatePicker(
                                 selection: $person.dateOfBirth,
                                 in: ...Date(),
                                 displayedComponents: [.date],
@@ -205,7 +202,7 @@ struct PersonUpdateView: View {
                         .padding(.trailing, UIDevice.isIpad ? 275 : 100)
                     }
                     .gridColumnAlignment(.leading)
-                 }
+                }
             }
             Spacer()
         }
@@ -238,24 +235,38 @@ struct PersonUpdateView: View {
                         Label("Modify", systemImage: "arrow.trianglehead.2.clockwise.rotate.90")
                     }
 
-                    Button(role: .destructive) {
-                        Task {
-                            if let recordID = person.recordID {
-                                message = await deletePerson(recordID)
-                                person = Person()
-                                person.image = nil
-                                title = "Delete a person"
-                                isAlertActive.toggle()
-                            } else {
-                                title = "Delete a person"
-                                message = "Can not delete a person without a record ID."
-                                isAlertActive.toggle()
+                    Menu {
+                        Menu {
+                            Button (role: .destructive) {
+                                Task {
+                                    if person.recordID != nil {
+                                        message = await deletePerson(person.recordID!)
+                                        message = "sletter person"
+                                        person = Person()
+                                        person.image = nil
+                                        title = "Delete a person"
+                                        isAlertActive.toggle()
+                                    } else {
+                                        title = "Delete a person"
+                                        message = "Can not delete a person without a record ID."
+                                        isAlertActive.toggle()
+                                    }
+                                }
+                            } label: {
+                                Label("Delete a person", systemImage: "trash")
                             }
+                            Button {
+                                presentationMode.wrappedValue.dismiss()
+                            } label: {
+                                Label("Cancel", systemImage: "xmark")
+                            }
+                        } label: {
+                            Label("Confirm delete", systemImage: "questionmark.app")
                         }
+                        
                     } label: {
                         Label("Delete a person", systemImage: "trash")
                     }
-
                 } label: {
                     Image(systemName: "ellipsis.circle")
                         .foregroundColor(.accentColor)
@@ -317,7 +328,7 @@ struct DeseasedPicker: View {
                 Text("Deseased")
             } icon: {
                 Image(systemName:
-                        isDeseased
+                    isDeseased
                         ? "checkmark.square.fill"
                         : "square")
                     .foregroundStyle(.blue)
@@ -326,4 +337,3 @@ struct DeseasedPicker: View {
         .buttonStyle(.plain)
     }
 }
-

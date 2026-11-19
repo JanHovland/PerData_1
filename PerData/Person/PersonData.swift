@@ -347,6 +347,20 @@ struct PersonData: View {
             isAlertActive.toggle()
         } else {
             persons = value.1
+            ///
+            /// Først en enkel sortering for stabilitet
+            ///
+            persons.sort { lhs, rhs in
+                lhs.firstName.localizedCaseInsensitiveCompare(rhs.firstName) == .orderedAscending
+            }
+            ///
+            /// Norsk (lokal) sortering av fornavn ved bruk av Locale
+            ///
+            let region = NSLocale.current.region?.identifier.lowercased()
+            let locale = region.flatMap { Locale(identifier: $0) } ?? Locale.current
+            persons = persons.sorted { lhs, rhs in
+                lhs.firstName.compare(rhs.firstName, options: [.caseInsensitive, .diacriticInsensitive], range: nil, locale: locale) == .orderedAscending
+            }
             sectionHeader = value.2
         }
     }

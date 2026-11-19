@@ -86,7 +86,7 @@
 "Delete a cabin" = "Slette en hyttereservasjon";
 
 /* No comment provided by engineer. */
-"Delete a person" = "Slett en person";
+"Delete a person" = "Slett denne personen";
 
 /* No comment provided by engineer. */
 "Delete an UserRecord" = "Slette en bruker";
@@ -427,4 +427,6 @@
 /* No comment provided by engineer. */
 "Deseased" = "Avdød";
 
+/* No comment provided by engineer. */
+"Confirm delete" = "Bekreft sletting";
 

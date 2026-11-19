@@ -134,8 +134,8 @@ struct toDoView: View {
             🟢 userRecordOverViewIndexed() -> mappe Indexed
             🟢 Kopier userRecordOverViewIndexed() -> UserData() 
             🟢 PerDataIndexed() -> PersonData()
-     44. 🔴 Legge inn et ekstra nivå i sletting:
-            🔴 .  
+     44. 🟢 Legge inn et ekstra nivå i sletting:
+            🟢 Lagt inn ekstra Menu linjer
      45. 🔴 Må sjekke NSPredicate(format:
             🟢 CabinReservationView()
             🔴 CloudUserHelper()
