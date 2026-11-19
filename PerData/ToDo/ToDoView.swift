@@ -131,10 +131,11 @@ struct toDoView: View {
             🟢 Rettet
      43. 🟢 Rette opp i !indexed.
             🟢 userRecordOverViewIndexed() -> mappe Indexed
-               🟢 Kopier userRecordOverViewIndexed() -> UserData() 
-               🟢 PerDataIndexed() -> PersonData
-     44. 🔴 Rette opp i deceived.
-               🔴 userRecordOverViewIndexed() -> mappe Indexed
+            🟢 userRecordOverViewIndexed() -> mappe Indexed
+            🟢 Kopier userRecordOverViewIndexed() -> UserData() 
+            🟢 PerDataIndexed() -> PersonData()
+     44. 🔴 Legge inn et ekstra nivå i sletting:
+            🔴 .  
      45. 🔴 Må sjekke NSPredicate(format:
             🟢 CabinReservationView()
             🔴 CloudUserHelper()
@@ -150,10 +151,13 @@ struct toDoView: View {
             🔴 Utføre
      48. 🔴 Legge inn personer som mangler
             🔴 Utføre
-    
      49. 🔴 Widget som viser alle fødselsdagene i inneværende måned:
-            🔴 Grunnversjon.
-     50 🔴 .
+            🔴 Hele måneden / de 5 første? 
+     50. 🔴 .
+            🔴 .
+     51. 🔴 .
+            🔴 .
+     52  🔴 .
             🔴 .
     
     

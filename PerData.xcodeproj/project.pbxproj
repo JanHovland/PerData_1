@@ -19,7 +19,7 @@
 		DB4BBA282748259500771D7A /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4BBA272748259500771D7A /* SignInView.swift */; };
 		DB4BBA2A274979AE00771D7A /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4BBA29274979AE00771D7A /* SignUpView.swift */; };
 		DB4BBA2C274BB4A200771D7A /* UserRecordDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4BBA2B274BB4A200771D7A /* UserRecordDetailView.swift */; };
-		DB4FD4D727328BFA0080E084 /* Postnummerregister-ansi.txt in Resources */ = {isa = PBXBuildFile; fileRef = DB4FD4D627328BFA0080E084 /* Postnummerregister-ansi.txt */; };
+		DB4FD4D727328BFA0080E084 /* Postnummerregister-ansi_old.txt in Resources */ = {isa = PBXBuildFile; fileRef = DB4FD4D627328BFA0080E084 /* Postnummerregister-ansi_old.txt */; };
 		DB4FD4DE2733E72F0080E084 /* ToDoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4FD4DD2733E72F0080E084 /* ToDoView.swift */; };
 		DB55163D2727E84600153A9A /* PersonDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB55163C2727E84600153A9A /* PersonDetailView.swift */; };
 		DB587898275E3634004C4F65 /* PersonBirthdayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB587897275E3634004C4F65 /* PersonBirthdayView.swift */; };
@@ -42,6 +42,7 @@
 		DB81CA7F2742768900E69D57 /* HudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB81CA7E2742768900E69D57 /* HudView.swift */; };
 		DB81CA81274276FE00E69D57 /* CloudKitCabin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB81CA80274276FE00E69D57 /* CloudKitCabin.swift */; };
 		DB83A9A830AD958900E4FECB /* FormatDateToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB83A9A730AD958900E4FECB /* FormatDateToString.swift */; };
+		DB83A9AB30AEE21200E4FECB /* Postnummerregister-ansi.txt in Resources */ = {isa = PBXBuildFile; fileRef = DB83A9AA30AEE21200E4FECB /* Postnummerregister-ansi.txt */; };
 		DB8476DD270EE534007D3E18 /* CloudKitPerson.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8476DC270EE534007D3E18 /* CloudKitPerson.swift */; };
 		DB8476E1270F6742007D3E18 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8476E0270F6742007D3E18 /* Person.swift */; };
 		DB90614C273A826300BF9779 /* CloudKitErrorString.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB90614B273A826300BF9779 /* CloudKitErrorString.swift */; };
@@ -88,7 +89,7 @@
 		DB4BBA272748259500771D7A /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		DB4BBA29274979AE00771D7A /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		DB4BBA2B274BB4A200771D7A /* UserRecordDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRecordDetailView.swift; sourceTree = "<group>"; };
-		DB4FD4D627328BFA0080E084 /* Postnummerregister-ansi.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Postnummerregister-ansi.txt"; sourceTree = "<group>"; };
+		DB4FD4D627328BFA0080E084 /* Postnummerregister-ansi_old.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Postnummerregister-ansi_old.txt"; sourceTree = "<group>"; };
 		DB4FD4DD2733E72F0080E084 /* ToDoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoView.swift; sourceTree = "<group>"; };
 		DB55163C2727E84600153A9A /* PersonDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailView.swift; sourceTree = "<group>"; };
 		DB587897275E3634004C4F65 /* PersonBirthdayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonBirthdayView.swift; sourceTree = "<group>"; };
@@ -111,6 +112,7 @@
 		DB81CA7E2742768900E69D57 /* HudView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HudView.swift; sourceTree = "<group>"; };
 		DB81CA80274276FE00E69D57 /* CloudKitCabin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitCabin.swift; sourceTree = "<group>"; };
 		DB83A9A730AD958900E4FECB /* FormatDateToString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatDateToString.swift; sourceTree = "<group>"; };
+		DB83A9AA30AEE21200E4FECB /* Postnummerregister-ansi.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Postnummerregister-ansi.txt"; sourceTree = "<group>"; };
 		DB8476DC270EE534007D3E18 /* CloudKitPerson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitPerson.swift; sourceTree = "<group>"; };
 		DB8476E0270F6742007D3E18 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		DB90614B273A826300BF9779 /* CloudKitErrorString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitErrorString.swift; sourceTree = "<group>"; };
@@ -289,7 +291,8 @@
 		DBA02DCA273070140090D36C /* ZipCode */ = {
 			isa = PBXGroup;
 			children = (
-				DB4FD4D627328BFA0080E084 /* Postnummerregister-ansi.txt */,
+				DB4FD4D627328BFA0080E084 /* Postnummerregister-ansi_old.txt */,
+				DB83A9AA30AEE21200E4FECB /* Postnummerregister-ansi.txt */,
 			);
 			path = ZipCode;
 			sourceTree = "<group>";
@@ -463,9 +466,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB83A9AB30AEE21200E4FECB /* Postnummerregister-ansi.txt in Resources */,
 				DB01A8402726C3D1007721E1 /* Localizable.strings in Resources */,
 				DBB872DE2716C70F00A3516B /* Launch Screen.storyboard in Resources */,
-				DB4FD4D727328BFA0080E084 /* Postnummerregister-ansi.txt in Resources */,
+				DB4FD4D727328BFA0080E084 /* Postnummerregister-ansi_old.txt in Resources */,
 				DB01A83D2726C3D1007721E1 /* InfoPlist.strings in Resources */,
 				DBE25B64270C556400AE255B /* Preview Assets.xcassets in Resources */,
 				DBE25B61270C556400AE255B /* Assets.xcassets in Resources */,
