@@ -81,6 +81,7 @@ struct PersonData: View {
     @State private var searchText = ""
     
     @State var person = Person()
+    @State var personNew = Person()
     @State private var persons = [Person]()
     @State private var indexSetDelete = IndexSet()
     @State private var recordID: CKRecord.ID?
@@ -115,6 +116,9 @@ struct PersonData: View {
     @State private var sectionHeader = [String]()
     @State private var predicate = NSPredicate(value: true)
     
+    
+    @State private var option: EnumType = .new
+
     var body: some View {
         NavigationStack {
             VStack {
@@ -311,7 +315,7 @@ struct PersonData: View {
                     })
                     
                     .sheet(isPresented: $menuShowNewPersonSheet, content: {
-                        PersonNewView(person: person)
+                        PersonView(person: person)
                     })
                 }
                 
