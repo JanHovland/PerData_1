@@ -60,6 +60,7 @@
 		DBB952AF275221AD009A0181 /* UpdateUserRecordsFromJsonBackupFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB952AE275221AD009A0181 /* UpdateUserRecordsFromJsonBackupFile.swift */; };
 		DBC89AFC30B03D9300C4AC3A /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC89AFB30B03D9300C4AC3A /* Enum.swift */; };
 		DBC89AFE30B03E2700C4AC3A /* PersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC89AFD30B03E2700C4AC3A /* PersonView.swift */; };
+		DBC89B1C30B18A2F00C4AC3A /* PersonForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC89B1B30B18A2F00C4AC3A /* PersonForm.swift */; };
 		DBC9041F273FFF740043DAC3 /* MakeAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC9041E273FFF740043DAC3 /* MakeAttributedString.swift */; };
 		DBCE88902754126C006E6E35 /* UpdateCabinsFromJsonBackupFileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE888F2754126C006E6E35 /* UpdateCabinsFromJsonBackupFileView.swift */; };
 		DBCE889227541290006E6E35 /* UpdateCabinsFromJsonBackupFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE889127541290006E6E35 /* UpdateCabinsFromJsonBackupFile.swift */; };
@@ -132,6 +133,7 @@
 		DBB952AE275221AD009A0181 /* UpdateUserRecordsFromJsonBackupFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserRecordsFromJsonBackupFile.swift; sourceTree = "<group>"; };
 		DBC89AFB30B03D9300C4AC3A /* Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
 		DBC89AFD30B03E2700C4AC3A /* PersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonView.swift; sourceTree = "<group>"; };
+		DBC89B1B30B18A2F00C4AC3A /* PersonForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonForm.swift; sourceTree = "<group>"; };
 		DBC9041E273FFF740043DAC3 /* MakeAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeAttributedString.swift; sourceTree = "<group>"; };
 		DBCE888F2754126C006E6E35 /* UpdateCabinsFromJsonBackupFileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateCabinsFromJsonBackupFileView.swift; sourceTree = "<group>"; };
 		DBCE889127541290006E6E35 /* UpdateCabinsFromJsonBackupFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateCabinsFromJsonBackupFile.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 				DB81CA6B2742732000E69D57 /* PersonSendSMS.swift */,
 				DB0708F027293F97001B3BBA /* PersonUpdateView.swift */,
 				DBC89AFD30B03E2700C4AC3A /* PersonView.swift */,
+				DBC89B1B30B18A2F00C4AC3A /* PersonForm.swift */,
 			);
 			path = Person;
 			sourceTree = "<group>";
@@ -536,6 +539,7 @@
 				DBE25B5D270C556200AE255B /* PerDataApp.swift in Sources */,
 				DBC89AFE30B03E2700C4AC3A /* PersonView.swift in Sources */,
 				DBB4B38527141B9D00618F17 /* CloudPersonHelper.swift in Sources */,
+				DBC89B1C30B18A2F00C4AC3A /* PersonForm.swift in Sources */,
 				DB81CA7A274275F100E69D57 /* Cabin.swift in Sources */,
 				DB4FD4DE2733E72F0080E084 /* ToDoView.swift in Sources */,
 				DB81CA6A274272BD00E69D57 /* PersonDetailMessageView.swift in Sources */,
