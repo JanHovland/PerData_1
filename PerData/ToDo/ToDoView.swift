@@ -136,9 +136,11 @@ struct toDoView: View {
             🟢 PerDataIndexed() -> PersonData()
      44. 🟢 Legge inn et ekstra nivå i sletting:
             🟢 Lagt inn ekstra Menu linjer
-     45. 🔴 Tilpasse PersonNewView() til PersonUpdateView()
-            🔴 .Grunnversjon
-     46. 🔴 Må sjekke NSPredicate(format:
+     45. 🟢 Legg inn PersonForm() i PersonUpdateView() og PersonNewView() 
+            🟢 Tilpasset
+     46. 🔴 PersonNewView():
+            🔴 Sjekk on den nye personen finnes fra før
+     47. 🔴 Må sjekke NSPredicate(format:
             🟢 CabinReservationView()
             🔴 CloudUserHelper()
             🔴 CloudKitPerson()
@@ -147,19 +149,19 @@ struct toDoView: View {
             🔴 PerDataIndexed()
             🔴 personBirthdayView()
             🔴 userRecordOverViewIndexed() 
-     47. 🔴 Må legge inn det nye post- og kommunenr: 
+     48. 🔴 Må legge inn det nye post- og kommunenr: 
             🔴 Basic zoom versjon.
-     48. 🔴 Legge inn bilde for alle personene
+     49. 🔴 Legge inn bilde for alle personene
             🔴 Utføre
-     49. 🔴 Legge inn personer som mangler
+     50. 🔴 Legge inn personer som mangler
             🔴 Utføre
-     50. 🔴 Widget som viser alle fødselsdagene i inneværende måned:
+     51. 🔴 Widget som viser alle fødselsdagene i inneværende måned:
             🔴 Hele måneden / de 5 første? 
-     51. 🔴 .
-            🔴 .
      52. 🔴 .
             🔴 .
-     53.  🔴 .
+     53. 🔴 .
+            🔴 .
+     54.  🔴 .
             🔴 .
     
     

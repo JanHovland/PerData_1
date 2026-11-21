@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		DB01A83D2726C3D1007721E1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DB01A83B2726C3D1007721E1 /* InfoPlist.strings */; };
 		DB01A8402726C3D1007721E1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DB01A83E2726C3D1007721E1 /* Localizable.strings */; };
-		DB0708EF27293D66001B3BBA /* PersonNewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0708EE27293D66001B3BBA /* PersonNewView.swift */; };
 		DB0708F127293F97001B3BBA /* PersonUpdateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0708F027293F97001B3BBA /* PersonUpdateView.swift */; };
 		DB0AD89F275185D600A3F8C3 /* BackupUserRecordsToJsonBackupFileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0AD89E275185D600A3F8C3 /* BackupUserRecordsToJsonBackupFileView.swift */; };
 		DB0AD8A12751870500A3F8C3 /* BackupUserRecordsToJsonBackupFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0AD8A02751870500A3F8C3 /* BackupUserRecordsToJsonBackupFile.swift */; };
@@ -59,7 +58,7 @@
 		DBB952AD2752216C009A0181 /* UpdateUserRecordsFromJsonBackupFileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB952AC2752216C009A0181 /* UpdateUserRecordsFromJsonBackupFileView.swift */; };
 		DBB952AF275221AD009A0181 /* UpdateUserRecordsFromJsonBackupFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB952AE275221AD009A0181 /* UpdateUserRecordsFromJsonBackupFile.swift */; };
 		DBC89AFC30B03D9300C4AC3A /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC89AFB30B03D9300C4AC3A /* Enum.swift */; };
-		DBC89AFE30B03E2700C4AC3A /* PersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC89AFD30B03E2700C4AC3A /* PersonView.swift */; };
+		DBC89AFE30B03E2700C4AC3A /* PersonNewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC89AFD30B03E2700C4AC3A /* PersonNewView.swift */; };
 		DBC89B1C30B18A2F00C4AC3A /* PersonForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC89B1B30B18A2F00C4AC3A /* PersonForm.swift */; };
 		DBC9041F273FFF740043DAC3 /* MakeAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC9041E273FFF740043DAC3 /* MakeAttributedString.swift */; };
 		DBCE88902754126C006E6E35 /* UpdateCabinsFromJsonBackupFileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE888F2754126C006E6E35 /* UpdateCabinsFromJsonBackupFileView.swift */; };
@@ -82,7 +81,6 @@
 		DB01A8312726C05A007721E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		DB01A83C2726C3D1007721E1 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		DB01A83F2726C3D1007721E1 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/Localizable.strings; sourceTree = "<group>"; };
-		DB0708EE27293D66001B3BBA /* PersonNewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonNewView.swift; sourceTree = "<group>"; };
 		DB0708F027293F97001B3BBA /* PersonUpdateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonUpdateView.swift; sourceTree = "<group>"; };
 		DB0AD89E275185D600A3F8C3 /* BackupUserRecordsToJsonBackupFileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupUserRecordsToJsonBackupFileView.swift; sourceTree = "<group>"; };
 		DB0AD8A02751870500A3F8C3 /* BackupUserRecordsToJsonBackupFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupUserRecordsToJsonBackupFile.swift; sourceTree = "<group>"; };
@@ -132,7 +130,7 @@
 		DBB952AC2752216C009A0181 /* UpdateUserRecordsFromJsonBackupFileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserRecordsFromJsonBackupFileView.swift; sourceTree = "<group>"; };
 		DBB952AE275221AD009A0181 /* UpdateUserRecordsFromJsonBackupFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserRecordsFromJsonBackupFile.swift; sourceTree = "<group>"; };
 		DBC89AFB30B03D9300C4AC3A /* Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
-		DBC89AFD30B03E2700C4AC3A /* PersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonView.swift; sourceTree = "<group>"; };
+		DBC89AFD30B03E2700C4AC3A /* PersonNewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonNewView.swift; sourceTree = "<group>"; };
 		DBC89B1B30B18A2F00C4AC3A /* PersonForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonForm.swift; sourceTree = "<group>"; };
 		DBC9041E273FFF740043DAC3 /* MakeAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeAttributedString.swift; sourceTree = "<group>"; };
 		DBCE888F2754126C006E6E35 /* UpdateCabinsFromJsonBackupFileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateCabinsFromJsonBackupFileView.swift; sourceTree = "<group>"; };
@@ -221,12 +219,11 @@
 				DB81CA69274272BD00E69D57 /* PersonDetailMessageView.swift */,
 				DB81CA672742665700E69D57 /* PersonDetailPhoneView.swift */,
 				DB55163C2727E84600153A9A /* PersonDetailView.swift */,
-				DB0708EE27293D66001B3BBA /* PersonNewView.swift */,
+				DBC89B1B30B18A2F00C4AC3A /* PersonForm.swift */,
+				DBC89AFD30B03E2700C4AC3A /* PersonNewView.swift */,
 				DB81CA6F2742742900E69D57 /* PersonSendEmailView.swift */,
 				DB81CA6B2742732000E69D57 /* PersonSendSMS.swift */,
 				DB0708F027293F97001B3BBA /* PersonUpdateView.swift */,
-				DBC89AFD30B03E2700C4AC3A /* PersonView.swift */,
-				DBC89B1B30B18A2F00C4AC3A /* PersonForm.swift */,
 			);
 			path = Person;
 			sourceTree = "<group>";
@@ -511,7 +508,6 @@
 				DB90614C273A826300BF9779 /* CloudKitErrorString.swift in Sources */,
 				DB975F222753E0F700A6BC4B /* BackupCabinsToJsonBackupFile.swift in Sources */,
 				DB81CA732742748000E69D57 /* MailView.swift in Sources */,
-				DB0708EF27293D66001B3BBA /* PersonNewView.swift in Sources */,
 				DB975F202753E0C000A6BC4B /* BackupCabinsToJsonBackupFileView.swift in Sources */,
 				DBA02DC7272E8FDA0090D36C /* ImagePicker.swift in Sources */,
 				DBB952AD2752216C009A0181 /* UpdateUserRecordsFromJsonBackupFileView.swift in Sources */,
@@ -537,7 +533,7 @@
 				DB81CA702742742900E69D57 /* PersonSendEmailView.swift in Sources */,
 				DB64C0312755324F004709C4 /* UserRecordOverViewIndexed.swift in Sources */,
 				DBE25B5D270C556200AE255B /* PerDataApp.swift in Sources */,
-				DBC89AFE30B03E2700C4AC3A /* PersonView.swift in Sources */,
+				DBC89AFE30B03E2700C4AC3A /* PersonNewView.swift in Sources */,
 				DBB4B38527141B9D00618F17 /* CloudPersonHelper.swift in Sources */,
 				DBC89B1C30B18A2F00C4AC3A /* PersonForm.swift in Sources */,
 				DB81CA7A274275F100E69D57 /* Cabin.swift in Sources */,

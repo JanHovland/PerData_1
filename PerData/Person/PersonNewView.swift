@@ -19,6 +19,7 @@ struct PersonNewView: View {
     @Environment(\.presentationMode) var presentationMode
     
     @State var person: Person
+    
     @State private var message: LocalizedStringKey = ""
     @State private var title: LocalizedStringKey = ""
     @State private var isAlertActive = false
@@ -26,7 +27,7 @@ struct PersonNewView: View {
     @State private var saveImage: Bool = false
     
     @State private var showImage = false
-    @State private var modifyImage = false
+    @State private var showDeseased = true
 
     var genders = [String(localized: "Man"),
                    String(localized: "Woman")]
@@ -34,106 +35,11 @@ struct PersonNewView: View {
     var body: some View {
         NavigationView {
             VStack {
-                //
-                // VStack kan kun inneholde 10 elementer,
-                // derfor må Group benyttes
-                
                 Group {
-                    HStack(alignment: .center) {
-                        //
-                        // ZStack legger bildene oppå hverandre
-                        //
-                        
-                        ZStack {
-                            Image(systemName: "person.fill")
-                                .resizable()
-                                .frame(width: 80, height: 80, alignment: .center)
-                                .font(Font.title.weight(.ultraLight))
-                                .clipShape(Circle())
-                                .overlay(Circle().stroke(Color.gray, lineWidth: 1))
-                                .foregroundColor(Color.indigo)
-                                .opacity(1.00)
-                            Image(uiImage: image)
-                                .resizable()
-                                .frame(width: 80, height: 80, alignment: .center)
-                                .clipShape(Circle())
-                                .overlay(Circle().stroke(Color.gray, lineWidth: 1))
-                                .onTapGesture {
-                                    showImage.toggle()
-                                    modifyImage = true
-                                }
-                        }
-                        .sheet(isPresented: $showImage, content: {
-                            ImagePicker(sourceType: .photoLibrary, selectedImage: $image, image: $person.image)
-                        })
-                    }
-                    TextField("FirstName", text: $person.firstName)
-                        .autocapitalization(.words)
-                    TextField("LastName", text: $person.lastName)
-                        .autocapitalization(.words)
-                    TextField("Email", text: $person.personEmail)
-                        .keyboardType(.emailAddress)
-                        .autocapitalization(.none)
-                    TextField("Address", text: $person.address)
-                        .autocapitalization(.words)
-                    TextField("Phonenumber", text: $person.phoneNumber)
-                }
-                Group {
-                    HStack(alignment: .center, spacing: 10) {
-                        TextField("Citynumber", text: $person.cityNumber)
-                            .keyboardType(.numberPad)
-                        TextField("City", text: $person.city)
-                            .autocapitalization(.words)
-                        VStack {
-                            Button {
-                                saveImage.toggle()
-                            } label: {
-                                Image(systemName: "magnifyingglass")
-                                    .resizable()
-                                    .frame(width: 20, height: 20, alignment: .center)
-                                    .foregroundColor(.blue)
-                                    .font(.title)
-                            }
-                        }
-                    }
-                    HStack(alignment: .center, spacing: 10) {
-                        TextField("Municipality number", text: $person.municipalityNumber)
-                            .keyboardType(.numberPad)
-                        TextField("Municipality", text: $person.municipality)
-                            .autocapitalization(.none)
-                            .autocapitalization(.words)
-                    }
-                    DatePicker(
-                        selection: $person.dateOfBirth,
-                        // in: ...dato,                  /// Uten in: -> ingen begrensning på datoutvalg
-                        displayedComponents: [.date],
-                        label: {
-                            Text("Date of birth")
-                        }
-                    )
-                    .padding(.leading, 10)
-                    // Returning an integer 0 == "Man" 1 == "Women
-                    
-                    GenderPicker(
-                        selection: Binding<Gender>(
-                            get: {
-                                // Map stored Int to Gender enum (default to .male)
-                                switch person.gender {
-                                case 1: return .female
-                                default: return .male
-                                }
-                            },
-                            set: { newValue in
-                                // Map Gender enum back to stored Int
-                                switch newValue {
-                                case .male: person.gender = 0
-                                case .female: person.gender = 1
-                                }
-                            }
-                        )
-                    )
-                    
-                    
+                    PersonForm(person: $person,
+                               showImage: $showImage,
+                               image: $image,
+                               showDeseased: $showDeseased)
                 }
                 Spacer()
             }
@@ -201,6 +107,6 @@ struct PersonNewView: View {
             })
         }
         .navigationViewStyle(StackNavigationViewStyle())
-    }
+     }
 }
 

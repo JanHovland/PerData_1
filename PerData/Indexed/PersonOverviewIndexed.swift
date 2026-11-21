@@ -334,7 +334,7 @@ struct PersonOverviewIndexed: View {
                     })
 
                     .sheet(isPresented: $menuShowNewPersonSheet, content: {
-                        PersonView(person: person)
+                        PersonNewView(person: person)
                     })
                 }
                  
