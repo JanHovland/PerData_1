@@ -138,10 +138,10 @@ struct toDoView: View {
             🟢 Lagt inn ekstra Menu linjer
      45. 🟢 Legg inn PersonForm() i PersonUpdateView() og PersonNewView() 
             🟢 Tilpasset
-     46. 🔴 PersonNewView():
-            🔴 Sjekk on den nye personen finnes fra før
-     47. 🔴 Dersom en person er avdød:
-            🔴 Vis feltet "avdød"
+     46. 🟢 PersonNewView():
+            🟢 Sjekk on den nye personen finnes fra før
+     47. 🟢 Dersom en person er avdød:
+            🟢 Vis feltet "avdød"
      48. 🔴 Må sjekke NSPredicate(format:
             🟢 CabinReservationView()
             🔴 CloudUserHelper()

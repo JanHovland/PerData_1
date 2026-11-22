@@ -128,6 +128,11 @@ struct PersonUpdateView: View {
         } message: {
             Text(message)
         }
+        .task {
+            if person.dead == 1 {
+                showDeseased = true
+            }
+        }
     }
 }
 
