@@ -422,11 +422,14 @@
 "Alive" = "Avdød";
 
 /* No comment provided by engineer. */
-"Show deseased" = "Vis feltet avdød";
+"Show deseased" = "Vis feltet avdød.";
 
 /* No comment provided by engineer. */
 "Deseased" = "Avdød";
 
 /* No comment provided by engineer. */
-"Confirm delete" = "Bekreft sletting";
+"Confirm delete" = "Bekreft sletting.";
+
+/* No comment provided by engineer. */
+"This person is deleted" = "Personen er slettet.";
 

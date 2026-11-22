@@ -90,7 +90,7 @@ struct PersonUpdateView: View {
                                 Task {
                                     if person.recordID != nil {
                                         message = await deletePerson(person.recordID!)
-                                        message = "sletter person"
+                                        message = "This person is deleted"
                                         person = Person()
                                         person.image = nil
                                         title = "Delete a person"
