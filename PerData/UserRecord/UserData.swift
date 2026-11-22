@@ -42,7 +42,7 @@ struct UserData: View {
                         ForEach(userRecords) { userRecord in
                             if searchText == "" || userRecord.firstName.uppercased().contains(searchText.uppercased()) {
                                 NavigationLink(destination: UserRecordDetailView(userRecord: userRecord)) {
-                                    showUsers(userRecord: userRecord)
+                                    ShowUsers(userRecord: userRecord)
                                 }
                             }
                         }
@@ -136,7 +136,7 @@ struct UserData: View {
         }
     }
     
-    struct showUsers: View {
+    struct ShowUsers: View {
         var userRecord: UserRecord
         
         var body: some View {
@@ -144,17 +144,18 @@ struct UserData: View {
                 if userRecord.image != nil {
                     Image(uiImage: userRecord.image!)
                         .resizable()
-                        .frame(width: 30, height: 30, alignment: .center)
+                        .frame(width: 50, height: 50, alignment: .center)
                         .clipShape(Circle())
                         .overlay(Circle().stroke(Color.gray, lineWidth: 1))
                 } else {
                     Image(systemName: "person.circle")
                         .resizable()
                         .font(.system(size: 16, weight: .ultraLight))
-                        .frame(width: 30, height: 30, alignment: .center)
+                        .frame(width: 50, height: 50, alignment: .center)
                 }
                 VStack (alignment: .leading){
                     Text(userRecord.firstName + " " + userRecord.lastName)
+                        .foregroundStyle(.purple)
                     Text(userRecord.email)
                 }
                 .font(Font.body.weight(.regular))

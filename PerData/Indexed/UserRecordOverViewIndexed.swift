@@ -8,7 +8,7 @@
 import SwiftUI
 import CloudKit
 
-struct userRecordOverViewIndexed: View {
+struct UserRecordOverViewIndexed: View {
     
     /// Skjuler scroll indicators.
     init() {
