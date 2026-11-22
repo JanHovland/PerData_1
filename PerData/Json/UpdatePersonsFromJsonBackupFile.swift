@@ -18,8 +18,7 @@ func updatePersonsFromJsonBackupFile() async -> LocalizedStringKey {
     var counter = 0
     
     var message: LocalizedStringKey = ""
-    let modifyImage = false
-    var person = Person()
+     var person = Person()
     
     ///
     ///Leser inn fra Json til [PersonElem]
@@ -72,7 +71,7 @@ func updatePersonsFromJsonBackupFile() async -> LocalizedStringKey {
             return message
         } else {
             if value.1 == true { 
-                await message = modify(person, modifyImage)
+                await message = modify(person)
             } else { // Personen finnes ikke
                 await message = save(person)
             }

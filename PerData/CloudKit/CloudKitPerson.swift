@@ -193,7 +193,7 @@ struct CloudKitPerson {
         }
     }
         
-    func modifyPerson(_ person: Person, _ newImage: Bool) async throws {
+    func modifyPerson(_ person: Person) async throws {
         guard let recID = person.recordID else { return }
         
         do {

@@ -22,7 +22,7 @@ struct PersonUpdateView: View {
     @State private var title: LocalizedStringKey = ""
     @State private var isAlertActive = false
     @State private var image = UIImage()
-    @State private var modifyImage = false
+//    @State private var modifyImage = false
     @State private var showImage = false
     @State private var recordID: CKRecord.ID?
     @State private var showDeseased = false
@@ -74,8 +74,7 @@ struct PersonUpdateView: View {
                     Button {
                         Task {
                             if person.recordID != nil {
-                                message = await modify(person, modifyImage)
-                                modifyImage = false
+                                message = await modify(person)
                                 title = "Modify"
                                 isAlertActive.toggle()
                             }

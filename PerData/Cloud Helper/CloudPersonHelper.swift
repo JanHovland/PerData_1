@@ -28,10 +28,10 @@ func save(_ person: Person) async -> LocalizedStringKey {
 }
 
 @MainActor
-func modify(_ person: Person, _ newImage: Bool) async -> LocalizedStringKey {
+func modify(_ person: Person) async -> LocalizedStringKey {
     var message: LocalizedStringKey = ""
     do {
-        try await CloudKitPerson().modifyPerson(person, newImage)
+        try await CloudKitPerson().modifyPerson(person)
         message = "The person has been modified in CloudKit"
         return message
     } catch {
