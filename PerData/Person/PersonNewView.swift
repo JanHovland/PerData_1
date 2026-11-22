@@ -60,28 +60,26 @@ struct PersonNewView: View {
                                 
                                 // predicate
                                 
-                                
-                                if person.recordID != nil {
-                                    title = "Person exists"
-                                    message = "Person already exists"
-                                    isAlertActive.toggle()
-                                } else {
-                                    message = "A new Person"
-                                    title = "New person"
-                                    isAlertActive.toggle()
-                                    
-                                    Task {
-                                        await _ = save(person)
+                                Task {
+                                    let value = await personExist(person)
+                                    if value.1 {
+                                        title = "Person exists"
+                                        message = "Person already exists"
+                                        isAlertActive.toggle()
+                                    } else {
+                                        message = "A new Person"
+                                        title = "New person"
+                                        isAlertActive.toggle()
+                                        Task {
+                                            await _ = save(person)
+                                        }
                                     }
-                                    
-                                }
+                                 }
                             } else {
                                 title = "Missing values."
                                 message = "First- and LastName must both have values."
                                 isAlertActive.toggle()
                             }
-                            
-                            
                             
                         }, label: {
                             Text("Save")

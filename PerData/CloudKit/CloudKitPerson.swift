@@ -75,10 +75,19 @@ struct CloudKitPerson {
     }
     
     func existPerson(_ person: Person) async throws -> Bool {
-        if person.recordID != nil {
+        
+        let predicate = NSPredicate(format: "firstName == %@ AND lastName == %@", person.firstName, person.lastName)
+        
+        let query = CKQuery(recordType: RecordType.Person, predicate: predicate)
+        
+        let result = try await database.records(matching: query)
+        
+        ///
+        /// sjekker antall like : result.matchResults.count
+        
+        if result.matchResults.count > 0 {
             return true
         }
-        
         return false
     }
     

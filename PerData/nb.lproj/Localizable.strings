@@ -86,7 +86,7 @@
 "Delete a cabin" = "Slette en hyttereservasjon";
 
 /* No comment provided by engineer. */
-"Delete a person" = "Slett denne personen";
+"Delete a person" = "Slette en person";
 
 /* No comment provided by engineer. */
 "Delete an UserRecord" = "Slette en bruker";
@@ -413,7 +413,7 @@
 "Store/Restore" = "Lagre/Hente JSON";
 
 /* No comment provided by engineer. */
-"A new Person" = "Ny person er lagret";
+"A new Person" = "Ny person er lagret.";
 
 /* No comment provided by engineer. */
 "SignInView closes." = "SignInView lukker.";
@@ -432,4 +432,10 @@
 
 /* No comment provided by engineer. */
 "This person is deleted" = "Personen er slettet.";
+
+/* No comment provided by engineer. */
+"Person exists" = "Personen finnes.";
+
+/* No comment provided by engineer. */
+"Person already exists" = "Personen finnes fra før.";
 
