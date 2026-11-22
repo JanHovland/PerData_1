@@ -5,31 +5,29 @@
 //  Created by Jan Hovland on 22/11/2021.
 //
 
-import SwiftUI
 import CloudKit
+import SwiftUI
 
 struct UserRecordDetailView: View {
-    
-    @State  var userRecord: UserRecord
-    
+    @State var userRecord: UserRecord
+
     @Environment(\.presentationMode) var presentationMode
-    
+
     @State private var showImage = false
     @State private var isAlertActive = false
     @State private var indicatorShowing = false
-    @State private var modifyImage = false
-    
+
     @State private var title: LocalizedStringKey = ""
     @State private var message: LocalizedStringKey = ""
-    
+
     @State private var image = UIImage()
-    
+
     @State private var recordID: CKRecord.ID?
-    
+
     var body: some View {
         VStack {
             ZStack {
-                if  userRecord.image != nil {
+                if userRecord.image != nil {
                     Image(uiImage: userRecord.image!)
                         .resizable()
                         .frame(width: 80, height: 80, alignment: .center)
@@ -37,7 +35,6 @@ struct UserRecordDetailView: View {
                         .overlay(Circle().stroke(Color.gray, lineWidth: 1))
                         .onTapGesture {
                             showImage.toggle()
-                            modifyImage = true
                         }
                 } else {
                     ZStack {
@@ -49,14 +46,18 @@ struct UserRecordDetailView: View {
                             .frame(width: 80, height: 80, alignment: .center)
                             .clipShape(Circle())
                             .overlay(Circle().stroke(Color.gray, lineWidth: 1))
+                            .onTapGesture {
+                                showImage.toggle()
+                            }
                     }
                 }
             }
+            .sheet(isPresented: $showImage, content: {
+                ImagePicker(sourceType: .photoLibrary, selectedImage: $image, image: $userRecord.image)
+            })
+
             .padding(.top, 70)
             .padding(.bottom, 40)
-//            .sheet(isPresented: $showImage, content: {
-//                ImagePicker(sourceType: .photoLibrary, selectedImage: $image, image: $userRecord.image)
-//            })
             VStack {
                 HStack {
                     Text("FirstName")
@@ -116,35 +117,13 @@ struct UserRecordDetailView: View {
                             if userRecord.firstName.count > 0,
                                userRecord.lastName.count > 0,
                                userRecord.email.count > 0,
-                               userRecord.passWord.count > 0 {
-
+                               userRecord.passWord.count > 0
+                            {
                                 indicatorShowing = true
-
-                                let value = await userRecordRecordID(userRecord)
-                                
-
-                                if value.0 != "" {
-                                    message = value.0
-                                    title = "Error message from the Server"
-                                    isAlertActive.toggle()
-
-                                } else {
-                                    if value.1 == nil {
-                                        message = await saveUserRecord(userRecord)
-                                        title = "Save"
-                                        isAlertActive.toggle()
-
-                                    } else {
-                                        userRecord.recordID = value.1
-                                        message = await modifyUserRecord(
-                                            userRecord,
-                                            modifyImage
-                                        )
-                                        title = "Modify"
-                                        isAlertActive.toggle()
-                                    }
-                                }
-
+                                message = await modifyUserRecord(userRecord)
+                                title = "Modify userRecord"
+                                isAlertActive.toggle()
+                                indicatorShowing = false
                             } else {
                                 title = "Missing value(s)"
                                 message = "All the fields must have a value"
@@ -154,7 +133,6 @@ struct UserRecordDetailView: View {
                     } label: {
                         Label("Update", systemImage: "square.and.pencil")
                     }
-
                     Button(role: .destructive) {
                         Task {
                             print("Delete userRecord")
@@ -197,5 +175,3 @@ struct UserRecordDetailView: View {
         }
     }
 }
-
-

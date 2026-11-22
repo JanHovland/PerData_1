@@ -22,10 +22,10 @@ func saveUserRecord(_ userRecord: UserRecord) async -> LocalizedStringKey {
 }
 
 @MainActor
-func modifyUserRecord(_ userRecord: UserRecord, _ newImage: Bool) async -> LocalizedStringKey {
+func modifyUserRecord(_ userRecord: UserRecord) async -> LocalizedStringKey {
     var message: LocalizedStringKey = ""
     do {
-        try await CloudKitUserRecord().modifyUserRecord(userRecord, newImage)
+        try await CloudKitUserRecord().modifyUserRecord(userRecord)
         message = "The user has been modified in CloudKit"
         return message
     } catch {

@@ -149,7 +149,7 @@ struct CloudKitUserRecord {
         }
     }
         
-    func modifyUserRecord(_ userRecord: UserRecord, _ newImage: Bool) async throws {
+    func modifyUserRecord(_ userRecord: UserRecord) async throws {
         
         guard let recID = userRecord.recordID else { return }
         
@@ -159,32 +159,28 @@ struct CloudKitUserRecord {
             userRec["lastName"] = userRecord.lastName
             userRec["email"] = userRecord.email
             userRec["passWord"] = userRecord.passWord
-            
-            if newImage {
-                if userRecord.image != nil {
-                    let fileManager = FileManager.default
-                    let documentsPath = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first
-                    let url = documentsPath?.appendingPathComponent("image.png")
-                    let imageData = userRecord.image?.jpegData(compressionQuality: 0.01)
-                    try! imageData?.write(to: url!)
-                    userRec["image"] = CKAsset(fileURL: url!)
-                }
-            } else {
-                
-                ///
-                /// Finn det gamle person sitt Image
-                ///
-               
-                let per = try await database.record(for: recID)
-                if let image = per.value(forKey: "image"), let imageAsset = image as? CKAsset {
-                    if let imageData = try? Data.init(contentsOf: imageAsset.fileURL!) {
-                        let image = UIImage(data: imageData)
-                        let fileManager = FileManager.default
-                        let documentsPath = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first
-                        let url = documentsPath?.appendingPathComponent("image.png")
-                        let imageData = image?.jpegData(compressionQuality: 0.01)
-                        try! imageData?.write(to: url!)
-                        userRec["image"] = CKAsset(fileURL: url!)
+            //
+            // Kan ikke bruke userRecord.image direkte
+            //
+            if userRecord.image != nil {
+                let image: UIImage = userRecord.image ?? UIImage()
+                let fileManager = FileManager.default
+                if let documentsPath = fileManager.urls(
+                    for: .documentDirectory,
+                    in: .userDomainMask
+                ).first {
+                    //
+                    // Gir userRecord.image et "filnavn"
+                    //
+                    let url = documentsPath.appendingPathComponent("userRecord.jpg")
+                    if let imageData = image.jpegData(compressionQuality: 0.7) {
+                        do {
+                            try imageData.write(to: url, options: .atomic)
+                            let newAsset = CKAsset(fileURL: url)
+                            userRec["image"] = newAsset
+                        } catch {
+                            print("Error saving userRecord.jpg")
+                        }
                     }
                 }
             }
