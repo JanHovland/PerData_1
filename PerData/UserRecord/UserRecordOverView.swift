@@ -28,7 +28,7 @@ struct userRecordOverView: View {
     @State private var userRecords = [UserRecord]()
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
                 ActivityIndicator(isAnimating: $indicatorShowing, style: .medium, color: .gray)
                 List {
@@ -48,6 +48,7 @@ struct userRecordOverView: View {
                             isAlertActive.toggle()
                         }
                     }
+                    .gradientGlass()
                     Spacer()
                 }
                 

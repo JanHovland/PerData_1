@@ -56,56 +56,54 @@ struct UserRecordDetailView: View {
                 ImagePicker(sourceType: .photoLibrary, selectedImage: $image, image: $userRecord.image)
             })
 
-            .padding(.top, 70)
-            .padding(.bottom, 40)
+            .padding(.top, 25)
             VStack {
-                HStack {
-                    Text("FirstName")
-                        .foregroundColor(.accentColor)
-                        .padding(.trailing, 10)
-                    Text(userRecord.firstName)
-                        .padding(.leading, 10)
-                    Spacer()
+                Group {
+                    Grid {
+                        GridRow {
+                            Text("FirstName")
+                                .bold()
+                            TextField("FirstName", text: $userRecord.firstName)
+                                .padding(.leading, 15)
+                        }
+                        .gridColumnAlignment(.leading)
+                        
+                        GridRow {
+                            Text("LastName")
+                                .bold()
+                            TextField("LastName", text: $userRecord.lastName)
+                                .padding(.leading, 15)
+                        }
+                        .gridColumnAlignment(.leading)
+                        
+                        GridRow {
+                            Text("Email")
+                                .bold()
+                            TextField("Email", text: $userRecord.email)
+                                .keyboardType(.emailAddress)
+                                .autocapitalization(.none)
+                                .padding(.leading, 15)
+                        }
+                        .gridColumnAlignment(.leading)
+                        
+                        GridRow {
+                            Text("PassWord")
+                                .bold()
+                            SecureField("PassWord", text: $userRecord.passWord)
+                                .keyboardType(.emailAddress)
+                                .autocapitalization(.none)
+                                .padding(.leading, 15)
+                        }
+                        .gridColumnAlignment(.leading)
+                    }
                 }
-                .padding(.top, 10)
-                .padding(.leading, 8)
-                .padding(.bottom, 10)
-                HStack {
-                    Text("LastName")
-                        .foregroundColor(.accentColor)
-                        .padding(.trailing, 10)
-                    Text(userRecord.lastName)
-                    Spacer()
-                }
-                .padding(.top, 10)
-                .padding(.leading, 8)
-                .padding(.bottom, 10)
-                HStack {
-                    Spacer()
-                    Text("email")
-                        .foregroundColor(.accentColor)
-                        .padding(.trailing, 10)
-                    TextField("Enter email", text: $userRecord.email)
-                        .keyboardType(.emailAddress)
-                        .autocapitalization(.none)
-                        .padding(.leading, 24)
-                    Spacer()
-                }
-                .padding(.top, 10)
-                .padding(.bottom, 10)
-                HStack {
-                    Spacer()
-                    Text("Password")
-                        .foregroundColor(.accentColor)
-                        .padding(.trailing, 10)
-                    SecureField("Enter passWord", text: $userRecord.passWord)
-                        .padding(.leading, 13)
-                    Spacer()
-                }
-                .padding(.top, 10)
-                .padding(.bottom, 10)
             }
-            .padding(.leading, 50)
+            ///
+            /// Gir svart bakgrunn på TextField og SecureField
+            ///
+
+            .textFieldStyle(.roundedBorder)
+            .padding(.horizontal, 20)
             Spacer()
         }
         .navigationBarTitle("User Details", displayMode: .inline)

@@ -22,7 +22,6 @@
 		DB4FD4DE2733E72F0080E084 /* ToDoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4FD4DD2733E72F0080E084 /* ToDoView.swift */; };
 		DB55163D2727E84600153A9A /* PersonDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB55163C2727E84600153A9A /* PersonDetailView.swift */; };
 		DB587898275E3634004C4F65 /* PersonBirthdayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB587897275E3634004C4F65 /* PersonBirthdayView.swift */; };
-		DB64C0312755324F004709C4 /* UserRecordOverViewIndexed.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB64C0302755324F004709C4 /* UserRecordOverViewIndexed.swift */; };
 		DB64C033275536A2004709C4 /* IndexedTableViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB64C032275536A2004709C4 /* IndexedTableViewHelper.swift */; };
 		DB64C03727569172004709C4 /* PersonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB64C03627569172004709C4 /* PersonData.swift */; };
 		DB759E162CBD6A9D00DB67E8 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB759E152CBD6A8E00DB67E8 /* Extension.swift */; };
@@ -74,7 +73,6 @@
 		DBE25B6D270C55C500AE255B /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBE25B6C270C55C500AE255B /* CloudKit.framework */; };
 		DBE25B6F270C566000AE255B /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE25B6E270C566000AE255B /* Config.swift */; };
 		DBECA57230AA126E00CEC799 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBECA57130AA126E00CEC799 /* UserData.swift */; };
-		DBECA57430AA1BC000CEC799 /* PersonOverviewIndexed.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBECA57330AA1BC000CEC799 /* PersonOverviewIndexed.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -94,7 +92,6 @@
 		DB4FD4DD2733E72F0080E084 /* ToDoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoView.swift; sourceTree = "<group>"; };
 		DB55163C2727E84600153A9A /* PersonDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailView.swift; sourceTree = "<group>"; };
 		DB587897275E3634004C4F65 /* PersonBirthdayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonBirthdayView.swift; sourceTree = "<group>"; };
-		DB64C0302755324F004709C4 /* UserRecordOverViewIndexed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRecordOverViewIndexed.swift; sourceTree = "<group>"; };
 		DB64C032275536A2004709C4 /* IndexedTableViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexedTableViewHelper.swift; sourceTree = "<group>"; };
 		DB64C03627569172004709C4 /* PersonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonData.swift; sourceTree = "<group>"; };
 		DB759E152CBD6A8E00DB67E8 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
@@ -148,7 +145,6 @@
 		DBE25B6C270C55C500AE255B /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		DBE25B6E270C566000AE255B /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		DBECA57130AA126E00CEC799 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
-		DBECA57330AA1BC000CEC799 /* PersonOverviewIndexed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonOverviewIndexed.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -354,7 +350,6 @@
 		DBE25B5B270C556200AE255B /* PerData */ = {
 			isa = PBXGroup;
 			children = (
-				DBECA57030AA0FD900CEC799 /* Indexed */,
 				DBE25B60270C556400AE255B /* Assets.xcassets */,
 				DB81CA762742755D00E69D57 /* Cabin */,
 				DBA02DCC273070A00090D36C /* Cloud Helper */,
@@ -398,15 +393,6 @@
 				DBE25B6C270C55C500AE255B /* CloudKit.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		DBECA57030AA0FD900CEC799 /* Indexed */ = {
-			isa = PBXGroup;
-			children = (
-				DB64C0302755324F004709C4 /* UserRecordOverViewIndexed.swift */,
-				DBECA57330AA1BC000CEC799 /* PersonOverviewIndexed.swift */,
-			);
-			path = Indexed;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -519,7 +505,6 @@
 				DB4BBA2C274BB4A200771D7A /* UserRecordDetailView.swift in Sources */,
 				DBC9041F273FFF740043DAC3 /* MakeAttributedString.swift in Sources */,
 				DB81CA66274263F700E69D57 /* PersonDetailMapView.swift in Sources */,
-				DBECA57430AA1BC000CEC799 /* PersonOverviewIndexed.swift in Sources */,
 				DB81CA682742665700E69D57 /* PersonDetailPhoneView.swift in Sources */,
 				DB64C03727569172004709C4 /* PersonData.swift in Sources */,
 				DB81CA7D2742765A00E69D57 /* Hud.swift in Sources */,
@@ -531,7 +516,6 @@
 				DBCE889227541290006E6E35 /* UpdateCabinsFromJsonBackupFile.swift in Sources */,
 				DB81CA81274276FE00E69D57 /* CloudKitCabin.swift in Sources */,
 				DB81CA702742742900E69D57 /* PersonSendEmailView.swift in Sources */,
-				DB64C0312755324F004709C4 /* UserRecordOverViewIndexed.swift in Sources */,
 				DBE25B5D270C556200AE255B /* PerDataApp.swift in Sources */,
 				DBC89AFE30B03E2700C4AC3A /* PersonNewView.swift in Sources */,
 				DBB4B38527141B9D00618F17 /* CloudPersonHelper.swift in Sources */,

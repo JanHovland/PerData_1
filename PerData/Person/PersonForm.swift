@@ -64,7 +64,6 @@ struct PersonForm: View {
                     }
                 }
                 .gridColumnAlignment(.leading)
-                .padding(.top, 2.5)
                 
                 GridRow {
                     Text("FirstName")

@@ -55,6 +55,9 @@ struct PersonUpdateView: View {
             }
             Spacer()
         }
+        ///
+        /// Gir svart bakgrunn på TextField
+        ///
         .textFieldStyle(.roundedBorder)
         .padding()
         .navigationBarTitle("Modify person", displayMode: .inline)
