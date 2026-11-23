@@ -30,8 +30,7 @@ struct userRecordOverView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                ActivityIndicator(isAnimating: $indicatorShowing, style: .medium, color: .gray)
-                List {
+                ScrollView(showsIndicators: false) {
                     ForEach(userRecords) { userRecord in
                         NavigationLink(destination: UserRecordDetailView(userRecord: userRecord)) {
                             showUsers(userRecord: userRecord)

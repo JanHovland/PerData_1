@@ -29,7 +29,7 @@ struct personBirthdayView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                List {
+                ScrollView(showsIndicators: false) {
                     ForEach(persons) {
                         person in
                         if searchText == "" || person.firstName.contains(searchText) {
@@ -39,11 +39,11 @@ struct personBirthdayView: View {
                         }
                     }
                     .padding(.bottom, 5)
-                }
+                    .refreshable {
+                        await refreshBirthDays()
+                    }
+                } // ScrollView
             } // VStack
-            .refreshable {
-                await refreshBirthDays()
-            }
             .backToCaller("PersonOverView")
             .navigationBarTitle(barTitle, displayMode: .inline)
             .toolbar(content: {
@@ -218,6 +218,10 @@ struct showPersonBirthday: View {
         } message: {
             Text(message)
         }
+        .gradientGlass()
+        .padding(.vertical, 5)
+        .padding(.horizontal, 20)
+        
     }
 }
 

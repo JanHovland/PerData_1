@@ -120,9 +120,6 @@ struct PersonData: View {
     var body: some View {
         NavigationStack {
             VStack {
-                if indicatorShowing {
-                    ActivityIndicator(isAnimating: $indicatorShowing, style: .medium, color: .gray)
-                }
                 ScrollView(showsIndicators: false) {
                     VStack(alignment: .leading) {
                         ForEach(persons) { person in

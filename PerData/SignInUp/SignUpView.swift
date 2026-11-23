@@ -119,11 +119,10 @@ struct SignUpView : View {
                    userRecord.lastName.count > 0,
                    userRecord.email.count > 0,
                    userRecord.passWord.count > 0 {
-                    /// Starte ActivityIndicator
                     indicatorShowing = true
-                    
+                    ///
                     ///  Finnes denne brukeren fra før?
-                    
+                    ///
                     Task.init {
                         var value: (LocalizedStringKey, CKRecord.ID?)
                         await value = userRecordRecordID(userRecord)
