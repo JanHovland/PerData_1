@@ -71,7 +71,7 @@ struct backupPersonsToJsonBackupFileView: View {
             .backToCaller("PersonOverView")
         }
         .task {
-            var value: (LocalizedStringKey, [Person], [String])
+            var value: (LocalizedStringKey, [Person])
             let predicate = NSPredicate(value: true)
             await value = findPersons(predicate: predicate)
             if value.0 != "" {

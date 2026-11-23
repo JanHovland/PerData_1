@@ -113,7 +113,6 @@ struct PersonOverviewIndexed: View {
     @State private var indicatorShowing = false
     @State private var isAlertActive = false
     
-    @State private var sectionHeader = [String]()
     @State private var predicate = NSPredicate(value: true)
     
     var body: some View {
@@ -122,45 +121,45 @@ struct PersonOverviewIndexed: View {
                 ActivityIndicator(isAnimating: $indicatorShowing, style: .medium, color: .gray)
                 ScrollView(showsIndicators: false) {
                     VStack(alignment: .leading) {
-                        ForEach(sectionHeader, id: \.self) { letter in
-                            ForEach(persons.filter {
-                                person -> Bool in
-                                person.firstName.prefix(1) == letter
-                            }) {
-                                person in
-                                if searchText == "" || person.firstName.uppercased().contains(searchText.uppercased()) {
-                                    NavigationLink(destination: PersonUpdateView(person: person)) {
-                                        VStack(alignment: .leading) {
-                                            PersonDetailView(person: person)
-                                            HStack(spacing: UIDevice.isIpad ? 60 : 30) {
-                                                PersonDetailMapView(person: person)
-                                                PersonDetailPhoneView(person: person)
-                                                PersonDetailMessageView(person: person)
-                                                PersonDetailMailView(person: person)
-                                                PersonDetailCabinView(person: person)
-                                            }
-                                        }
-                                        .padding(.horizontal, 10)
-                                    }
-                                }
-                            }
-                            .onDelete { indexSet in
-                                indexSetDelete = indexSet
-                                recordID = persons[indexSet.first!].recordID
-                                persons.removeAll()
-                                Task {
-                                    await message = deletePerson(recordID!)
-                                    title = "Delete a person"
-                                    isAlertActive.toggle()
-                                    //
-                                    // Viser resten av personene
-                                    //
-                                    await refreshPersonsIndexed(predicate: predicate)
-                                }
-                            }
-                        } // ForEach(sectionHeader
-                        .padding(.bottom, 10)
-                        .gradientGlass()
+//                        ForEach(sectionHeader, id: \.self) { letter in
+//                            ForEach(persons.filter {
+//                                person -> Bool in
+//                                person.firstName.prefix(1) == letter
+//                            }) {
+//                                person in
+//                                if searchText == "" || person.firstName.uppercased().contains(searchText.uppercased()) {
+//                                    NavigationLink(destination: PersonUpdateView(person: person)) {
+//                                        VStack(alignment: .leading) {
+//                                            PersonDetailView(person: person)
+//                                            HStack(spacing: UIDevice.isIpad ? 60 : 30) {
+//                                                PersonDetailMapView(person: person)
+//                                                PersonDetailPhoneView(person: person)
+//                                                PersonDetailMessageView(person: person)
+//                                                PersonDetailMailView(person: person)
+//                                                PersonDetailCabinView(person: person)
+//                                            }
+//                                        }
+//                                        .padding(.horizontal, 10)
+//                                    }
+//                                }
+//                            }
+//                            .onDelete { indexSet in
+//                                indexSetDelete = indexSet
+//                                recordID = persons[indexSet.first!].recordID
+//                                persons.removeAll()
+//                                Task {
+//                                    await message = deletePerson(recordID!)
+//                                    title = "Delete a person"
+//                                    isAlertActive.toggle()
+//                                    //
+//                                    // Viser resten av personene
+//                                    //
+//                                    await refreshPersonsIndexed(predicate: predicate)
+//                                }
+//                            }
+//                        } // ForEach(sectionHeader
+//                        .padding(.bottom, 10)
+//                        .gradientGlass()
                     } // VStack
                     .padding(.horizontal, UIDevice.isIpad ? 20 : 20)
                 } // ScrollView
@@ -360,9 +359,8 @@ struct PersonOverviewIndexed: View {
     func refreshPersonsIndexed(predicate: NSPredicate) async {
         // Sletter alt tidligere innhold i persons
         persons.removeAll()
-        sectionHeader.removeAll()
         // Fetch all userRecords from CloudKit
-        var value: (LocalizedStringKey, [Person], [String])
+        var value: (LocalizedStringKey, [Person])
         await value = findPersons(predicate: predicate)
         if value.0 != "" {
             message = value.0
@@ -370,7 +368,6 @@ struct PersonOverviewIndexed: View {
             isAlertActive.toggle()
         } else {
             persons = value.1
-            sectionHeader = value.2
         }
     }
     

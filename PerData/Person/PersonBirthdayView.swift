@@ -83,7 +83,7 @@ struct personBirthdayView: View {
         /// Fetch all persons from CloudKit
         /// Sletter alt tidligere innhold i persons
         /// Fetch all userRecords  from CloudKit
-        var value: (LocalizedStringKey, [Person], [String])
+        var value: (LocalizedStringKey, [Person])
         indicatorShowing = true
         let predicate = NSPredicate(value: true)
         await value = findPersons(predicate: predicate)

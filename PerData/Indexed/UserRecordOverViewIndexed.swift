@@ -28,8 +28,6 @@ struct UserRecordOverViewIndexed: View {
     @State private var recordID: CKRecord.ID?
     @State private var userRecords = [UserRecord]()
     
-    @State private var sectionHeader = [String]()
-    
     @State private var predicate = NSPredicate(value: true)
     
     var body: some View {
@@ -38,37 +36,37 @@ struct UserRecordOverViewIndexed: View {
                 ActivityIndicator(isAnimating: $indicatorShowing, style: .medium, color: .gray)
                 ScrollView {
                     VStack (alignment: .leading) {
-                        ForEach(sectionHeader, id: \.self) { letter in
-                            
-                            Section(header: SectionHeader(letter: letter)) {
-                                ForEach(userRecords.filter( {
-                                    (userRecord) -> Bool in
-                                    userRecord.firstName.prefix(1) == letter
-                                })) {
-                                    userRecord in
-                                    
-                                    if searchText == "" || userRecord.firstName.uppercased().contains(searchText.uppercased()) {
-                                        NavigationLink(destination: UserRecordDetailView(userRecord: userRecord)) {
-                                            showUsers(userRecord: userRecord)
-                                        }
-                                        .gradientGlass()
-                                    } else {
-                                        EmptyView()
-                                    }
-                                }
-                                .onDelete { (indexSet) in
-                                    indexSetDelete = indexSet
-                                    recordID = userRecords[indexSet.first!].recordID
-                                    userRecords.removeAll()
-                                    Task.init {
-                                        await message = deleteUserRecord(recordID!)
-                                        title = "Delete UserRecord"
-                                        isAlertActive.toggle()
-                                    }
-                                }
-                            }
-                            .listRowSeparator(.hidden)
-                        }
+//                        ForEach(sectionHeader, id: \.self) { letter in
+//                            
+//                            Section(header: SectionHeader(letter: letter)) {
+//                                ForEach(userRecords.filter( {
+//                                    (userRecord) -> Bool in
+//                                    userRecord.firstName.prefix(1) == letter
+//                                })) {
+//                                    userRecord in
+//                                    
+//                                    if searchText == "" || userRecord.firstName.uppercased().contains(searchText.uppercased()) {
+//                                        NavigationLink(destination: UserRecordDetailView(userRecord: userRecord)) {
+//                                            showUsers(userRecord: userRecord)
+//                                        }
+//                                        .gradientGlass()
+//                                    } else {
+//                                        EmptyView()
+//                                    }
+//                                }
+//                                .onDelete { (indexSet) in
+//                                    indexSetDelete = indexSet
+//                                    recordID = userRecords[indexSet.first!].recordID
+//                                    userRecords.removeAll()
+//                                    Task.init {
+//                                        await message = deleteUserRecord(recordID!)
+//                                        title = "Delete UserRecord"
+//                                        isAlertActive.toggle()
+//                                    }
+//                                }
+//                            }
+//                            .listRowSeparator(.hidden)
+//                        }
                     }
                     /// Fjerner ekstra tomt felt med tilhørede linje
                     .listStyle(InsetListStyle())
@@ -135,7 +133,6 @@ struct UserRecordOverViewIndexed: View {
     func refreshUsersIndexed() async {
         /// Sletter alt tidligere innhold i userRecord
         userRecords.removeAll()
-        sectionHeader.removeAll()
         /// Fetch all userRecords  from CloudKit
         var value: (LocalizedStringKey, [UserRecord], [String])
         await value = findUserRecords()
@@ -145,7 +142,6 @@ struct UserRecordOverViewIndexed: View {
             isAlertActive.toggle()
         } else {
             userRecords = value.1
-            sectionHeader = value.2
         }
     }
     

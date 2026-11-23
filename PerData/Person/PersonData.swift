@@ -113,9 +113,7 @@ struct PersonData: View {
     @State private var indicatorShowing = false
     @State private var isAlertActive = false
     
-    @State private var sectionHeader = [String]()
     @State private var predicate = NSPredicate(value: true)
-    
     
     @State private var option: EnumType = .new
 
@@ -341,9 +339,8 @@ struct PersonData: View {
     func refreshPersonsIndexed(predicate: NSPredicate) async {
         // Sletter alt tidligere innhold i persons
         persons.removeAll()
-        sectionHeader.removeAll()
         // Fetch all userRecords from CloudKit
-        var value: (LocalizedStringKey, [Person], [String])
+        var value: (LocalizedStringKey, [Person])
         await value = findPersons(predicate: predicate)
         if value.0 != "" {
             message = value.0
@@ -365,7 +362,6 @@ struct PersonData: View {
             persons = persons.sorted { lhs, rhs in
                 lhs.firstName.compare(rhs.firstName, options: [.caseInsensitive, .diacriticInsensitive], range: nil, locale: locale) == .orderedAscending
             }
-            sectionHeader = value.2
         }
     }
     
