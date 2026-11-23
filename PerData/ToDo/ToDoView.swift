@@ -144,9 +144,9 @@ struct toDoView: View {
             🟢 Vis feltet "avdød"
      48. 🟢 UserData():
             🟢 Tilpasse utseendet
-     49. 🔴 UserRecordDetailView():
+     49. 🟢 UserRecordDetailView():
             🟢 Tilpasse utseendet
-            🔴 Samme sletting som PersonUpdateView()
+            🟢 Samme sletting som PersonUpdateView()
      50. 🔴 Må sjekke NSPredicate(format:
             🟢 CabinReservationView()
             🔴 CloudUserHelper()
