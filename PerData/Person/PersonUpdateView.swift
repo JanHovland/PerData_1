@@ -22,7 +22,6 @@ struct PersonUpdateView: View {
     @State private var title: LocalizedStringKey = ""
     @State private var isAlertActive = false
     @State private var image = UIImage()
-//    @State private var modifyImage = false
     @State private var showImage = false
     @State private var recordID: CKRecord.ID?
     @State private var showDeseased = false

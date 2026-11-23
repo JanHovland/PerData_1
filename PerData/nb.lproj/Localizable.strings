@@ -428,7 +428,7 @@
 "Deseased" = "Avdød";
 
 /* No comment provided by engineer. */
-"Confirm delete" = "Bekreft sletting.";
+"Confirm delete" = "Bekreft sletting";
 
 /* No comment provided by engineer. */
 "This person is deleted" = "Personen er slettet.";
@@ -441,4 +441,13 @@
 
 /* No comment provided by engineer. */
 "Modify userRecord" = "Oppdater bruker";
+
+/* No comment provided by engineer. */
+"Delete a user" = "Slett bruker";
+
+/* No comment provided by engineer. */
+"Delete a user" = "Slett bruker";
+
+/* No comment provided by engineer. */
+"Can not delete a user without a record ID." = "Kan ikke slette en bruker uten en record ID.";
 

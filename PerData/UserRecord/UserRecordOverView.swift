@@ -50,6 +50,7 @@ struct userRecordOverView: View {
                     }
                     .gradientGlass()
                     Spacer()
+                    
                 }
                 
             }
@@ -98,6 +99,7 @@ struct userRecordOverView: View {
                     .controlGroupStyle(.navigation)
                 }
             })
+
         }
     }
     
@@ -143,7 +145,5 @@ struct userRecordOverView: View {
             }
         }
     }
-    
 }
-
 

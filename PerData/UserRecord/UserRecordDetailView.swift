@@ -131,34 +131,42 @@ struct UserRecordDetailView: View {
                     } label: {
                         Label("Update", systemImage: "square.and.pencil")
                     }
-                    Button(role: .destructive) {
-                        Task {
-                            print("Delete userRecord")
-
-                            if let recordID = userRecord.recordID {
-                                message = await deleteUserRecord(recordID)
-
-                                userRecord = UserRecord(
-                                    firstName: "",
-                                    lastName: "",
-                                    email: "",
-                                    passWord: "",
-                                    image: nil
-                                )
-
-                                title = "Delete an UserRecord"
-                                isAlertActive.toggle()
-
-                            } else {
-                                title = "Delete an UserRecord"
-                                message = "Cannot delete without a record ID."
-                                isAlertActive.toggle()
+                    
+                    Menu {
+                        Menu {
+                            Button (role: .destructive) {
+                                Task {
+                                    if userRecord.recordID != nil {
+                                        message = await deleteUserRecord(userRecord.recordID!)
+                                        message = "This user is deleted"
+                                        userRecord = UserRecord(firstName: "",
+                                                                lastName: "",
+                                                                email: "",
+                                                                passWord: "")
+                                        userRecord.image = nil
+                                        title = "Delete a user"
+                                        isAlertActive.toggle()
+                                    } else {
+                                        title = "Delete a user"
+                                        message = "Can not delete a user without a record ID."
+                                        isAlertActive.toggle()
+                                    }
+                                }
+                            } label: {
+                                Label("Delete a user", systemImage: "trash")
                             }
+                            Button {
+                                presentationMode.wrappedValue.dismiss()
+                            } label: {
+                                Label("Cancel", systemImage: "xmark")
+                            }
+                        } label: {
+                            Label("Confirm delete", systemImage: "questionmark.app")
                         }
+                        
                     } label: {
-                        Label("Delete", systemImage: "trash")
+                        Label("Delete a user", systemImage: "trash")
                     }
-
                 } label: {
                     Image(systemName: "ellipsis.circle")
                         .foregroundColor(.accentColor)
@@ -167,7 +175,7 @@ struct UserRecordDetailView: View {
             }
         }
         .alert(title, isPresented: $isAlertActive) {
-            Button("OK", action: {})
+            Button("OK", action: { presentationMode.wrappedValue.dismiss() })
         } message: {
             Text(message)
         }
