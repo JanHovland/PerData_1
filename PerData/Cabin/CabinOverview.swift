@@ -26,27 +26,30 @@ struct CabinOverView: View {
     
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
-                List {
-                    ForEach(cabins) {
-                        cabin in
+                ScrollView(showsIndicators: false) {
+                    ForEach(cabins) { cabin in
                         HStack {
-                            VStack {
+                            HStack {
                                 Text(cabin.firstName)
-                                Text(cabin.lastName)
+                                    .foregroundStyle(.purple)
+                                Spacer()
                             }
-                            .font(Font.title3.weight(.ultraLight))
                             HStack {
                                 Spacer()
                                 Text(String(IntToDateString(int: cabin.fromDate)))
-                                Text(String(IntToDateString(int: cabin.toDate)))
+                                    .font(.system(size: UIDevice.isIpad ? 18 :13, weight: .bold)).monospaced()
+                                Spacer()
                             }
-                            .font(Font.footnote.weight(.regular))
-                            .background(Color("Background"))
-                            .cornerRadius(5)
-                            .padding(.horizontal, 5)
+                            HStack {
+                                Spacer()
+                                Text(String(IntToDateString(int: cabin.toDate)))
+                                    .font(.system(size: UIDevice.isIpad ? 18 :13, weight: .bold)).monospaced()
+                                Spacer()
+                            }
                         }
+                        .gradientGlass()
                     }
                     /// onDelete finnes bare i iOS
                     .onDelete { (indexSet) in
@@ -130,18 +133,18 @@ func IntToDateString (int: Int) -> String {
         let index5 = str.index(str.startIndex, offsetBy: 5)
         let index6 = str.index(str.startIndex, offsetBy: 6)
         let month = Int(str[index4...index5]) ?? 0
-        let monthName : [String] = ["jan",
-                                    "feb",
-                                    "mar",
-                                    "apr",
-                                    "may",
-                                    "jun",
-                                    "jul",
-                                    "aug",
-                                    "sep",
-                                    "oct",
-                                    "nov",
-                                    "dec"]
+        let monthName : [String] = [String(localized: "jan"),
+                                    String(localized: "feb"),
+                                    String(localized: "mar"),
+                                    String(localized: "apr"),
+                                    String(localized: "may"),
+                                    String(localized: "jun"),
+                                    String(localized: "jul"),
+                                    String(localized: "aug"),
+                                    String(localized: "sep"),
+                                    String(localized: "oct"),
+                                    String(localized: "nov"),
+                                    String(localized: "dec")]
         return str[index6...]  + ". " + monthName[month - 1] + " " + str[...index3]
     } else {
         return "0"

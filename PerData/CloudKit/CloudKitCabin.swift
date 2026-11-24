@@ -77,7 +77,7 @@ struct CloudKitCabin {
                 cabin.toDate = toDate as! Int
                 
                 cabins.append(cabin)
-                cabins.sort(by: {$0.firstName < $1.firstName})
+                cabins.sort(by: {$0.fromDate > $1.fromDate})
             }
             return cabins
         } catch {

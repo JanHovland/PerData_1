@@ -451,3 +451,39 @@
 /* No comment provided by engineer. */
 "Can not delete a user without a record ID." = "Kan ikke slette en bruker uten en record ID.";
 
+/* No comment provided by engineer. */
+"jan" = "jan";
+
+/* No comment provided by engineer. */
+"feb" = "feb";
+
+/* No comment provided by engineer. */
+"mar" = "mar";
+
+/* No comment provided by engineer. */
+"apr" = "apr";
+
+/* No comment provided by engineer. */
+"may" = "mai";
+
+/* No comment provided by engineer. */
+"jun" = "jun";
+
+/* No comment provided by engineer. */
+"jul" = "jul";
+
+/* No comment provided by engineer. */
+"aug" = "aug";
+
+/* No comment provided by engineer. */
+"sep" = "sep";
+
+/* No comment provided by engineer. */
+"oct" = "okt";
+
+/* No comment provided by engineer. */
+"nov" = "nov";
+
+/* No comment provided by engineer. */
+"dec" = "des";
+
