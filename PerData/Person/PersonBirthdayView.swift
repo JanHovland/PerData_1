@@ -174,44 +174,67 @@ struct showPersonBirthday: View {
     }
     
     var body: some View {
-        HStack (spacing: 10) {
-            if person.image != nil {
-                Image(uiImage: person.image!)
-                    .resizable()
-                    .frame(width: 30, height: 30, alignment: .center)
-                    .clipShape(Circle())
-                    .overlay(Circle().stroke(Color.gray, lineWidth: 1))
-            } else {
-                Image(systemName: "person.circle")
-                    .resizable()
-                    .font(.system(size: 16, weight: .ultraLight))
-                    .frame(width: 30, height: 30, alignment: .center)
+        HStack  {
+            HStack {
+                if person.image != nil {
+                    Image(uiImage: person.image!)
+                        .resizable()
+                        .frame(width: 30, height: 30, alignment: .center)
+                        .clipShape(Circle())
+                        .overlay(Circle().stroke(Color.gray, lineWidth: 1))
+                } else {
+                    Image(systemName: "person.circle")
+                        .resizable()
+                        .font(.system(size: 16, weight: .ultraLight))
+                        .frame(width: 30, height: 30, alignment: .center)
+                }
+                Spacer()
             }
-            Text("\(person.dateOfBirth, formatter: showPersonBirthday.taskDateFormat)")
-                .background(colour)
-                .font(.custom("Andale Mono", size: 16))
-            Text(age)
-                .foregroundColor(.accentColor)
-                .font(.custom("Andale Mono", size: 16))
-            Text(person.firstName)
-                .font(Font.title2.weight(.ultraLight))
-            Spacer(minLength: 5)
-            Image("message")
-            /// Formatet er : tel:<phone><&body>
-                .resizable()
-                .frame(width: 30, height: 30, alignment: .center)
-                .gesture(
-                    TapGesture()
-                        .onEnded({ _ in
-                            if person.phoneNumber.count > 0 {
-                                PersonSendSMS(person: person)
-                            } else {
-                                title = "Birthday"
-                                message = "Missing phonenumber"
-                                isAlertActive.toggle()
-                            }
-                        })
-                )
+         
+            HStack {
+                Text("\(person.dateOfBirth, formatter: showPersonBirthday.taskDateFormat)")
+                    .font(.custom("Andale Mono", size: 16))
+                    .font(.system(size: 16, weight: .bold)).monospaced()
+                    .padding(.trailing, UIDevice.isIpad ? 20 :0)
+               Spacer()
+            }
+            
+            HStack {
+                Spacer()
+                Text(age)
+                    .font(.system(size: 16, weight: .heavy))
+                    .foregroundStyle(.green)
+                    .frame(width: UIDevice.isIpad ? 30: 30)
+            }
+            
+            HStack {
+                Spacer()
+                Text(person.firstName)
+                    .foregroundStyle(.purple)
+                    .frame(width: UIDevice.isIpad ? 100 : 75)
+                Spacer()
+            }
+            .padding(.leading, UIDevice.isIpad ? 20 : 20)
+            
+            HStack {
+                Spacer()
+                 Image("message")
+                /// Formatet er : tel:<phone><&body>
+                    .resizable()
+                    .frame(width: 30, height: 30, alignment: .center)
+                    .gesture(
+                        TapGesture()
+                            .onEnded({ _ in
+                                if person.phoneNumber.count > 0 {
+                                    PersonSendSMS(person: person)
+                                } else {
+                                    title = "Birthday"
+                                    message = "Missing phonenumber"
+                                    isAlertActive.toggle()
+                                }
+                            })
+                    )
+            }
         }
         .alert(title, isPresented: $isAlertActive) {
             Button("OK", action: {})
