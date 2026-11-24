@@ -150,7 +150,7 @@ struct PersonData: View {
                                 //
                                 // Viser resten av personene
                                 //
-                                await refreshPersonsIndexed(predicate: predicate)
+                                await refreshPersons(predicate: predicate)
                             }
                         }
                         .padding(.bottom, 10)
@@ -166,7 +166,7 @@ struct PersonData: View {
             }
             .task {
                 indicatorShowing = true
-                await refreshPersonsIndexed(predicate: predicate)
+                await refreshPersons(predicate: predicate)
                 indicatorShowing = false
             }
             .navigationBarTitle("PersonOverView", displayMode: .inline)
@@ -186,7 +186,7 @@ struct PersonData: View {
                     Menu {
                         Button {
                             Task {
-                                await refreshPersonsIndexed(predicate: predicate)
+                                await refreshPersons(predicate: predicate)
                             }
                         } label: {
                             Label("Refresh", systemImage: "square.and.pencil")
@@ -322,18 +322,18 @@ struct PersonData: View {
             predicate = searchText.isEmpty ? NSPredicate(value: true) : NSPredicate(format: "firstName BEGINSWITH %@", searchText)
             Task {
                 indicatorShowing = true
-                await refreshPersonsIndexed(predicate: predicate)
+                await refreshPersons(predicate: predicate)
                 indicatorShowing = false
             }
         }
         .refreshable {
             Task {
-                await refreshPersonsIndexed(predicate: predicate)
+                await refreshPersons(predicate: predicate)
             }
         }
     }
     
-    func refreshPersonsIndexed(predicate: NSPredicate) async {
+    func refreshPersons(predicate: NSPredicate) async {
         // Sletter alt tidligere innhold i persons
         persons.removeAll()
         // Fetch all userRecords from CloudKit

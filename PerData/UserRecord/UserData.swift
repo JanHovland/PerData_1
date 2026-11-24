@@ -68,13 +68,13 @@ struct UserData: View {
                     .task {
                         if userRecords.count == 0 {
                             indicatorShowing = true
-                            await refreshUsersIndexed()
+                            await refreshUsers()
                             indicatorShowing = false
                         }
                     }
                     
                     .refreshable {
-                        await refreshUsersIndexed()
+                        await refreshUsers()
                     }
                     .toolbar(content: {
                         ToolbarItem(placement: .navigationBarLeading) {
@@ -92,7 +92,7 @@ struct UserData: View {
                                 Button {
                                     Task {
                                         indicatorShowing = true
-                                        await refreshUsersIndexed()
+                                        await refreshUsers()
                                         indicatorShowing = false
                                     }
                                 } label: {
@@ -110,13 +110,13 @@ struct UserData: View {
             predicate = searchText.isEmpty ? NSPredicate(value: true) : NSPredicate(format: "firstName BEGINSWITH %@", searchText)
             Task {
                 indicatorShowing = true
-                await refreshUsersIndexed()
+                await refreshUsers()
                 indicatorShowing = false
             }
         }
     }
     
-    func refreshUsersIndexed() async {
+    func refreshUsers() async {
         // Sletter alt tidligere innhold i userRecord
         userRecords.removeAll()
         sectionHeader.removeAll()

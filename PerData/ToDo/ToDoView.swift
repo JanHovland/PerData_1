@@ -144,29 +144,33 @@ struct toDoView: View {
             🟢 Vis feltet "avdød"
      48. 🟢 UserData():
             🟢 Tilpasse utseendet
-     49. 🟢 UserRecordDetailView():
+     49. 🟢 Birthday:
+            🟢 Tilpasse utseendet
+     50. 🟢 Hyttereservasjoner:
+            🟢 Tilpasse utseendet
+     51. 🟢 UserRecordDetailView():
             🟢 Tilpasse utseendet
             🟢 Samme sletting som PersonUpdateView()
-     50. 🔴 Må sjekke NSPredicate(format:
+     52. 🔴 Må sjekke NSPredicate(format:
             🟢 CabinReservationView()
             🔴 CloudUserHelper()
             🔴 CloudKitPerson()
             🔴 CloudKitUserRecord()
             🔴 updateCabinsFromJsonBackupFile()
             🔴 personBirthdayView()
-     51. 🔴 Må legge inn zoom på det nye post- og kommunenr: 
+     53. 🔴 Må legge inn zoom på det nye post- og kommunenr: 
             🔴 Basic zoom versjon.
-     52. 🔴 Legge inn bilde for alle personene
+     54. 🔴 Legge inn bilde for alle personene
             🔴 Utføre
-     53. 🔴 Legge inn personer som mangler
+     55. 🔴 Legge inn personer som mangler
             🔴 Utføre
-     54. 🔴 Widget som viser alle fødselsdagene i inneværende måned:
+     56. 🔴 Widget som viser alle fødselsdagene i inneværende måned:
             🔴 Hele måneden / eller kun de 5 første? 
-     55. 🔴 .
+     58. 🔴 .
             🔴 .
-     56. 🔴 .
+     59. 🔴 .
             🔴 .
-     57.  🔴 .
+     60.  🔴 .
             🔴 .
     
     
