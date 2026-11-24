@@ -61,6 +61,16 @@ struct PersonUpdateView: View {
         .padding()
         .navigationBarTitle("Modify person", displayMode: .inline)
         .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                ControlGroup {
+                    Button {
+                        presentationMode.wrappedValue.dismiss()
+                    } label: {
+                        ReturnFromMenuView(text: "PersonOverView")
+                    }
+                }
+                .controlGroupStyle(.navigation)
+            }
             ToolbarItem(placement: .navigationBarTrailing) {
                 Menu {
                     Button {
@@ -124,6 +134,10 @@ struct PersonUpdateView: View {
                 }
             }
         }
+        ///
+        /// Skjuler "Chevron.left" image
+        ///
+        .navigationBarBackButtonHidden(true)
         .alert(title, isPresented: $isAlertActive) {
             Button("OK", action: { presentationMode.wrappedValue.dismiss() })
         } message: {
