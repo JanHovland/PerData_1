@@ -188,7 +188,8 @@ struct SignInView: View {
                 .padding(.top, 30)
                 .padding(.bottom, 50)
                 .sheet(isPresented: $runPerData, content: {
-                    PersonData()
+//                    PersonData()
+                    ZipCodeZoom()
                 })
                 .sheet(isPresented: $runSignUpView, content: {
                     SignUpView()

@@ -9,9 +9,12 @@
 /* Begin PBXBuildFile section */
 		DB01A83D2726C3D1007721E1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DB01A83B2726C3D1007721E1 /* InfoPlist.strings */; };
 		DB01A8402726C3D1007721E1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DB01A83E2726C3D1007721E1 /* Localizable.strings */; };
+		DB027E0C30B5DDF5008A5529 /* ZipCodeZoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB027E0B30B5DDF5008A5529 /* ZipCodeZoom.swift */; };
 		DB0708F127293F97001B3BBA /* PersonUpdateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0708F027293F97001B3BBA /* PersonUpdateView.swift */; };
 		DB0AD89F275185D600A3F8C3 /* BackupUserRecordsToJsonBackupFileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0AD89E275185D600A3F8C3 /* BackupUserRecordsToJsonBackupFileView.swift */; };
 		DB0AD8A12751870500A3F8C3 /* BackupUserRecordsToJsonBackupFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0AD8A02751870500A3F8C3 /* BackupUserRecordsToJsonBackupFile.swift */; };
+		DB34D0C330B6C0AE005B6386 /* Post_old.txt in Resources */ = {isa = PBXBuildFile; fileRef = DB34D0C230B6C0AE005B6386 /* Post_old.txt */; };
+		DB34D0C530B6E3B4005B6386 /* Post.txt in Resources */ = {isa = PBXBuildFile; fileRef = DB34D0C430B6E3B4005B6386 /* Post.txt */; };
 		DB3AA39D27392D65008B2FDF /* UpdatePersonsFromJsonBackupFileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3AA39C27392D65008B2FDF /* UpdatePersonsFromJsonBackupFileView.swift */; };
 		DB3AA39F27392ED1008B2FDF /* UpdatePersonsFromJsonBackupFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3AA39E27392ED1008B2FDF /* UpdatePersonsFromJsonBackupFile.swift */; };
 		DB4BBA2427457D8E00771D7A /* UserRecordOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4BBA2327457D8E00771D7A /* UserRecordOverView.swift */; };
@@ -40,7 +43,7 @@
 		DB81CA7F2742768900E69D57 /* HudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB81CA7E2742768900E69D57 /* HudView.swift */; };
 		DB81CA81274276FE00E69D57 /* CloudKitCabin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB81CA80274276FE00E69D57 /* CloudKitCabin.swift */; };
 		DB83A9A830AD958900E4FECB /* FormatDateToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB83A9A730AD958900E4FECB /* FormatDateToString.swift */; };
-		DB83A9AB30AEE21200E4FECB /* Postnummerregister-ansi.txt in Resources */ = {isa = PBXBuildFile; fileRef = DB83A9AA30AEE21200E4FECB /* Postnummerregister-ansi.txt */; };
+		DB83A9AB30AEE21200E4FECB /* Postnummer.txt in Resources */ = {isa = PBXBuildFile; fileRef = DB83A9AA30AEE21200E4FECB /* Postnummer.txt */; };
 		DB8476DD270EE534007D3E18 /* CloudKitPerson.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8476DC270EE534007D3E18 /* CloudKitPerson.swift */; };
 		DB8476E1270F6742007D3E18 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8476E0270F6742007D3E18 /* Person.swift */; };
 		DB90614C273A826300BF9779 /* CloudKitErrorString.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB90614B273A826300BF9779 /* CloudKitErrorString.swift */; };
@@ -79,9 +82,12 @@
 		DB01A8312726C05A007721E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		DB01A83C2726C3D1007721E1 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		DB01A83F2726C3D1007721E1 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DB027E0B30B5DDF5008A5529 /* ZipCodeZoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZipCodeZoom.swift; sourceTree = "<group>"; };
 		DB0708F027293F97001B3BBA /* PersonUpdateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonUpdateView.swift; sourceTree = "<group>"; };
 		DB0AD89E275185D600A3F8C3 /* BackupUserRecordsToJsonBackupFileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupUserRecordsToJsonBackupFileView.swift; sourceTree = "<group>"; };
 		DB0AD8A02751870500A3F8C3 /* BackupUserRecordsToJsonBackupFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupUserRecordsToJsonBackupFile.swift; sourceTree = "<group>"; };
+		DB34D0C230B6C0AE005B6386 /* Post_old.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Post_old.txt; sourceTree = "<group>"; };
+		DB34D0C430B6E3B4005B6386 /* Post.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Post.txt; sourceTree = "<group>"; };
 		DB3AA39C27392D65008B2FDF /* UpdatePersonsFromJsonBackupFileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePersonsFromJsonBackupFileView.swift; sourceTree = "<group>"; };
 		DB3AA39E27392ED1008B2FDF /* UpdatePersonsFromJsonBackupFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePersonsFromJsonBackupFile.swift; sourceTree = "<group>"; };
 		DB4BBA2327457D8E00771D7A /* UserRecordOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRecordOverView.swift; sourceTree = "<group>"; };
@@ -110,7 +116,7 @@
 		DB81CA7E2742768900E69D57 /* HudView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HudView.swift; sourceTree = "<group>"; };
 		DB81CA80274276FE00E69D57 /* CloudKitCabin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitCabin.swift; sourceTree = "<group>"; };
 		DB83A9A730AD958900E4FECB /* FormatDateToString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatDateToString.swift; sourceTree = "<group>"; };
-		DB83A9AA30AEE21200E4FECB /* Postnummerregister-ansi.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Postnummerregister-ansi.txt"; sourceTree = "<group>"; };
+		DB83A9AA30AEE21200E4FECB /* Postnummer.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Postnummer.txt; sourceTree = "<group>"; };
 		DB8476DC270EE534007D3E18 /* CloudKitPerson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitPerson.swift; sourceTree = "<group>"; };
 		DB8476E0270F6742007D3E18 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		DB90614B273A826300BF9779 /* CloudKitErrorString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitErrorString.swift; sourceTree = "<group>"; };
@@ -293,7 +299,10 @@
 			isa = PBXGroup;
 			children = (
 				DB4FD4D627328BFA0080E084 /* Postnummerregister-ansi_old.txt */,
-				DB83A9AA30AEE21200E4FECB /* Postnummerregister-ansi.txt */,
+				DB83A9AA30AEE21200E4FECB /* Postnummer.txt */,
+				DB027E0B30B5DDF5008A5529 /* ZipCodeZoom.swift */,
+				DB34D0C230B6C0AE005B6386 /* Post_old.txt */,
+				DB34D0C430B6E3B4005B6386 /* Post.txt */,
 			);
 			path = ZipCode;
 			sourceTree = "<group>";
@@ -458,11 +467,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB83A9AB30AEE21200E4FECB /* Postnummerregister-ansi.txt in Resources */,
+				DB83A9AB30AEE21200E4FECB /* Postnummer.txt in Resources */,
 				DB01A8402726C3D1007721E1 /* Localizable.strings in Resources */,
 				DBB872DE2716C70F00A3516B /* Launch Screen.storyboard in Resources */,
 				DB4FD4D727328BFA0080E084 /* Postnummerregister-ansi_old.txt in Resources */,
 				DB01A83D2726C3D1007721E1 /* InfoPlist.strings in Resources */,
+				DB34D0C330B6C0AE005B6386 /* Post_old.txt in Resources */,
+				DB34D0C530B6E3B4005B6386 /* Post.txt in Resources */,
 				DBE25B64270C556400AE255B /* Preview Assets.xcassets in Resources */,
 				DBE25B61270C556400AE255B /* Assets.xcassets in Resources */,
 			);
@@ -489,6 +500,7 @@
 				DB9B09B127428AA000160195 /* CabinOverView.swift in Sources */,
 				DBDF4D662743D00B0019D879 /* CloudKitUserRecord.swift in Sources */,
 				DB0AD8A12751870500A3F8C3 /* BackupUserRecordsToJsonBackupFile.swift in Sources */,
+				DB027E0C30B5DDF5008A5529 /* ZipCodeZoom.swift in Sources */,
 				DB4BBA2427457D8E00771D7A /* UserRecordOverView.swift in Sources */,
 				DBCE88902754126C006E6E35 /* UpdateCabinsFromJsonBackupFileView.swift in Sources */,
 				DB90614C273A826300BF9779 /* CloudKitErrorString.swift in Sources */,
