@@ -487,3 +487,20 @@
 /* No comment provided by engineer. */
 "dec" = "des";
 
+/* No comment provided by engineer. */
+"Search zipCode" = "Søk etter poststed";
+
+/* No comment provided by engineer. */
+"hits" = "treff";
+
+/* No comment provided by engineer. */
+"ZipCode" = "Postnummer";
+
+/* No comment provided by engineer. */
+"No Post.txt" = "Fant ikke Post.txt";
+
+/* No comment provided by engineer. */
+"No hits" = "Ingen treff funnet";
+
+/* No comment provided by engineer. */
+"Reading error of the file" = "Feil ved lesing av filen";

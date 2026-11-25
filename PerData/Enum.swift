@@ -10,5 +10,7 @@ import Foundation
 enum EnumType {
     case new
     case modify
+    case forward
+    case backward
 }
 
