@@ -30,70 +30,62 @@ struct ZipCodeZoom: View {
 
     var body: some View {
         NavigationStack {
-            VStack(spacing: 15) {
-                // Søkefelt
-                HStack {
-                    TextField(
-                        "Search zipCode",
-                        text: $searchText
-                    )
-                    .textFieldStyle(.roundedBorder)
-                    .autocorrectionDisabled()
-                    .textInputAutocapitalization(.characters)
-                    .onSubmit {
-                        search()
+            VStack(spacing: 10) {
+                ScrollView(showsIndicators: false) {
+                    // Antall treff
+                    HStack {
+                        Text("\(results.count) \(String(localized: "treff"))")
+                            .foregroundStyle(.secondary)
+                        Spacer()
                     }
-                    Button {
-                        search()
-                    } label: {
-                        Image(systemName: "magnifyingglass")
-                            .font(.title2)
-                    }
-                }
-                // Feilmelding
-                if !errorMessage.isEmpty {
-                    Text(errorMessage)
-                        .foregroundStyle(.red)
-                }
-                // Antall treff
-                HStack {
-                    Text("\(results.count) \(String(localized: "treff"))")
-                        .foregroundStyle(.secondary)
-                    Spacer()
-                }
-                // Resultater
-                List(results) { item in
-                    ///
-                    /// posttype == G   Gateadresser (og stedsadresser), dvs. “grønne postkasser”
-                    /// posttype == P   Postbokser
-                    /// posttype == B   Både gateadresser og postbokser
-                    /// posttype == S   Servicepostnummer (disse postnumrene er ikke i bruk til postadresser)
-                    ///
-                     if item.posttype != "S" {
-                        HStack {
-                            Spacer()
-                            Text(item.postnummer)
-                                .frame(width: 55, alignment: .leading)
-                            
-                            let poststed = item.poststed
-                            let newPoststed = replaceStringCharacters(in: poststed, option: .forward)
-                            Text(newPoststed)
-                            
-                            Text(item.kommunenummer)
-                            Text(item.kommune)
-                            Text(item.posttype)
-                            Spacer()
+                    // Resultater
+                    ForEach(results) { item in
+                        ///
+                        /// posttype == G   Gateadresser (og stedsadresser), dvs. “grønne postkasser”
+                        /// posttype == P   Postbokser
+                        /// posttype == B   Både gateadresser og postbokser
+                        /// posttype == S   Servicepostnummer (disse postnumrene er ikke i bruk til postadresser)
+                        ///
+                        if item.posttype != "S" {
+                            HStack {
+                                Spacer()
+                                Text(item.postnummer)
+                                    .frame(width: 55, alignment: .leading)
+                                
+                                let poststed = item.poststed
+                                let newPoststed = replaceStringCharacters(in: poststed, option: .forward)
+                                Text(newPoststed)
+                                
+                                Text(item.kommunenummer)
+                                
+                                let kommune = item.kommune
+                                let newkommune = replaceStringCharacters(in: kommune, option: .forward)
+                                Text(newkommune)
+                                
+                                Text(item.posttype)
+                                Spacer()
+                            }
+                            .font(.system(.body, design: .monospaced))
+                            .gradientGlass()
                         }
-                        .font(.system(.body, design: .monospaced))
                     }
+                    .listStyle(.plain)
                 }
-                .listStyle(.plain)
+                
             }
             .padding()
-            .navigationTitle("ZipCode")
+            .navigationBarTitle("ZipCode", displayMode: .inline)
             .task {
                 search()
             }
+            .searchable(text: $searchText, placement: .navigationBarDrawer, prompt: "Search ZipCode")
+            .onChange(of: searchText) { _, _ in
+                searchText = searchText.uppercased()
+                Task {
+                    search()
+                }
+              }
+            .textFieldStyle(.roundedBorder)
         }
     }
 
@@ -102,7 +94,7 @@ struct ZipCodeZoom: View {
         results = []
         errorMessage = ""
         
-        let search = searchText
+        let search = searchText.uppercased()
         let newSearchText = replaceStringCharacters(in: search, option: .backward)
 
         let searchValue = newSearchText
