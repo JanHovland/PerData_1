@@ -24,7 +24,7 @@ import SwiftUI
 
 struct ZipCodeZoom: View {
 
-    @State private var searchText = "OS I ØSTERDALEN"
+    @State private var searchText = ""
     @State private var results: [Postnummer] = []
     @State private var errorMessage = ""
     

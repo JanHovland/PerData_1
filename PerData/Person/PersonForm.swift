@@ -139,6 +139,7 @@ struct PersonForm: View {
                         Spacer()
                     }
                 }
+                .font(UIDevice.isIpad ? .default : .subheadline)
                 .gradientGlass()
 
                  GridRow {
