@@ -104,12 +104,14 @@ struct PersonForm: View {
                 HStack {
                     Image(systemName: "magnifyingglass")
                         .foregroundStyle(.blue)
+                        .frame(width: 30, height: 30)
                         .gesture(
                             TapGesture()
                                 .onEnded { _ in
                                     showZipCodeZoom = true
                                 }
                         )
+                    Text("<-- Tap to search")
                     Spacer()
                 }
                 .padding(.vertical, 10)
