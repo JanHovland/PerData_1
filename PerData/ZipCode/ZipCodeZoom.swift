@@ -78,7 +78,7 @@ struct ZipCodeZoom: View {
             .task {
                 search()
             }
-            .searchable(text: $searchText, placement: .navigationBarDrawer, prompt: "Search ZipCode")
+            .searchable(text: $searchText, placement: .navigationBarDrawer, prompt: "Search ZipCode...")
             .onChange(of: searchText) { _, _ in
                 searchText = searchText.uppercased()
                 Task {

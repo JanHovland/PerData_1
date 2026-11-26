@@ -12,6 +12,8 @@ struct PersonForm: View {
     @Binding var showImage: Bool
     @Binding var image: UIImage
     @Binding var showDeseased: Bool
+    
+    @State private var showZipCodeZoom = false
      
     var body: some View {
         VStack {
@@ -99,7 +101,34 @@ struct PersonForm: View {
                         .padding(.leading, 15)
                 }
                 .gridColumnAlignment(.leading)
-                
+                HStack {
+                    HStack {
+                        Image(systemName: "magnifyingglass")
+                            .foregroundStyle(.blue)
+                            .gesture(
+                                TapGesture()
+                                    .onEnded { _ in
+                                        showZipCodeZoom = true
+                                    }
+                            )
+                        Spacer()
+                    }
+                    HStack(alignment: .center, spacing: 5) {
+                        Text(person.cityNumber)
+                        Text(person.city)
+                        Spacer()
+                    }
+                    .font(.caption2)
+                    .offset(x: -30)
+                    HStack(alignment: .center, spacing: 5) {
+                        Spacer()
+                        Text(person.municipalityNumber)
+                        Text(person.municipality)
+                    }
+                    .font(.caption2)
+                    .offset(x: -30)
+                }
+                .gradientGlass()
                 GridRow {
                     Text("Phonenumber")
                         .bold()
@@ -132,19 +161,6 @@ struct PersonForm: View {
                     .padding(.leading, 15)
                 }
                 Group {
-                    HStack(alignment: .center, spacing: 10) {
-                        TextField("Citynumber", text: $person.cityNumber)
-                            .keyboardType(.numberPad)
-                        TextField("City", text: $person.city)
-                            .autocapitalization(.allCharacters)
-                    }
-                    HStack(alignment: .center, spacing: 0) {
-                        TextField("Municipality number", text: $person.municipalityNumber)
-                            .keyboardType(.numberPad)
-                        TextField("Municipality", text: $person.municipality)
-                            .autocapitalization(.none)
-                            .autocapitalization(.words)
-                    }
                     Grid {
                         GridRow {
                             HStack {
@@ -168,5 +184,11 @@ struct PersonForm: View {
             }
         }
         .padding(.top, 10)
+
+
+        .sheet(isPresented: $showZipCodeZoom) {
+            ZipCodeZoom()
+        }
+                      
     }
 }
