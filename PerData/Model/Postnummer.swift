@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Postnummer: Identifiable {
+struct Postnummer: Identifiable  {
     let postnummer: String
     let poststed: String
     let kommunenummer: String

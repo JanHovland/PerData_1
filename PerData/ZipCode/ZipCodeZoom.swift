@@ -27,6 +27,10 @@ struct ZipCodeZoom: View {
     @State private var searchText = "OS I ØSTERDALEN"
     @State private var results: [Postnummer] = []
     @State private var errorMessage = ""
+    
+    @Binding var person: Person
+    
+    @Environment(\.presentationMode) var presentationMode
 
     var body: some View {
         NavigationStack {
@@ -39,39 +43,49 @@ struct ZipCodeZoom: View {
                         Spacer()
                     }
                     // Resultater
-                    ForEach(results) { item in
-                        ///
-                        /// posttype == G   Gateadresser (og stedsadresser), dvs. “grønne postkasser”
-                        /// posttype == P   Postbokser
-                        /// posttype == B   Både gateadresser og postbokser
-                        /// posttype == S   Servicepostnummer (disse postnumrene er ikke i bruk til postadresser)
-                        ///
-                        if item.posttype != "S" {
-                            HStack {
-                                Spacer()
-                                Text(item.postnummer)
-                                    .frame(width: 55, alignment: .leading)
-                                
-                                let poststed = item.poststed
-                                let newPoststed = replaceStringCharacters(in: poststed, option: .forward)
-                                Text(newPoststed)
-                                
-                                Text(item.kommunenummer)
-                                
-                                let kommune = item.kommune
-                                let newkommune = replaceStringCharacters(in: kommune, option: .forward)
-                                Text(newkommune)
-                                
-                                Text(item.posttype)
-                                Spacer()
+                    LazyVStack(alignment: .leading, spacing: 8) {
+                        ForEach(results) { (item: Postnummer) in
+                            ///
+                            /// posttype == G   Gateadresser (og stedsadresser), dvs. “grønne postkasser”
+                            /// posttype == P   Postbokser
+                            /// posttype == B   Både gateadresser og postbokser
+                            /// posttype == S   Servicepostnummer (disse postnumrene er ikke i bruk til postadresser)
+                            ///
+                            if item.posttype != "S" {
+                                HStack {
+                                    Spacer()
+                                    Text(item.postnummer)
+                                        .frame(width: 55, alignment: .leading)
+                                    
+                                    let poststed = item.poststed
+                                    let newPoststed = replaceStringCharacters(in: poststed, option: .forward)
+                                    Text(newPoststed)
+                                    
+                                    Text(item.kommunenummer)
+                                    
+                                    let kommune = item.kommune
+                                    let newkommune = replaceStringCharacters(in: kommune, option: .forward)
+                                    Text(newkommune)
+                                    
+                                    Text(item.posttype)
+                                    Spacer()
+                                }
+                                .font(.system(.body, design: .monospaced))
+                                .gradientGlass()
+                                .onTapGesture {
+                                    $person.wrappedValue.cityNumber = item.postnummer
+                                    $person.wrappedValue.city = replaceStringCharacters(in: item.poststed, option: .forward)
+                                    $person.wrappedValue.municipalityNumber = item.kommunenummer
+                                    $person.wrappedValue.municipality = replaceStringCharacters(in: item.kommune, option: .forward)
+                                    ///
+                                    /// Return til "Oppdater person"
+                                    ///
+                                    presentationMode.wrappedValue.dismiss()
+                                }
                             }
-                            .font(.system(.body, design: .monospaced))
-                            .gradientGlass()
                         }
                     }
-                    .listStyle(.plain)
                 }
-                
             }
             .padding()
             .navigationBarTitle("ZipCode", displayMode: .inline)
@@ -204,3 +218,4 @@ func replaceStringCharacters(in string: String, option: EnumType) -> String {
     
     return result
 }
+

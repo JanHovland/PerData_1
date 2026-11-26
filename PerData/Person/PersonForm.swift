@@ -47,7 +47,6 @@ struct PersonForm: View {
                 ImagePicker(sourceType: .photoLibrary, selectedImage: $image, image: $person.image)
             })
             Grid {
-                
                 GridRow {
                     if showDeseased {
                         Text("Alive")
@@ -101,35 +100,48 @@ struct PersonForm: View {
                         .padding(.leading, 15)
                 }
                 .gridColumnAlignment(.leading)
+                
                 HStack {
+                    Image(systemName: "magnifyingglass")
+                        .foregroundStyle(.blue)
+                        .gesture(
+                            TapGesture()
+                                .onEnded { _ in
+                                    showZipCodeZoom = true
+                                }
+                        )
+                    Spacer()
+                }
+                .padding(.vertical, 10)
+                .offset(x: 10)
+                
+                VStack {
                     HStack {
-                        Image(systemName: "magnifyingglass")
-                            .foregroundStyle(.blue)
-                            .gesture(
-                                TapGesture()
-                                    .onEnded { _ in
-                                        showZipCodeZoom = true
-                                    }
-                            )
+                        GridRow {
+                            Text("ZipCode")
+                                .bold()
+                            Text(person.cityNumber)
+                            Text(person.city )
+                        }
+                        .gridColumnAlignment(.center)
                         Spacer()
                     }
-                    HStack(alignment: .center, spacing: 5) {
-                        Text(person.cityNumber)
-                        Text(person.city)
+                    
+                    HStack {
+                        GridRow {
+                            Text("Municipality")
+                                .bold()
+                            Text(person.municipalityNumber)
+                                .padding(.leading, 20)
+                            Text(person.municipality)
+                        }
+                        .gridColumnAlignment(.center)
                         Spacer()
                     }
-                    .font(.caption2)
-                    .offset(x: -30)
-                    HStack(alignment: .center, spacing: 5) {
-                        Spacer()
-                        Text(person.municipalityNumber)
-                        Text(person.municipality)
-                    }
-                    .font(.caption2)
-                    .offset(x: -30)
                 }
                 .gradientGlass()
-                GridRow {
+
+                 GridRow {
                     Text("Phonenumber")
                         .bold()
                     TextField("Phonenumber", text: $person.phoneNumber)
@@ -187,7 +199,7 @@ struct PersonForm: View {
 
 
         .sheet(isPresented: $showZipCodeZoom) {
-            ZipCodeZoom()
+            ZipCodeZoom(person: $person)
         }
                       
     }
