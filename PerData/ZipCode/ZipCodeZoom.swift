@@ -100,6 +100,18 @@ struct ZipCodeZoom: View {
                 }
               }
             .textFieldStyle(.roundedBorder)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    ControlGroup {
+                        Button {
+                            presentationMode.wrappedValue.dismiss()
+                        } label: {
+                            ReturnFromMenuView(text: "PersonOverView")
+                        }
+                    }
+                    .controlGroupStyle(.navigation)
+                }
+            }
         }
     }
 
