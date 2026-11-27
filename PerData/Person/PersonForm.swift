@@ -14,7 +14,7 @@ struct PersonForm: View {
     @Binding var showDeseased: Bool
     
     @State private var showZipCodeZoom = false
-     
+    
     var body: some View {
         VStack {
             ZStack {
@@ -116,33 +116,34 @@ struct PersonForm: View {
                 }
                 .padding(.vertical, 10)
                 .offset(x: 10)
-                
-                VStack {
-                    HStack {
-                        GridRow {
-                            Text("ZipCode")
-                                .bold()
-                            Text(person.cityNumber)
-                            Text(person.city )
-                        }
-                        .gridColumnAlignment(.center)
-                        Spacer()
+
+                GridRow {
+                    Text("ZipCode")
+                        .bold()
+                    HStack(spacing: 10) {
+                        TextField("cityNumber", text: $person.cityNumber)
+                            .frame(width: 60)
+                            .autocapitalization(.words)
+                        TextField("City", text: $person.city)
+                            .autocapitalization(.words)
+                            .frame(width: .infinity)
                     }
-                    
-                    HStack {
-                        GridRow {
-                            Text("Municipality")
-                                .bold()
-                            Text(person.municipalityNumber)
-                                .padding(.leading, 20)
-                            Text(person.municipality)
-                        }
-                        .gridColumnAlignment(.center)
-                        Spacer()
-                    }
+                    .padding(.leading, 10)
                 }
-                .font(UIDevice.isIpad ? .default : .subheadline)
-                .gradientGlass()
+                
+                GridRow {
+                    Text("Municipality")
+                        .bold()
+                    HStack(spacing: 10) {
+                        TextField("municipalityNumber", text: $person.municipalityNumber)
+                            .frame(width: 60)
+                            .autocapitalization(.words)
+                        TextField("municipality", text: $person.municipality)
+                            .autocapitalization(.words)
+                            .frame(width: .infinity)
+                    }
+                    .padding(.leading, 10)
+                }
 
                  GridRow {
                     Text("Phonenumber")
@@ -189,7 +190,7 @@ struct PersonForm: View {
                                 )
                                 Spacer()
                             }
-                            .padding(.trailing, UIDevice.isIpad ? 275 : 100)
+                            .padding(.trailing, UIDevice.isIpad ? 319 : 140)
                         }
                         .gridColumnAlignment(.leading)
                     }

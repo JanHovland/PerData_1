@@ -77,7 +77,7 @@
 "Create a new account?" = "Opprette ny bruker?";
 
 /* No comment provided by engineer. */
-"Date of birth" = "Fødselsdato";
+"Date of birth" = "Født";
 
 /* No comment provided by engineer. */
 "Delete" = "Slett";
@@ -254,7 +254,7 @@
 "PersonOverView" = "Personer";
 
 /* No comment provided by engineer. */
-"Phonenumber" = "Telefonnummer";
+"Phonenumber" = "Mobil";
 
 /* No comment provided by engineer. */
 "Refresh" = "Frisk opp";
@@ -494,7 +494,7 @@
 "hits" = "treff";
 
 /* No comment provided by engineer. */
-"ZipCode" = "Postnummer";
+"ZipCode" = "Postnr";
 
 /* No comment provided by engineer. */
 "No Post.txt" = "Fant ikke Post.txt";
