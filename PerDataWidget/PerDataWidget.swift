@@ -103,8 +103,18 @@ struct PerDataWidgetEntryView : View {
         .padding()
         
         .task {
-            let predicate = NSPredicate(format: "birthdayDate.month == 11")
-            persons = await getAllPersons( predicate: predicate)
+            let predicate = NSPredicate(value: true)
+            do {
+                let fetched = try await CloudKitPerson().getAllPersons(predicate)
+                persons = fetched
+                WidgetCenter.shared.reloadAllTimelines()
+            } catch {
+                // Consider logging or handling the error appropriately
+                persons = []
+             }
+            
+             print("Antall peroner : \(persons.count)")
+            
         }
         
         
@@ -146,3 +156,5 @@ extension ConfigurationAppIntent {
     SimpleEntry(date: .now, configuration: .smiley, novemberBirthdays: ["Alice", "Charlie"]) 
     SimpleEntry(date: .now, configuration: .starEyes, novemberBirthdays: ["Alice", "Charlie", "Eve"]) 
 }
+
+

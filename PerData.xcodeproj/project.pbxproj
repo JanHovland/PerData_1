@@ -17,6 +17,7 @@
 		DB1494B030B9F1A60037F24E /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8476E0270F6742007D3E18 /* Person.swift */; };
 		DB1494B130B9F7C40037F24E /* CloudKitPerson.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8476DC270EE534007D3E18 /* CloudKitPerson.swift */; };
 		DB1494B230B9F80C0037F24E /* FormatDateToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB83A9A730AD958900E4FECB /* FormatDateToString.swift */; };
+		DB1494B430B9FC4D0037F24E /* CloudPersonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB4B38427141B9D00618F17 /* CloudPersonHelper.swift */; };
 		DB34D0C530B6E3B4005B6386 /* Post.txt in Resources */ = {isa = PBXBuildFile; fileRef = DB34D0C430B6E3B4005B6386 /* Post.txt */; };
 		DB34D0C730B6EDFC005B6386 /* Postnummer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB34D0C630B6EDFC005B6386 /* Postnummer.swift */; };
 		DB3AA39D27392D65008B2FDF /* UpdatePersonsFromJsonBackupFileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3AA39C27392D65008B2FDF /* UpdatePersonsFromJsonBackupFileView.swift */; };
@@ -575,6 +576,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB1494B430B9FC4D0037F24E /* CloudPersonHelper.swift in Sources */,
 				DB1494B030B9F1A60037F24E /* Person.swift in Sources */,
 				DB1494AF30B9F18B0037F24E /* Config.swift in Sources */,
 				DB1494B130B9F7C40037F24E /* CloudKitPerson.swift in Sources */,
