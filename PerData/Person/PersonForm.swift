@@ -13,8 +13,6 @@ struct PersonForm: View {
     @Binding var image: UIImage
     @Binding var showDeseased: Bool
     
-    @State private var showZipCodeZoom = false
-    
     var body: some View {
         VStack {
             ZStack {
@@ -101,22 +99,6 @@ struct PersonForm: View {
                 }
                 .gridColumnAlignment(.leading)
                 
-                HStack {
-                    Image(systemName: "magnifyingglass")
-                        .foregroundStyle(.blue)
-                        .frame(width: 30, height: 30)
-                        .gesture(
-                            TapGesture()
-                                .onEnded { _ in
-                                    showZipCodeZoom = true
-                                }
-                        )
-                    Text("<-- Tap to search")
-                    Spacer()
-                }
-                .padding(.vertical, 10)
-                .offset(x: 10)
-
                 GridRow {
                     Text("ZipCode")
                         .bold()
@@ -200,11 +182,5 @@ struct PersonForm: View {
             }
         }
         .padding(.top, 10)
-
-
-        .sheet(isPresented: $showZipCodeZoom) {
-            ZipCodeZoom(person: $person)
-        }
-                      
     }
 }

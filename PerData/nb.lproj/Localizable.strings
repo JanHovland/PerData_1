@@ -86,7 +86,7 @@
 "Delete a cabin" = "Slette en hyttereservasjon";
 
 /* No comment provided by engineer. */
-"Delete a person" = "Slette en person";
+"Delete a person" = "Slett en person";
 
 /* No comment provided by engineer. */
 "Delete an UserRecord" = "Slette en bruker";
@@ -422,7 +422,7 @@
 "Alive" = "Avdød";
 
 /* No comment provided by engineer. */
-"Show deseased" = "Vis feltet avdød.";
+"Show deseased" = "Vis feltet avdød";
 
 /* No comment provided by engineer. */
 "Deseased" = "Avdød";
@@ -510,3 +510,9 @@
 
 /* No comment provided by engineer. */
 "<-- Tap to search" = "<-- Tapp for å søke";
+
+/* No comment provided by engineer. */
+"Cancel" = "Avbryt";
+
+/* No comment provided by engineer. */
+"Search zipcode" = "Søk etter postnr";

@@ -27,6 +27,7 @@ struct PersonUpdateView: View {
     @State private var showDeseased = false
     
     @Environment(\.presentationMode) var presentationMode
+    @State private var showZipCodeZoom = false
     
     struct Dead: Hashable, Identifiable {
         var id = UUID()
@@ -73,6 +74,16 @@ struct PersonUpdateView: View {
             }
             ToolbarItem(placement: .navigationBarTrailing) {
                 Menu {
+                    Button {
+                        Task {
+                            if person.recordID != nil {
+                                showZipCodeZoom = true
+                            }
+                        }
+                    } label: {
+                        Label("Search zipcode", systemImage: "magnifyingglass")
+                    }
+                    
                     Button {
                         Task {
                             if person.recordID != nil {
@@ -142,6 +153,9 @@ struct PersonUpdateView: View {
             Button("OK", action: { presentationMode.wrappedValue.dismiss() })
         } message: {
             Text(message)
+        }
+        .sheet(isPresented: $showZipCodeZoom) {
+            ZipCodeZoom(person: $person)
         }
         .task {
             if person.dead == 1 {
