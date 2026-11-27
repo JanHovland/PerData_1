@@ -13,6 +13,10 @@
 		DB0708F127293F97001B3BBA /* PersonUpdateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0708F027293F97001B3BBA /* PersonUpdateView.swift */; };
 		DB0AD89F275185D600A3F8C3 /* BackupUserRecordsToJsonBackupFileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0AD89E275185D600A3F8C3 /* BackupUserRecordsToJsonBackupFileView.swift */; };
 		DB0AD8A12751870500A3F8C3 /* BackupUserRecordsToJsonBackupFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0AD8A02751870500A3F8C3 /* BackupUserRecordsToJsonBackupFile.swift */; };
+		DB1494AF30B9F18B0037F24E /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE25B6E270C566000AE255B /* Config.swift */; };
+		DB1494B030B9F1A60037F24E /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8476E0270F6742007D3E18 /* Person.swift */; };
+		DB1494B130B9F7C40037F24E /* CloudKitPerson.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8476DC270EE534007D3E18 /* CloudKitPerson.swift */; };
+		DB1494B230B9F80C0037F24E /* FormatDateToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB83A9A730AD958900E4FECB /* FormatDateToString.swift */; };
 		DB34D0C530B6E3B4005B6386 /* Post.txt in Resources */ = {isa = PBXBuildFile; fileRef = DB34D0C430B6E3B4005B6386 /* Post.txt */; };
 		DB34D0C730B6EDFC005B6386 /* Postnummer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB34D0C630B6EDFC005B6386 /* Postnummer.swift */; };
 		DB3AA39D27392D65008B2FDF /* UpdatePersonsFromJsonBackupFileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3AA39C27392D65008B2FDF /* UpdatePersonsFromJsonBackupFileView.swift */; };
@@ -45,6 +49,9 @@
 		DB8476DD270EE534007D3E18 /* CloudKitPerson.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8476DC270EE534007D3E18 /* CloudKitPerson.swift */; };
 		DB8476E1270F6742007D3E18 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8476E0270F6742007D3E18 /* Person.swift */; };
 		DB90614C273A826300BF9779 /* CloudKitErrorString.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB90614B273A826300BF9779 /* CloudKitErrorString.swift */; };
+		DB95CDEB30B9956600B21F2A /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB95CDEA30B9956600B21F2A /* WidgetKit.framework */; };
+		DB95CDED30B9956600B21F2A /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB95CDEC30B9956600B21F2A /* SwiftUI.framework */; };
+		DB95CDFA30B9956700B21F2A /* PerDataWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = DB95CDE930B9956600B21F2A /* PerDataWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		DB975F202753E0C000A6BC4B /* BackupCabinsToJsonBackupFileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB975F1F2753E0C000A6BC4B /* BackupCabinsToJsonBackupFileView.swift */; };
 		DB975F222753E0F700A6BC4B /* BackupCabinsToJsonBackupFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB975F212753E0F700A6BC4B /* BackupCabinsToJsonBackupFile.swift */; };
 		DB9B09B127428AA000160195 /* CabinOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9B09B027428AA000160195 /* CabinOverView.swift */; };
@@ -75,6 +82,30 @@
 		DBE25B6F270C566000AE255B /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE25B6E270C566000AE255B /* Config.swift */; };
 		DBECA57230AA126E00CEC799 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBECA57130AA126E00CEC799 /* UserData.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DB95CDF830B9956700B21F2A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DBE25B51270C556200AE255B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DB95CDE830B9956600B21F2A;
+			remoteInfo = PerDataWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		DB95CDFF30B9956700B21F2A /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				DB95CDFA30B9956700B21F2A /* PerDataWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		DB01A8312726C05A007721E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -116,6 +147,10 @@
 		DB8476DC270EE534007D3E18 /* CloudKitPerson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitPerson.swift; sourceTree = "<group>"; };
 		DB8476E0270F6742007D3E18 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		DB90614B273A826300BF9779 /* CloudKitErrorString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitErrorString.swift; sourceTree = "<group>"; };
+		DB95CDE930B9956600B21F2A /* PerDataWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PerDataWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB95CDEA30B9956600B21F2A /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		DB95CDEC30B9956600B21F2A /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		DB95D17430B99CF700B21F2A /* PerDataWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PerDataWidgetExtension.entitlements; sourceTree = "<group>"; };
 		DB975F1F2753E0C000A6BC4B /* BackupCabinsToJsonBackupFileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupCabinsToJsonBackupFileView.swift; sourceTree = "<group>"; };
 		DB975F212753E0F700A6BC4B /* BackupCabinsToJsonBackupFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupCabinsToJsonBackupFile.swift; sourceTree = "<group>"; };
 		DB9B09B027428AA000160195 /* CabinOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CabinOverView.swift; sourceTree = "<group>"; };
@@ -149,13 +184,34 @@
 		DBECA57130AA126E00CEC799 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		DB95CDFB30B9956700B21F2A /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = DB95CDE830B9956600B21F2A /* PerDataWidgetExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		DB83A9A930AE117700E4FECB /* Backup */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Backup; sourceTree = "<group>"; };
+		DB95CDE230B9944200B21F2A /* Tricks & help */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "Tricks & help"; sourceTree = "<group>"; };
+		DB95CDEE30B9956600B21F2A /* PerDataWidget */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (DB95CDFB30B9956700B21F2A /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = PerDataWidget; sourceTree = "<group>"; };
 		DBD23E552CC39D7A0042CB18 /* Script */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Script; sourceTree = "<group>"; };
 		DBD4AA9030A1D255007C8F88 /* Schema */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Schema; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		DB95CDE630B9956600B21F2A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB95CDED30B9956600B21F2A /* SwiftUI.framework in Frameworks */,
+				DB95CDEB30B9956600B21F2A /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DBE25B56270C556200AE255B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -335,6 +391,8 @@
 		DBE25B50270C556200AE255B = {
 			isa = PBXGroup;
 			children = (
+				DB95D17430B99CF700B21F2A /* PerDataWidgetExtension.entitlements */,
+				DB95CDEE30B9956600B21F2A /* PerDataWidget */,
 				DBE25B6B270C55C500AE255B /* Frameworks */,
 				DBE25B5B270C556200AE255B /* PerData */,
 				DBE25B5A270C556200AE255B /* Products */,
@@ -346,6 +404,7 @@
 			isa = PBXGroup;
 			children = (
 				DBE25B59270C556200AE255B /* PerData.app */,
+				DB95CDE930B9956600B21F2A /* PerDataWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -353,6 +412,7 @@
 		DBE25B5B270C556200AE255B /* PerData */ = {
 			isa = PBXGroup;
 			children = (
+				DB95CDE230B9944200B21F2A /* Tricks & help */,
 				DBE25B60270C556400AE255B /* Assets.xcassets */,
 				DB81CA762742755D00E69D57 /* Cabin */,
 				DBA02DCC273070A00090D36C /* Cloud Helper */,
@@ -394,6 +454,8 @@
 			isa = PBXGroup;
 			children = (
 				DBE25B6C270C55C500AE255B /* CloudKit.framework */,
+				DB95CDEA30B9956600B21F2A /* WidgetKit.framework */,
+				DB95CDEC30B9956600B21F2A /* SwiftUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -401,6 +463,28 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		DB95CDE830B9956600B21F2A /* PerDataWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DB95CDFC30B9956700B21F2A /* Build configuration list for PBXNativeTarget "PerDataWidgetExtension" */;
+			buildPhases = (
+				DB95CDE530B9956600B21F2A /* Sources */,
+				DB95CDE630B9956600B21F2A /* Frameworks */,
+				DB95CDE730B9956600B21F2A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				DB95CDEE30B9956600B21F2A /* PerDataWidget */,
+			);
+			name = PerDataWidgetExtension;
+			packageProductDependencies = (
+			);
+			productName = PerDataWidgetExtension;
+			productReference = DB95CDE930B9956600B21F2A /* PerDataWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		DBE25B58270C556200AE255B /* PerData */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = DBE25B67270C556400AE255B /* Build configuration list for PBXNativeTarget "PerData" */;
@@ -408,13 +492,16 @@
 				DBE25B55270C556200AE255B /* Sources */,
 				DBE25B56270C556200AE255B /* Frameworks */,
 				DBE25B57270C556200AE255B /* Resources */,
+				DB95CDFF30B9956700B21F2A /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				DB95CDF930B9956700B21F2A /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				DB83A9A930AE117700E4FECB /* Backup */,
+				DB95CDE230B9944200B21F2A /* Tricks & help */,
 				DBD23E552CC39D7A0042CB18 /* Script */,
 			);
 			name = PerData;
@@ -429,9 +516,12 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1300;
+				LastSwiftUpdateCheck = 2730;
 				LastUpgradeCheck = 2730;
 				TargetAttributes = {
+					DB95CDE830B9956600B21F2A = {
+						CreatedOnToolsVersion = 27.3;
+					};
 					DBE25B58270C556200AE255B = {
 						CreatedOnToolsVersion = 13.0;
 					};
@@ -452,11 +542,19 @@
 			projectRoot = "";
 			targets = (
 				DBE25B58270C556200AE255B /* PerData */,
+				DB95CDE830B9956600B21F2A /* PerDataWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		DB95CDE730B9956600B21F2A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DBE25B57270C556200AE255B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -473,6 +571,17 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		DB95CDE530B9956600B21F2A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB1494B030B9F1A60037F24E /* Person.swift in Sources */,
+				DB1494AF30B9F18B0037F24E /* Config.swift in Sources */,
+				DB1494B130B9F7C40037F24E /* CloudKitPerson.swift in Sources */,
+				DB1494B230B9F80C0037F24E /* FormatDateToString.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DBE25B55270C556200AE255B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -542,6 +651,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		DB95CDF930B9956700B21F2A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DB95CDE830B9956600B21F2A /* PerDataWidgetExtension */;
+			targetProxy = DB95CDF830B9956700B21F2A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		DB01A83B2726C3D1007721E1 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
@@ -562,6 +679,87 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		DB95CDFD30B9956700B21F2A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_ENTITLEMENTS = PerDataWidgetExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PerDataWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = PerDataWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSViewGestureRecognizerIsExclusive = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.janhovland.PerData.PerDataWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DB95CDFE30B9956700B21F2A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_ENTITLEMENTS = PerDataWidgetExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PerDataWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = PerDataWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSViewGestureRecognizerIsExclusive = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.janhovland.PerData.PerDataWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		DBE25B65270C556400AE255B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -718,7 +916,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.janhovland.PerData;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				REGISTER_APP_GROUPS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -755,7 +956,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.janhovland.PerData;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				REGISTER_APP_GROUPS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -765,6 +969,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		DB95CDFC30B9956700B21F2A /* Build configuration list for PBXNativeTarget "PerDataWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DB95CDFD30B9956700B21F2A /* Debug */,
+				DB95CDFE30B9956700B21F2A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		DBE25B54270C556200AE255B /* Build configuration list for PBXProject "PerData" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

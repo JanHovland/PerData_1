@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CloudKit
+public import Combine
 
 struct Person: Identifiable {
     var id = UUID()

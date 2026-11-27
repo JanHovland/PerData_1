@@ -151,15 +151,15 @@ struct toDoView: View {
      51. 🟢 UserRecordDetailView():
             🟢 Tilpasse utseendet
             🟢 Samme sletting som PersonUpdateView()
-     52. 🔴 Må sjekke NSPredicate(format:
+     52. 🟢 Må sjekke NSPredicate(format:
             🟢 CabinReservationView()
-            🔴 CloudUserHelper()
-            🔴 CloudKitPerson()
-            🔴 CloudKitUserRecord()
-            🔴 updateCabinsFromJsonBackupFile()
-            🔴 personBirthdayView()
-     53. 🔴 Må legge inn zoom på det nye post- og kommunenr: 
-            🔴 Basic zoom versjon.
+            🟢 CloudUserHelper()
+            🟢 CloudKitPerson()
+            🟢 CloudKitUserRecord()
+            🟢 updateCabinsFromJsonBackupFile()
+            🟢 personBirthdayView()
+     53. 🟢 Må legge inn zoom på det nye post- og kommunenr: 
+            🟢 Basic zoom versjon.
      54. 🔴 Legge inn bilde for alle personene
             🔴 Utføre
      55. 🔴 Legge inn personer som mangler
