@@ -36,7 +36,12 @@ struct Provider: AppIntentTimelineProvider {
     }
 
     func snapshot(for configuration: ConfigurationAppIntent, in context: Context) async -> SimpleEntry {
-        let names = Self.novemberBirthdayNames(from: persons)
+        
+        let fetched = try? await CloudKitPerson().getAllPersons(NSPredicate(value: true))
+          let names = Self.novemberBirthdayNames(from: fetched ?? [])
+//          return SimpleEntry(date: Date(), configuration: configuration, novemberBirthdays: names)
+        
+//        let names = Self.novemberBirthdayNames(from: persons)
         return SimpleEntry(date: Date(), configuration: configuration, novemberBirthdays: names)
     }
     
@@ -44,7 +49,10 @@ struct Provider: AppIntentTimelineProvider {
         var entries: [SimpleEntry] = []
 
         // Filter people born in November and keep the same names for each entry in this simple example.
-        let names = Self.novemberBirthdayNames(from: persons)
+        
+        
+        let fetched = try? await CloudKitPerson().getAllPersons(NSPredicate(value: true))
+        let names = Self.novemberBirthdayNames(from: fetched ?? [])
 
         // Generate a timeline consisting of five entries an hour apart, starting from the current date.
         let currentDate = Date()
@@ -80,7 +88,7 @@ struct PerDataWidgetEntryView : View {
     var body: some View {
         VStack(alignment: .leading, spacing: 6) {
             let month = Calendar.current.component(.month, from: Date())
-            Text("Born in the \(month).th month this year...")
+            Text("Born in the \(month).th month 2026")
                 .font(.headline)
             if entry.novemberBirthdays.isEmpty {
                 Text("No birthdays")
@@ -102,20 +110,20 @@ struct PerDataWidgetEntryView : View {
         }
         .padding()
         
-        .task {
-            let predicate = NSPredicate(value: true)
-            do {
-                let fetched = try await CloudKitPerson().getAllPersons(predicate)
-                persons = fetched
-                WidgetCenter.shared.reloadAllTimelines()
-            } catch {
-                // Consider logging or handling the error appropriately
-                persons = []
-             }
-            
-             print("Antall peroner : \(persons.count)")
-            
-        }
+//        .task {
+//            let predicate = NSPredicate(value: true)
+//            do {
+//                let fetched = try await CloudKitPerson().getAllPersons(predicate)
+//                persons = fetched
+//                WidgetCenter.shared.reloadAllTimelines()
+//            } catch {
+//                // Consider logging or handling the error appropriately
+//                persons = []
+//             }
+//            
+//             print("Antall peroner : \(persons.count)")
+//            
+//        }
         
         
     }
